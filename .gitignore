@@ -1,0 +1,4 @@
+# Ignore node_modules directory
+/html/wp-content/themes/advanced-corretora/node_modules
+/html/wp-content/themes/advanced-corretora/composer.lock
+/html/wp-content/themes/advanced-corretora/vendor

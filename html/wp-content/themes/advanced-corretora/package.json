@@ -18,9 +18,12 @@
   },
   "devDependencies": {
     "@wordpress/scripts": "^19.2.2",
+    "autoprefixer": "^10.4.21",
     "dir-archiver": "^1.1.1",
+    "postcss": "^8.5.6",
     "rtlcss": "^3.5.0",
-    "sass": "^1.89.2"
+    "sass": "^1.89.2",
+    "vite": "^7.0.2"
   },
   "rtlcssConfig": {
     "options": {
@@ -36,6 +39,8 @@
     "map": false
   },
   "scripts": {
+    "dev": "vite",
+    "build": "vite build",
     "watch": "node-sass sass/ -o ./ --source-map true --output-style expanded --indent-type tab --indent-width 1 -w",
     "compile:css": "node-sass sass/ -o ./ && stylelint '*.css' --fix || true && stylelint '*.css' --fix",
     "compile:rtl": "rtlcss style.css style-rtl.css",

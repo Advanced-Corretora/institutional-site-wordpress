@@ -63,7 +63,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 /* Box sizing
 --------------------------------------------- */
-@import "generic/box-sizing";
+@import "generic/box-sizing";	
 
 /*--------------------------------------------------------------
 # Base
@@ -79,6 +79,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /*--------------------------------------------------------------
 # Components
 --------------------------------------------------------------*/
+@import "components/header";
 @import "components/components";
 
 /*--------------------------------------------------------------

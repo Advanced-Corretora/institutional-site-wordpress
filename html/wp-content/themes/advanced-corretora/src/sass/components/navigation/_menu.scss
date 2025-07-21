@@ -1,0 +1,104 @@
+// Menu Styles
+.menu {
+  position: relative;
+  z-index: 1000;
+
+  .list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    > li {
+      position: relative;
+
+      > a {
+        display: block;
+        padding: 10px 15px;
+        text-decoration: none;
+        color: #000;
+        transition: all 0.3s ease;
+      }
+    }
+  }
+
+  // Submenu Styles
+  .sub-menu {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    min-width: 200px;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: 1001;
+
+    li {
+      position: relative;
+
+      a {
+        display: block;
+        padding: 10px 15px;
+        color: #000;
+        text-decoration: none;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: rgba(0, 0, 0, 0.05);
+        }
+      }
+    }
+  }
+
+  // Hover effects
+  > .list > li:hover > .sub-menu {
+    display: block;
+  }
+
+  // Dropdown indicator
+  .menu-item-has-children > a::after {
+    content: '▼';
+    font-size: 0.6em;
+    margin-left: 5px;
+    vertical-align: middle;
+  }
+
+  // Second level submenu
+  .sub-menu .sub-menu {
+    left: 100%;
+    top: 0;
+  }
+
+  // Responsive styles
+  @media (max-width: 768px) {
+    .list {
+      flex-direction: column;
+    }
+    
+    .sub-menu {
+      position: static;
+      display: none;
+      box-shadow: none;
+      padding-left: 20px;
+    }
+    
+    > .list > li:hover > .sub-menu {
+      display: none;
+    }
+    
+    .menu-item-has-children > a::after {
+      content: '►';
+    }
+    
+    .menu-item-has-children.active > a::after {
+      content: '▼';
+    }
+    
+    .menu-item-has-children.active > .sub-menu {
+      display: block;
+    }
+  }
+}

@@ -24,4 +24,7 @@
 	grid-area: footer;
 }
 
-@import "no-sidebar";
+/**
+ * Content, wide blocks (no align) and sidebar layout
+ */
+@use "no-sidebar" as *;

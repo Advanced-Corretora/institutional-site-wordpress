@@ -35,3 +35,5 @@ function advanced_corretora_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'advanced_corretora_pingback_header' );
+
+require get_template_directory() . '/inc/menu-functions.php';

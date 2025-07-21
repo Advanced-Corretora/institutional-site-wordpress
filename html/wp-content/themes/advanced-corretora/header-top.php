@@ -4,7 +4,7 @@
  * Top header template
  */
 ?>
-<header class="header header-36">
+<header class="header">
     <div class="container">
         <div class="content">
             <div class="logo">
@@ -28,16 +28,20 @@
 
             <div class="menu">
                 <?php
-                wp_nav_menu(
-                    array(
-                        'theme_location' => 'top-menu',
-                        'menu_class' => 'list',
-                        'container' => false,
-                        'fallback_cb' => false,
-                        'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-                        'link_class' => 'item__link'
-                    )
-                );
+                if (has_nav_menu('top-menu')) {
+                    wp_nav_menu(
+                        array(
+                            'theme_location' => 'top-menu',
+                            'menu_class' => 'list',
+                            'container' => false,
+                            'fallback_cb' => false,
+                            'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                            'link_class' => 'item__link',
+                            'walker' => new Advanced_Corretora_Walker_Nav_Menu(),
+                            'depth' => 2
+                        )
+                    );
+                }
                 ?>
             </div>
         </div>

@@ -1,5 +1,10 @@
 import { defineConfig } from 'vite';
 import path from 'path';
+import { pathToFileURL } from 'url';
+
+const abstractsPath = pathToFileURL(
+  path.resolve(__dirname, 'src/sass/abstracts/abstracts')
+).href;
 
 export default defineConfig({
   root: 'src',
@@ -10,7 +15,6 @@ export default defineConfig({
     strictPort: true,
     https: false,
     proxy: {
-      // Redireciona tudo para o seu WP Docker
       '^/(?!dist|@vite|resources|src).*': {
         target: 'http://localhost:8443',
         changeOrigin: true,
@@ -36,5 +40,10 @@ export default defineConfig({
     postcss: {
       plugins: [require('autoprefixer')],
     },
-  },
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@use "${abstractsPath}" as *;`
+      }
+    }
+  }
 });

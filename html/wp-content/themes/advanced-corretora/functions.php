@@ -48,12 +48,7 @@ function advanced_corretora_setup()
 		*/
 	add_theme_support('post-thumbnails');
 
-	// This theme uses wp_nav_menu() in one location.
-	register_nav_menus(
-		array(
-			'menu-1' => esc_html__('Primary', 'advanced-corretora'),
-		)
-	);
+	// Menu registration moved to inc/menu-functions.php
 
 	/*
 		* Switch default core markup for search form, comment form, and comments
@@ -141,20 +136,42 @@ add_action('widgets_init', 'advanced_corretora_widgets_init');
 /**
  * Enqueue scripts and styles.
  */
-function advanced_corretora_scripts()
-{
-	// Enfileirar o CSS do dist
-	wp_enqueue_style('advanced-corretora-style', get_template_directory_uri() . '/dist/css/style.css', array(), _S_VERSION);
-	wp_style_add_data('advanced-corretora-style', 'rtl', 'replace');
+function advanced_corretora_assets() {
+    // Definir versão de scripts, você pode definir sua constante ou usar uma fixa por enquanto
+    $version = '1.0.0';
 
-	// Enfileirar o JavaScript do dist
-	wp_enqueue_script('advanced-corretora-main', get_template_directory_uri() . '/dist/js/main.js', array(), _S_VERSION, true);
+    // Registrar o CSS principal
+    wp_register_style(
+        'advanced-corretora-style',
+        get_template_directory_uri() . '/dist/css/style.css',
+        array(),
+        $version,
+        'all'
+    );
+    // Enfileirar o CSS
+    wp_enqueue_style('advanced-corretora-style');
 
-	if (is_singular() && comments_open() && get_option('thread_comments')) {
-		wp_enqueue_script('comment-reply');
-	}
+    // Registrar o script principal com defer e no footer
+    wp_register_script(
+        'advanced-corretora-main',
+        get_template_directory_uri() . '/dist/js/main.js',
+        array(),  // Adicione dependências aqui se tiver (ex: jquery)
+        "",
+        array(
+            'strategy' => 'defer',
+            'in_footer' => true,
+        )
+    );
+    // Enfileirar o script
+    wp_enqueue_script('advanced-corretora-main');
+
+    // Se for página singular e permitir comentários em thread
+    if (is_singular() && comments_open() && get_option('thread_comments')) {
+        wp_enqueue_script('comment-reply');
+    }
 }
-add_action('wp_enqueue_scripts', 'advanced_corretora_scripts');
+add_action('wp_enqueue_scripts', 'advanced_corretora_assets');
+
 
 /**
  * Implement the Custom Header feature.

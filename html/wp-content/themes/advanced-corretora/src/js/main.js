@@ -1,10 +1,7 @@
-import '../sass/style.scss';
+// Main entry point for JavaScript
+import './modules/menu';
 
-// Importar arquivos JavaScript adicionais aqui
-// import './components/header';
-// import './components/footer';
-
-// Configurar HMR
+// HMR Support
 if (import.meta.hot) {
   import.meta.hot.accept();
 }

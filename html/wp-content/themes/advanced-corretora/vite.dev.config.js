@@ -19,8 +19,14 @@ export default defineConfig({
     port: 5173,
     strictPort: true,
     https: false,
+    cors: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, OPTIONS',
+      'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization'
+    },
     proxy: {
-      '^/(?!dist|@vite|resources|src).*': {
+      '^/(?!dist|@vite|resources|src|wp-content|assets).*': {
         target: 'http://localhost:8443',
         changeOrigin: true,
         secure: false,
@@ -51,6 +57,7 @@ export default defineConfig({
       input: {
         main: path.resolve(__dirname, 'src/js/main.js'),
         style: path.resolve(__dirname, 'src/sass/style.scss'),
+        font: path.resolve(__dirname, 'src/sass/base/_fonts.scss'),
       },
       output: {
         assetFileNames: (assetInfo) => {

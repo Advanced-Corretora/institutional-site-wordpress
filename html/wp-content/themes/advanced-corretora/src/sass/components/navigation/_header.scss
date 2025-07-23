@@ -1,12 +1,11 @@
 // Header
 .header {
   background-color: #ffffff;
-  padding: 1rem 0;
+  position: fixed;
+  z-index: 1000;
+  padding: 10px 0;
 
   > .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -15,15 +14,17 @@
       justify-content: space-between;
       align-items: center;
       width: 100%;
+      gap: 104px;
       > .logo {
+        //logo com max-width de 192
+        max-width: 192px;
         flex: 0 0 auto;
 
         > .logo-image {
           display: block;
-          max-height: 40px;
-
           img {
-            max-height: 100%;
+            width: 100%;
+            height: auto;
           }
         }
 
@@ -42,29 +43,35 @@
       > .menu {
         flex: 1;
         text-align: right;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 24px;
 
-        > .list {
-          list-style: none;
-          margin: 0;
-          padding: 0;
-
-          li {
-            display: inline-block;
-            margin-left: 2rem;
-
-            &:first-child {
-              margin-left: 0;
-            }
-          }
-
-          > .item__link {
-            color: #333;
+        > .cta {
+          display: flex;
+          height: 40px;
+          justify-content: center;
+          align-items: center;
+           > a {
+            color: var(--text-blue-default, #002d5d);
+            text-align: center; 
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 16px;
+            border-radius: var(--Spacing-System-radius-sm, 12px);
+            border: 1.5px solid var(--color-default, #002d5d);
+            padding: 12px 24px;
             text-decoration: none;
-            font-size: 0.9rem;
-
+            transition: all 0.3s ease;
             &:hover {
-              color: #0073aa;
+              background: var(--Primary-50, #EDEFFE);
             }
+           }
+
+          &:first-child {
+            margin-left: 0;
           }
         }
       }

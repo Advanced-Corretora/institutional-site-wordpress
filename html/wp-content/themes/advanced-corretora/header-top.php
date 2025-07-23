@@ -43,6 +43,10 @@
                     );
                 }
                 ?>
+                <div class="cta">
+                    <a href="#" class="link">Painel de controle</a>
+                </div>
             </div>
+
         </div>
 </header>

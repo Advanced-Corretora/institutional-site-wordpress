@@ -1,3 +1,5 @@
+import '../sass/style.scss';
+
 // Main entry point for JavaScript
 import './modules/menu';
 

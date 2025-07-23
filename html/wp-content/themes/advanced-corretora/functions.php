@@ -145,7 +145,7 @@ function advanced_corretora_assets() {
         'advanced-corretora-style',
         get_template_directory_uri() . '/dist/css/style.css',
         array(),
-        $version,
+        '',
         'all'
     );
     // Enfileirar o CSS

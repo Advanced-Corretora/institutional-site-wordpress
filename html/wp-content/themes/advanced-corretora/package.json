@@ -18,43 +18,23 @@
   },
   "devDependencies": {
     "@wordpress/scripts": "^19.2.2",
-    "autoprefixer": "^10.4.21",
     "concurrently": "^8.2.2",
-    "dir-archiver": "^1.1.1",
+    "cross-env": "^7.0.3",
     "eslint": "^9.30.1",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-prettier": "^5.5.1",
-    "postcss": "^8.5.6",
     "prettier": "^3.6.2",
-    "rtlcss": "^3.5.0",
     "sass": "^1.89.2",
-    "vite": "^7.0.2"
-  },
-  "rtlcssConfig": {
-    "options": {
-      "autoRename": false,
-      "autoRenameStrict": false,
-      "blacklist": {},
-      "clean": true,
-      "greedy": false,
-      "processUrls": false,
-      "stringMap": []
-    },
-    "plugins": [],
-    "map": false
+    "vite": "^7.0.2",
+    "vite-plugin-full-reload": "^1.2.0",
+    "vite-plugin-live-reload": "^3.0.5"
   },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "dev:build": "npm run build && vite",
-    "watch": "node-sass sass/ -o ./ --source-map true --output-style expanded --indent-type tab --indent-width 1 -w",
-    "compile:css": "node-sass sass/ -o ./ && stylelint '*.css' --fix || true && stylelint '*.css' --fix",
-    "compile:rtl": "rtlcss style.css style-rtl.css",
-    "lint:scss": "wp-scripts lint-style 'sass/**/*.scss'",
-    "lint:js": "wp-scripts lint-js 'js/*.js'",
-    "bundle": "dir-archiver --src . --dest ../_s.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map yarn.lock",
     "watch:build": "vite build --watch",
-    "dev:full": "concurrently \"npm run watch:build\" \"npm run dev\""
+    "start": "concurrently \"cross-env NODE_ENV=development vite build --watch --config vite.dev.config.js\" \"cross-env NODE_ENV=development vite\"",
+    "lint:scss": "wp-scripts lint-style 'sass/**/*.scss'",
+    "lint:js": "wp-scripts lint-js 'js/*.js'"
   }
 }

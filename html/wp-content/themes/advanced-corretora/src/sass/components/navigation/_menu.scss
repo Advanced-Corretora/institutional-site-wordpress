@@ -1,106 +1,160 @@
 // Menu Styles
-.header{
+.header {
   .menu {
     position: relative;
-  
+
     .list {
       display: flex;
       list-style: none;
       margin: 0;
       padding: 0;
-  
+      gap: 24px;
+
       > li {
         position: relative;
-  
+
+
         > a {
-          display: block;
-          padding: 10px 15px;
           text-decoration: none;
           color: #000;
           transition: all 0.3s ease;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 5px;
         }
       }
     }
-  
-    // Submenu Styles
-    .sub-menu {
-      display: none;
-      position: absolute;
+
+    .submenu-area {
+      top: calc(80px + var(--wp-adminbar-offset));
+      position: fixed;
       left: 0;
-      top: 100%;
-      min-width: 200px;
-      background: #fff;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      z-index: 1001;
-  
-      li {
-        position: relative;
-  
-        a {
-          display: block;
-          padding: 10px 15px;
-          color: #000;
-          text-decoration: none;
-          transition: all 0.3s ease;
-  
-          &:hover {
-            background: rgba(0, 0, 0, 0.05);
+      width: 100vw;
+      background: var(--color-highlight, #238dc1);
+      z-index: 9999;
+      display: flex;
+      flex-direction: row;
+
+      opacity: 0;
+      transform: translateY(-10px);
+      visibility: hidden;
+      pointer-events: none;
+      transition:
+        opacity 2s ease,
+        transform 2s ease;
+      animation-fill-mode: forwards;
+
+      > .sub-menu {
+        /*container defaults*/
+        width: 100%;
+        max-width: var(--container-max-width);
+        margin: 0 auto;
+        padding: 0 var(--container-padding);
+        list-style: none;
+        display: flex;
+        flex-direction: column  ;
+
+        li {
+          position: relative;
+
+          a {
+            display: block;
+            padding: 10px 15px;
+            color: #000;
+            text-decoration: none;
+            transition: all 0.3s ease;
+
+            &:hover {
+              background: rgba(0, 0, 0, 0.05);
+            }
           }
         }
       }
     }
-  
-    // Hover effects
-    > .list > li:hover > .sub-menu {
-      display: block;
+
+    .menu-item-has-children.active
+    {
+      a::after {
+        transform: rotate(180deg);
+        
+      }
+      > .submenu-area {
+        top: calc(80px + var(--wp-adminbar-offset));
+        animation: slide-in-top 0.5s ease forwards;
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+        pointer-events: auto;
+      }
     }
-  
-    // Dropdown indicator
+
+    .menu-item-has-children.closing > .submenu-area {
+      animation: slide-out-top 0.5s ease forwards;
+    }
+
     .menu-item-has-children > a::after {
-      content: '▼';
+      display: inline-block;
+      content: url('../../../../assets/icons/chevron-bottom.svg');
       font-size: 0.6em;
       margin-left: 5px;
-      vertical-align: middle;
+      width: 12px;
     }
-  
-    // Second level submenu
-    .sub-menu .sub-menu {
+    .submenu-area .submenu-area {
       left: 100%;
       top: 0;
     }
-  
-    // Responsive styles
-    @media (max-width: 768px) {
-      .list {
-        flex-direction: column;
-      }
-      
-      .sub-menu {
-        position: static;
-        display: none;
-        box-shadow: none;
-        padding-left: 20px;
-      }
-      
-      > .list > li:hover > .sub-menu {
-        display: none;
-      }
-      
-      .menu-item-has-children > a::after {
-        content: '►';
-      }
-      
-      .menu-item-has-children.active > a::after {
-        content: '▼';
-      }
-      
-      .menu-item-has-children.active > .sub-menu {
-        display: block;
-      }
-    }
   }
-  
+}
+
+// Keyframes para entrada
+@-webkit-keyframes slide-in-top {
+  0% {
+    -webkit-transform: translateY(-1000px);
+    transform: translateY(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-top {
+  0% {
+    -webkit-transform: translateY(-1000px);
+    transform: translateY(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+// Keyframes para saída
+@-webkit-keyframes slide-out-top {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+}
+@keyframes slide-out-top {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+    opacity: 0;
+  }
 }

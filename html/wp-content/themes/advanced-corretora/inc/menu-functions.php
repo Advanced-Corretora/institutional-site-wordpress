@@ -13,7 +13,12 @@ if (!defined('ABSPATH')) {
 class Advanced_Corretora_Walker_Nav_Menu extends Walker_Nav_Menu {
     function start_lvl(&$output, $depth = 0, $args = null) {
         $indent = str_repeat("\t", $depth);
-        $output .= "\n$indent<ul class='sub-menu'>\n";
+        $output .= "\n$indent<div class='submenu-area'><ul class='sub-menu'>\n";
+    }
+
+    function end_lvl(&$output, $depth = 0, $args = null) {
+        $indent = str_repeat("\t", $depth);
+        $output .= "$indent</ul></div>\n";
     }
 }
 

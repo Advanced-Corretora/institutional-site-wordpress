@@ -12,16 +12,48 @@ class MobileMenu {
   }
 
   handleMenuItemClick(e) {
-    if (window.innerWidth > 768) return;
     e.preventDefault();
     const parent = e.currentTarget.parentElement;
-    parent.classList.toggle('active');
-    // Close other open submenus
-    document.querySelectorAll('.menu-item-has-children').forEach(item => {
-      if (item !== parent && item.classList.contains('active')) {
-        item.classList.remove('active');
+
+    if (parent.classList.contains('active')) {
+      // Se já está aberto, começa a fechar
+      parent.classList.add('closing');
+      parent.classList.remove('active');
+
+      // Aguarda o fim da animação de fechamento para remover 'closing'
+      const submenu = parent.querySelector('.sub-menu');
+      if (submenu) {
+        const onAnimationEnd = () => {
+          parent.classList.remove('closing');
+          submenu.removeEventListener('animationend', onAnimationEnd);
+        };
+        submenu.addEventListener('animationend', onAnimationEnd);
+      } else {
+        // Se não tiver submenu, remove direto
+        parent.classList.remove('closing');
       }
-    });
+    } else {
+      // Abrir submenu
+      // Fecha outros abertos primeiro
+      document.querySelectorAll('.menu-item-has-children.active').forEach(item => {
+        item.classList.add('closing');
+        item.classList.remove('active');
+        const submenu = item.querySelector('.sub-menu');
+        if (submenu) {
+          const onAnimationEnd = () => {
+            item.classList.remove('closing');
+            submenu.removeEventListener('animationend', onAnimationEnd);
+          };
+          submenu.addEventListener('animationend', onAnimationEnd);
+        } else {
+          item.classList.remove('closing');
+        }
+      });
+
+      // Agora abre o atual
+      parent.classList.remove('closing');
+      parent.classList.add('active');
+    }
   }
 }
 

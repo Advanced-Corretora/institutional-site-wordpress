@@ -2,6 +2,15 @@
   --container-max-width: 100%;
   --container-padding: 16px;
   --container-max-width-lg: 1248px;
+  --wp-adminbar-offset: 0px;
+}
+
+body.admin-bar {
+    --wp-adminbar-offset: 46px;
+
+    @media (min-width: 576px) {
+      --wp-adminbar-offset: 32px;
+    }
 }
 
 /* Base layout elements */
@@ -36,9 +45,9 @@ footer {
 }
 
 a {
-    color: #000;
-    font-size: 16px;
-    font-weight: 500;
+  color: #000;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 /* Responsive breakpoints */

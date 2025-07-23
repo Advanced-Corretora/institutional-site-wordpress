@@ -136,39 +136,40 @@ add_action('widgets_init', 'advanced_corretora_widgets_init');
 /**
  * Enqueue scripts and styles.
  */
-function advanced_corretora_assets() {
-    // Definir versão de scripts, você pode definir sua constante ou usar uma fixa por enquanto
-    $version = '1.0.0';
+function advanced_corretora_assets()
+{
+	// Definir versão de scripts, você pode definir sua constante ou usar uma fixa por enquanto
+	$version = '1.0.0';
 
-    // Registrar o CSS principal
-    wp_register_style(
-        'advanced-corretora-style',
-        get_template_directory_uri() . '/dist/css/style.css',
-        array(),
-        '',
-        'all'
-    );
-    // Enfileirar o CSS
-    wp_enqueue_style('advanced-corretora-style');
+	// Registrar o CSS principal
+	wp_register_style(
+		'advanced-corretora-style',
+		get_template_directory_uri() . '/dist/css/style.css',
+		array(),
+		'',
+		'all'
+	);
+	// Enfileirar o CSS
+	wp_enqueue_style('advanced-corretora-style');
 
-    // Registrar o script principal com defer e no footer
-    wp_register_script(
-        'advanced-corretora-main',
-        get_template_directory_uri() . '/dist/js/main.js',
-        array(),  // Adicione dependências aqui se tiver (ex: jquery)
-        "",
-        array(
-            'strategy' => 'defer',
-            'in_footer' => true,
-        )
-    );
-    // Enfileirar o script
-    wp_enqueue_script('advanced-corretora-main');
+	// Registrar o script principal com defer e no footer
+	wp_register_script(
+		'advanced-corretora-main',
+		get_template_directory_uri() . '/dist/js/main.js',
+		array(),  // Adicione dependências aqui se tiver (ex: jquery)
+		"",
+		array(
+			'strategy' => 'defer',
+			'in_footer' => true,
+		)
+	);
+	// Enfileirar o script
+	wp_enqueue_script('advanced-corretora-main');
 
-    // Se for página singular e permitir comentários em thread
-    if (is_singular() && comments_open() && get_option('thread_comments')) {
-        wp_enqueue_script('comment-reply');
-    }
+	// Se for página singular e permitir comentários em thread
+	if (is_singular() && comments_open() && get_option('thread_comments')) {
+		wp_enqueue_script('comment-reply');
+	}
 }
 add_action('wp_enqueue_scripts', 'advanced_corretora_assets');
 
@@ -211,3 +212,6 @@ require get_template_directory() . '/inc/carbonfields.php';
 require get_template_directory() . '/inc/themeSupport.php';
 
 
+add_action('init', function () {
+	header("Access-Control-Allow-Origin: *");
+});

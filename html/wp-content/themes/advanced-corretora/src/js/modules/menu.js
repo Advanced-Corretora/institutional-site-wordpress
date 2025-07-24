@@ -3,14 +3,12 @@ class MobileMenu {
     this.menuItems = document.querySelectorAll('.menu-item-has-children > a');
     this.init();
   }
-
   init() {
     if (this.menuItems.length === 0) return;
     this.menuItems.forEach(menuItem => {
       menuItem.addEventListener('click', this.handleMenuItemClick.bind(this));
     });
   }
-
   handleMenuItemClick(e) {
     e.preventDefault();
     const parent = e.currentTarget.parentElement;

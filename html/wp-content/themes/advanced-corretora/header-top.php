@@ -43,10 +43,19 @@
                     );
                 }
                 ?>
-                <div class="cta">
-                    <a href="#" class="link">Painel de controle</a>
-                </div>
+                <?php
+
+                $cta_text = carbon_get_theme_option('crb_header_cta_text');
+                $cta_url = carbon_get_theme_option('crb_header_cta_url');
+                $cta_target = carbon_get_theme_option('crb_header_cta_target') ?: '_self';
+                if ($cta_text && $cta_url) {
+                ?>
+                    <div class="cta">
+                        <a href="<?php echo esc_url($cta_url); ?>" class="link" target="<?php echo esc_attr($cta_target); ?>"> <?php echo esc_attr($cta_text); ?></a>
+                    </div>
+                <?php
+                }
+                ?>
             </div>
 
-        </div>
 </header>

@@ -1,0 +1,17 @@
+{
+    "intelephense.diagnostics.undefinedMethods": false,
+    "intelephense.diagnostics.undefinedFunctions": false,
+    "intelephense.diagnostics.undefinedConstants": false,
+    "intelephense.diagnostics.undefinedTypes": false,
+    "intelephense.diagnostics.undefinedProperties": false,
+    "intelephense.stubs": [
+        "wordpress",
+        "wp_cli",
+        "phpunit",
+        "carbon_fields"
+    ],
+    "intelephense.environment.includePaths": [
+        "wp-includes",
+        "wp-admin"
+    ]
+}

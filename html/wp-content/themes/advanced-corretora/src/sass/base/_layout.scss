@@ -9,6 +9,9 @@ body.admin-bar {
     --wp-adminbar-offset: 46px;
 
     @media (min-width: 576px) {
+      --wp-adminbar-offset: 46px;
+    }
+    @media (min-width: 782px) {
       --wp-adminbar-offset: 32px;
     }
 }

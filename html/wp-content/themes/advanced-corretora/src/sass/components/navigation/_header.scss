@@ -4,6 +4,7 @@
   position: fixed;
   z-index: 1000;
   padding: 10px 0;
+  width: 100%;
 
   > .container {
     display: flex;
@@ -19,6 +20,7 @@
         //logo com max-width de 192
         max-width: 192px;
         flex: 0 0 auto;
+        z-index: 1001; // Garante que o logo fique acima do menu mobile
 
         > .logo-image {
           display: block;
@@ -40,38 +42,250 @@
         }
       }
 
-      > .menu {
-        flex: 1;
-        text-align: right;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        gap: 24px;
+      // Botão do menu hambúrguer
+      .hamburger-menu {
+        display: none; // Escondido por padrão, visível apenas em mobile/tablet
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0px;
+        z-index: 1001;
 
-        > .cta {
+        .hamburger-icon,
+        .close-icon {
           display: flex;
-          height: 40px;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .close-icon {
+          display: none;
+        }
+
+        &[aria-expanded='true'] {
+          .hamburger-icon {
+            display: none;
+          }
+          .close-icon {
+            display: flex;
+          }
+        }
+      }
+
+      > .menu-container {
+        display: flex;
+        flex: 1;
+        justify-content: flex-end;
+
+        > .menu {
+          flex: 1;
+          text-align: right;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          gap: 24px;
+          transition: transform 0.3s ease-in-out;
+
+          > .mobile-cta {
+            display: none; // Escondido no desktop, visível apenas em mobile
+          }
+
+          > .cta {
+            display: flex;
+            height: 40px;
+            justify-content: center;
+            align-items: center;
+            > a {
+              color: var(--text-blue-default, #002d5d);
+              font-family: var(--font-inter);
+              text-align: center;
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 600;
+              line-height: 16px;
+              border-radius: var(--Spacing-System-radius-sm, 12px);
+              border: 1.5px solid var(--color-default, #002d5d);
+              padding: 12px 24px;
+              text-decoration: none;
+              transition: all 0.3s ease;
+              &:hover {
+                background: var(--Primary-50, #edeffe);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Estilos para tablet e mobile
+  @media (max-width: 1024px) {
+    > .container > .content {
+      gap: 20px;
+
+      // Mostra o botão hambúrguer em telas menores
+      .hamburger-menu {
+        display: flex;
+      }
+
+      > .menu-container {
+        position: fixed;
+        top: calc(80px + var(--wp-adminbar-offset));
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 80px - var(--wp-adminbar-offset));
+        background-color: rgba(255, 255, 255, 0.98);
+        z-index: 1000;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        background: var(--text-blue-highlight, #238dc1);
+
+        @media (min-width: 1024px) {
+          background-color: transparent;
+        }
+
+        &.active {
+          transform: translateX(0);
+          background: var(--text-blue-highlight, #238dc1);
+          color: #fff;
+        }
+
+        > .menu {
+          flex-direction: column;
           justify-content: center;
           align-items: center;
-           > a {
-            color: var(--text-blue-default, #002d5d);
-            text-align: center; 
-            font-size: 14px;
-            font-style: normal;
-            font-weight: 600;
-            line-height: 16px;
-            border-radius: var(--Spacing-System-radius-sm, 12px);
-            border: 1.5px solid var(--color-default, #002d5d);
-            padding: 12px 24px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            &:hover {
-              background: var(--Primary-50, #EDEFFE);
-            }
-           }
+          text-align: center;
+          gap: 0px;
+          width: 100%;
 
-          &:first-child {
-            margin-left: 0;
+          .list {
+            flex-direction: column;
+            width: 100%;
+            gap: 0px;
+
+            > li {
+              width: 100%;
+              border-bottom: 1px solid #fff;
+
+              > a {
+                font-size: 18px;
+                padding: 16px 10px;
+                display: block;
+                width: 100%;
+                color: var(--text-white, #fff);
+                font-size: 16px;
+                font-weight: 400;
+                line-height: normal;
+
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 8px;
+              }
+
+              // Estilos para submenus no mobile
+              &.menu-item-has-children {
+                > a::after {
+                  content: '';
+                  display: inline-block;
+                  width: 32px;
+                  height: 32px;
+                  background-image: url('../../../../assets/icons/icon_chevron_down.svg');
+                  background-repeat: no-repeat;
+                  background-position: center;
+                  background-size: 32px;
+                  transition: transform 0.3s ease;
+                  margin-bottom: -12px;
+                  position: relative;
+                  bottom: 5px;
+                }
+
+                &.active > a::after {
+                  transform: rotate(180deg);
+                }
+
+                .sub-menu {
+                  display: none;
+                  padding: 10px 0 0 20px;
+
+                  li a {
+                    font-size: 16px;
+                    opacity: 0.8;
+                  }
+                }
+
+                &.active .sub-menu {
+                  display: block;
+                }
+
+                &.active .submenu-area {
+                  position: relative;
+                  top: 0px;
+                  animation: none;
+                  transition: none;
+
+                  .sub-menu {
+                    padding: 0px;
+                    li:first-child {
+                      border-top: 1px solid #fff;
+                    }
+                    li {
+                      background-color: #00b2e3;
+                      border-bottom: 1px solid #fff;
+                      a {
+                        color: #fff;
+                        padding: 10px 32px;
+                        text-align: left;
+                        background-color: #238dc1;
+                      }
+                    }
+                    li:last-child {
+                      border-bottom: none;
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          > .mobile-cta {
+            display: flex !important;
+            margin-top: 20px;
+
+            .link {
+              width: 100%;
+              max-width: 250px;
+              padding: 12px 24px;
+              font-size: 16px;
+            }
+          }
+
+          // Esconde o CTA do desktop no mobile
+          > .cta {
+            width: 100%;
+            height: auto;
+            a {
+              border: 0px;
+              background-color: #194f90;
+              border-radius: 0px;
+              width: 100%;
+              padding: 16px 10px;
+              color: #fff;
+              border-bottom: 1px solid #fff;
+              text-align: left;
+              color: var(--text-white, #fff);
+              font-family: var(--font-quicksand);
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+              &:hover {
+                background: var(--color-default, #002d5d);
+              }
+            }
           }
         }
       }

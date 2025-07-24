@@ -26,27 +26,52 @@
                 <?php } ?>
             </div>
 
-            <div class="menu">
-                <?php
-                if (has_nav_menu('top-menu')) {
-                    wp_nav_menu(
-                        array(
-                            'theme_location' => 'top-menu',
-                            'menu_class' => 'list',
-                            'container' => false,
-                            'fallback_cb' => false,
-                            'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-                            'link_class' => 'item__link',
-                            'walker' => new Advanced_Corretora_Walker_Nav_Menu(),
-                            'depth' => 2
-                        )
-                    );
-                }
-                ?>
-                <div class="cta">
-                    <a href="#" class="link">Painel de controle</a>
+            <!-- Botão do menu hambúrguer -->
+            <button class="hamburger-menu" aria-label="Menu" aria-expanded="false">
+                <span class="hamburger-icon">
+                    <?php
+                    echo file_get_contents(get_template_directory() . '/assets/icons/icon_menu_list.svg');
+                    ?>
+                </span>
+                <span class="close-icon">
+                    <?php
+                    echo file_get_contents(get_template_directory() . '/assets/icons/icon_close.svg');
+                    ?>  
+                </span>
+            </button>
+
+            <div class="menu-container">
+                <div class="menu">
+                    <?php
+                    if (has_nav_menu('top-menu')) {
+                        wp_nav_menu(
+                            array(
+                                'theme_location' => 'top-menu',
+                                'menu_class' => 'list',
+                                'container' => false,
+                                'fallback_cb' => false,
+                                'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                                'link_class' => 'item__link',
+                                'walker' => new Advanced_Corretora_Walker_Nav_Menu(),
+                                'depth' => 2
+                            )
+                        );
+                    }
+                    ?>
+                    <?php
+                    $cta_text = carbon_get_theme_option('crb_header_cta_text');
+                    $cta_url = carbon_get_theme_option('crb_header_cta_url');
+                    $cta_target = carbon_get_theme_option('crb_header_cta_target') ?: '_self';
+                    if ($cta_text && $cta_url) {
+                    ?>
+                        <div class="cta">
+                            <a href="<?php echo esc_url($cta_url); ?>" class="link" target="<?php echo esc_attr($cta_target); ?>"><?php echo esc_attr($cta_text); ?></a>
+                        </div>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
-
         </div>
+    </div>
 </header>

@@ -16,9 +16,10 @@ module.exports = [
     },
     rules: {
       ...eslintConfigPrettier.rules,
-      'prettier/prettier': 'error',
+      'prettier/prettier': ['error', { endOfLine: 'auto' }],
       'no-unused-vars': 'warn',
       'no-console': 'warn',
+      'linebreak-style': ['error', 'unix'],
     },
   },
 ];

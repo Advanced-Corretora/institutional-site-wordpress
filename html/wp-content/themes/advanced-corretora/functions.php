@@ -152,12 +152,11 @@ function advanced_corretora_assets()
 	// Enfileirar o CSS
 	wp_enqueue_style('advanced-corretora-style');
 
-	// Registrar o script principal com defer e no footer
 	wp_register_script(
 		'advanced-corretora-main',
 		get_template_directory_uri() . '/dist/js/main.js',
-		array(),  // Adicione dependências aqui se tiver (ex: jquery)
-		"",
+		array(),  // dependências aqui se tiver (ex: jquery)
+		null,
 		array(
 			'strategy' => 'defer',
 			'in_footer' => true,

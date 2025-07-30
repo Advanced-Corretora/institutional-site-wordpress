@@ -56,6 +56,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: path.resolve(__dirname, 'src/js/main.js'),
+        carousel: path.resolve(__dirname, 'src/js/modules/carousel.js'),
         style: path.resolve(__dirname, 'src/sass/style.scss'),
         font: path.resolve(__dirname, 'src/sass/base/_fonts.scss'),
       },

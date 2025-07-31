@@ -21,3 +21,8 @@ function enable_svg_upload($mimes): mixed {
     return $mimes;
 }
 add_filter('upload_mimes', 'enable_svg_upload');
+
+/**
+ * Add support for wide alignment on Gutenberg editor
+ */
+add_theme_support( 'align-wide' );

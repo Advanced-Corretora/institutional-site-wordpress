@@ -23,31 +23,31 @@ function produtos_carrossel_block()
 
             ob_start();
 ?>
-        <div class="wp-block-products-carousel gutenberg-swiper">
-            <div class="swiper-wrapper">
+        <div class="wp-block-products-carousel">
+            <div class="gutenberg-flickity" data-flickity='{ "wrapAround": true, "pageDots": true, "prevNextButtons": true, "cellAlign": "left", "contain": true }'>
                 <?php foreach ($block['produtos'] as $produto) : ?>
-                    <div class="swiper-slide">
+                    <div class="carousel-cell">
                         <div class="product">
                             <div class="image">
                                 <?php echo wp_get_attachment_image($produto['imagem'], 'medium'); ?>
                             </div>
-                            <div class="title">
-                                <h3><?php echo esc_html($produto['titulo']); ?></h3>
-                            </div>
-                            <div class="cta">
-                                <a href="<?php echo esc_url($produto['cta_link']); ?>" class="button">
-                                    <?php echo esc_html($produto['cta_texto']); ?>
-                                </a>
+                            <div class="content">
+                                <div class="title">
+                                    <h3><?php echo esc_html($produto['titulo']); ?></h3>
+                                </div>
+                                <div class="cta">
+                                    <a href="<?php echo esc_url($produto['cta_link']); ?>" class="button">
+                                        <?php echo esc_html($produto['cta_texto']); ?>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 <?php endforeach; ?>
+
             </div>
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-scrollbar"></div>
         </div>
+
 
 <?php
             return ob_get_flush();
@@ -94,7 +94,7 @@ function gutenberg_enqueue_assets()
             'advanced-corretora-carousel',
             get_template_directory_uri() . '/dist/js/carousel.js',
             array(),  // dependências aqui se tiver (ex: jquery)
-            null,
+            "?nocache=" . time(),
             array(
                 'strategy' => 'defer',
                 'in_footer' => true,

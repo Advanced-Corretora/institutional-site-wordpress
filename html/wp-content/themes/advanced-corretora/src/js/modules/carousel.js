@@ -1,33 +1,18 @@
-import Swiper from 'swiper';
-import 'swiper/swiper-bundle.css';
+import Flickity from 'flickity';
+import 'flickity/css/flickity.css';
 
-console.log('carousel.js loaded');
+console.log('carousel.js loaded2');
 const gutenbergCarousel = () => {
-  const carousels = document.querySelectorAll('.gutenberg-swiper');
+  const carousels = document.querySelectorAll('.gutenberg-flickity');
 
-  carousels.forEach((carousel, index) => {
-    // Define seletores únicos dentro de cada carrossel
-    const pagination = carousel.querySelector('.swiper-pagination');
-    const next = carousel.querySelector('.swiper-button-next');
-    const prev = carousel.querySelector('.swiper-button-prev');
-    const scrollbar = carousel.querySelector('.swiper-scrollbar');
-
-    new Swiper(carousel, {
-      direction: 'horizontal',
-      loop: true,
-      slidesPerView: 4,
-      spaceBetween: 10,
-      pagination: {
-        el: pagination,
-        clickable: true,
-      },
-      navigation: {
-        nextEl: next,
-        prevEl: prev,
-      },
-      scrollbar: {
-        el: scrollbar,
-      },
+  carousels.forEach(carousel => {
+    new Flickity(carousel, {
+      wrapAround: false,
+      pageDots: true,
+      prevNextButtons: true,
+      contain: true,
+      cellAlign: 'left',
+      // add other options here if needed
     });
   });
 };

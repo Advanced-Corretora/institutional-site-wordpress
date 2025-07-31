@@ -141,12 +141,17 @@ function advanced_corretora_assets()
 	// Definir versão de scripts, você pode definir sua constante ou usar uma fixa por enquanto
 	$version = '1.0.0';
 
+	//criar ver com time() quando estiver passando um parametro como ?dev por exemplo
+	if (isset($_GET['dev'])) {
+		$version = time();
+	}
+
 	// Registrar o CSS principal
 	wp_register_style(
 		'advanced-corretora-style',
 		get_template_directory_uri() . '/dist/css/style.css',
 		array(),
-		'',
+		$version,
 		'all'
 	);
 	// Enfileirar o CSS
@@ -156,7 +161,7 @@ function advanced_corretora_assets()
 		'advanced-corretora-main',
 		get_template_directory_uri() . '/dist/js/main.js',
 		array(),  // dependências aqui se tiver (ex: jquery)
-		null,
+		$version,
 		array(
 			'strategy' => 'defer',
 			'in_footer' => true,

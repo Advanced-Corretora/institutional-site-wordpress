@@ -1,0 +1,57 @@
+.gutenberg-flickity {
+  padding: 0 var(--container-padding);
+  .carousel-cell {
+    width: 363px;
+    max-width: 363px;
+    height: auto;
+    margin-right: 16px;
+    @media (min-width: 1248px) {
+      width: 20%;
+      max-width: 20%;
+    }
+    > .product {
+      width: 100%;
+      border-radius: 8px;
+      border: 0.5px solid var(--Icon-Color-icon-light-grey, #d2d5db);
+      background: #fff;
+      //image with aspcect ratio 363px / 245px div
+      .image {
+        border-radius: 8px;
+        img {
+          border-radius: 8px;
+          height: auto;
+          width: 100%;
+          aspect-ratio: 363 / 245;
+          object-fit: cover;
+          display: block;
+          object-position: top;
+        }
+      }
+      .content {
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .title {
+          h3 {
+            color: var(--color-secondary, #194f90);
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: normal;
+            margin: 0;
+          }
+        }
+        .cta {
+          a {
+            color: var(--text-blue-tertiary, #00b2e3);
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+          }
+        }
+      }
+    }
+  }
+}

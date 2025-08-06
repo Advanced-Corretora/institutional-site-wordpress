@@ -1,19 +1,19 @@
 :root {
   --container-max-width: 100%;
   --container-padding: 16px;
-  --container-max-width-lg: 1248px;
+  --container-max-width-lg: 1440px;
   --wp-adminbar-offset: 0px;
 }
 
 body.admin-bar {
-    --wp-adminbar-offset: 46px;
+  --wp-adminbar-offset: 46px;
 
-    @media (min-width: 576px) {
-      --wp-adminbar-offset: 46px;
-    }
-    @media (min-width: 782px) {
-      --wp-adminbar-offset: 32px;
-    }
+  @media (min-width: 576px) {
+    --wp-adminbar-offset: 46px;
+  }
+  @media (min-width: 782px) {
+    --wp-adminbar-offset: 32px;
+  }
 }
 
 /* Base layout elements */
@@ -62,13 +62,13 @@ a {
 
 @media (min-width: 992px) {
   :root {
-    --container-padding: 24px;
+    --container-padding: 16px;
   }
 }
 
 @media (min-width: 1248px) {
   :root {
-    --container-padding: 24px;
+    --container-padding: 16px;
     --container-max-width: var(--container-max-width-lg);
   }
 }

@@ -1,61 +1,85 @@
-/* Quicksand Font Face */
+/*400*/
 @font-face {
-  font-family: 'Quicksand';
-  src: 
-    url('/wp-content/themes/advanced-corretora/src/fonts/quicksand/quicksand-v36-latin-300.woff2') format('woff2');
+  font-family: 'gotham';
+  src: url('/wp-content/themes/advanced-corretora/src/fonts/gotham/GOTHAM-MEDIUM.woff2')
+    format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*300*/
+
+@font-face {
+  font-family: 'gotham';
+  src: url('/wp-content/themes/advanced-corretora/src/fonts/gotham/GOTHAM-LIGHT.woff2')
+    format('woff2');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
+/*350*/
 @font-face {
-  font-family: 'Quicksand';
-  src: 
-    url('/wp-content/themes/advanced-corretora/src/fonts/quicksand/quicksand-v36-latin-regular.woff2') format('woff2');
-  font-weight: 400;
+  font-family: 'gotham';
+  src: url('/wp-content/themes/advanced-corretora/src/fonts/gotham/GOTHAM-MEDIUM.woff2')
+    format('woff2');
+  font-weight: 350;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Quicksand';
-  src: 
-    url('/wp-content/themes/advanced-corretora/src/fonts/quicksand/quicksand-v36-latin-700.woff2') format('woff2');
-  font-weight: 700;
+  font-family: 'gotham';
+  src: url('/wp-content/themes/advanced-corretora/src/fonts/gotham/GOTHAM-ULTRA.woff2')
+    format('woff2');
+  font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Inter';
-  src: 
-    url('/wp-content/themes/advanced-corretora/src/fonts/inter/inter-v19-latin-600.woff2') format('woff2');
+  font-family: 'gotham';
+  src: url('/wp-content/themes/advanced-corretora/src/fonts/gotham/GOTHAM-ULTRA.woff2')
+    format('woff2');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
+/*bold*/
 @font-face {
-  font-family: 'Inter';
-  src: 
-    url('/wp-content/themes/advanced-corretora/src/fonts/inter/inter-v19-latin-regular.woff2') format('woff2');
-  font-weight: 400;
+  font-family: 'gotham';
+  src: url('/wp-content/themes/advanced-corretora/src/fonts/gotham/GOTHAM-ULTRA.woff2')
+    format('woff2');
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 /* In development, Vite will handle the paths */
 :root {
-  --font-quicksand: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  --font-quicksand:
+    'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu,
+    Cantarell, 'Helvetica Neue', sans-serif;
 }
 
 :root {
-  --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  --font-gotham:
+    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+    'Helvetica Neue', sans-serif;
+}
+
+:root {
+  --font-gotham:
+    'Gotham', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+    'Helvetica Neue', sans-serif;
 }
 
 /* Apply the font to the body */
 body {
-  font-family: var(--font-quicksand);
+  font-family: var(--font-gotham);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(7, 35, 160);
 }

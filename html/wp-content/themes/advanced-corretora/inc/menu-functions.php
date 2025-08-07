@@ -21,11 +21,9 @@ class Advanced_Corretora_Walker_Nav_Menu extends Walker_Nav_Menu
     {
         $indent = str_repeat("\t", $depth);
 
-        // Só adiciona a estrutura especial para o primeiro nível de submenu
         if ($depth === 0) {
             $this->is_first_level = true;
         
-            // Busca imagem do item pai (campo personalizado)
             $image_id = get_post_meta($this->current_parent_id, '_menu_item_image_id', true);
             $image_url = $image_id ? wp_get_attachment_image_url($image_id, 'large') : get_template_directory_uri() . "/assets/img/menu-thumb.jpg";
         
@@ -33,13 +31,12 @@ class Advanced_Corretora_Walker_Nav_Menu extends Walker_Nav_Menu
             $output .= "$indent\t<div class='submenu-inner'>\n";
             $output .= "$indent\t\t<div class='submenu-left'>\n";
             $output .= "$indent\t\t\t<img class='submenu-image' src='" . esc_url($image_url) . "' alt='' />\n";
-            $output .= "$indent\t\t\t<h3>" . esc_html(get_the_title($this->current_parent_id)) . "</h3>\n";
+            $output .= "$indent\t\t\t<h3 class='submenu-title'>" . esc_html(get_the_title($this->current_parent_id)) . "</h3>\n";
             $output .= "$indent\t\t</div>\n";
             $output .= "$indent\t\t<div class='submenu-divider'></div>\n";
             $output .= "$indent\t\t<div class='submenu-links'>\n";
         }
 
-        // Cada coluna começa com um wrapper (coluna) e a <ul>
         $output .= "$indent\t\t\t<div class='submenu-column'>\n";
         $output .= "$indent\t\t\t\t<ul class='sub-menu'>\n";
     }
@@ -88,7 +85,7 @@ class Advanced_Corretora_Walker_Nav_Menu extends Walker_Nav_Menu
 
         $title = apply_filters('the_title', $item->title, $item->ID);
 
-        $output .= "<a{$attributes}>{$title}</a>";
+        $output .= "<a{$attributes} class='submenu-link'>{$title}</a>";
     }
 
     function end_el(&$output, $item, $depth = 0, $args = null)

@@ -53,7 +53,7 @@
                                 'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
                                 'link_class' => 'item__link',
                                 'walker' => new Advanced_Corretora_Walker_Nav_Menu(),
-                                'depth' => 2
+                                'depth' => 3
                             )
                         );
                     }

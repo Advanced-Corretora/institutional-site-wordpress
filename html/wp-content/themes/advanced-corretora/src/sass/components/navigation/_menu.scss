@@ -48,16 +48,15 @@
     }
 
     .submenu-area {
+      position: relative;
+      background-color: rgb(0, 45, 93); /* cor de fundo principal */
+      z-index: 1; /* o conteúdo precisa ficar acima do ::before */
       top: calc(90px + var(--wp-adminbar-offset));
       position: fixed;
-      left: 0;
-      background-image: url('/wp-content/themes/advanced-corretora/assets/images/submenu-background.jpg');
-      background-size: cover;
-      background-position: center;
-      z-index: 9999;
+      left: 50%;
+      transform: translate(-50%, -10px); /* -50% X para centralizar, -10px Y para efeito */
       display: flex;
       flex-direction: row;
-
       opacity: 0;
       transform: translateY(-10px);
       visibility: hidden;
@@ -66,9 +65,129 @@
         opacity 2s ease,
         transform 2s ease;
       animation-fill-mode: forwards;
-
       width: 100%;
       max-width: var(--container-max-width);
+      padding: 48px;
+      border-radius: 20px;
+      & > * {
+        z-index: 1;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: url('/wp-content/themes/advanced-corretora/assets/images/submenu-background.jpg');
+        background-size: auto;
+        background-position: 100% 50%;
+        opacity: 0.2;
+        mix-blend-mode: difference;
+        z-index: 0;
+        border-radius: 20px;
+        pointer-events: none;
+      }
+      > .submenu-inner {
+        width: 100%;
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        gap: 67px;
+        > .submenu-left {
+          /*quero que essa área tenha 340px de largura respeitando o flex*/
+          width: 340px;
+          flex: 0 0 340px;
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+          > .submenu-image {
+            width: 100%;
+            aspect-ratio: 341/156;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 20px;
+          }
+          > .submenu-title {
+            text-align: left;
+            margin: 0;
+            color: var(--text-white, #fff);
+            font-family: Gotham;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 350;
+            line-height: 42px;
+          }
+        }
+        > .submenu-divider {
+          border-radius: 20px;
+          width: 1px;
+          height: 100%;
+          background: #194f90;
+        }
+        > .submenu-links {
+          flex: 1;
+          > .submenu-column {
+            > .sub-menu {
+              display: grid;
+              grid-template-columns: 1fr 2fr;
+              gap: 32px;
+              padding: 0;
+              margin: 0;
+              list-style: none;
+              justify-items: start;
+              & > li {
+                text-align: left;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+                > .submenu-link {
+                  color: var(--text-white, #fff);
+                  font-family: Gotham;
+                  font-size: 24px;
+                  font-style: normal;
+                  font-weight: 350;
+                  line-height: normal;
+                  text-decoration: none;
+                  text-align: left;
+                  display: flex;
+                  align-items: center;
+                  gap: 8px;
+                  &::after {
+                    content: '';
+                    display: inline-block;
+                    width: 13px;
+                    height: 13px;
+                    background: url('/wp-content/themes/advanced-corretora/assets/icons/chevron-right.svg')
+                      no-repeat center center;
+                    background-size: contain;
+                    position: relative;
+                    top: 2px;
+                  }
+                }
+              }
+            }
+            .submenu-column {
+              .sub-menu {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+              }
+              .submenu-link {
+                text-align: left;
+                color: var(--text-white, #fff);
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 300;
+                line-height: normal;
+                text-decoration: none;
+              }
+            }
+          }
+        }
+      }
 
       > .sub-menu {
         /*container defaults*/
@@ -98,8 +217,8 @@
       }
     }
 
-    .menu-item-has-children.active {
-      a {
+    > .list > .menu-item-has-children.active {
+      > a {
         color: var(--color-default, #002d5d);
         &::after {
           transform: rotate(180deg);
@@ -122,7 +241,7 @@
       animation: slide-out-top 0.5s ease forwards;
     }
     @media (min-width: 1024px) {
-      .menu-item-has-children > a::after {
+      .list > .menu-item-has-children > a::after {
         display: inline-block;
         content: url('../../../../assets/icons/chevron-bottom.svg');
         font-size: 0.6em;
@@ -153,12 +272,14 @@
 @keyframes slide-in-top {
   0% {
     -webkit-transform: translateY(-1000px);
-    transform: translateY(-1000px);
+    transform: translate(-50%, -1000px);
+    left: 50%;
     opacity: 0;
   }
   100% {
     -webkit-transform: translateY(0);
-    transform: translateY(0);
+    transform: translate(-50%, 0);
+    left: 50%;
     opacity: 1;
   }
 }

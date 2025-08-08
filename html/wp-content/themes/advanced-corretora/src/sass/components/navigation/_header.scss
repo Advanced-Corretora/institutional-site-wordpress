@@ -20,11 +20,19 @@
       align-items: center;
       width: 100%;
       gap: 104px;
+      justify-content: flex-start;
+      @media (min-width: 1024px) {
+        justify-content: space-between;
+      }
       > .logo {
+        order: 2;
         //logo com max-width de 192
         max-width: 192px;
         flex: 0 0 auto;
-        z-index: 1001; // Garante que o logo fique acima do menu mobile
+        z-index: 10; // Garante que o logo fique acima do menu mobile
+        @media (min-width: 1024px) {
+          order: 1;
+        }
 
         > .logo-image {
           display: block;
@@ -53,33 +61,47 @@
         border: none;
         cursor: pointer;
         padding: 0px;
-        z-index: 1001;
+        z-index: 10;
+        order: 1;
 
         .hamburger-icon,
         .close-icon {
           display: flex;
           align-items: center;
           justify-content: center;
+   
         }
 
         .close-icon {
           display: none;
         }
 
-        &[aria-expanded='true'] {
-          .hamburger-icon {
-            display: none;
-          }
-          .close-icon {
-            display: flex;
-          }
-        }
+        // &[aria-expanded='true'] {
+        //   .hamburger-icon {
+        //     display: none;
+        //   }
+        //   .close-icon {
+        //     display: flex;
+        //   }
+        // }
       }
 
       > .menu-container {
         display: flex;
         flex: 1;
         justify-content: flex-end;
+        flex-direction: column;
+        padding: 28px;
+        /*put close icon here*/
+        .close-icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          @media (min-width: 1024px) {
+            display: none;
+          } 
+        }
 
         > .menu {
           flex: 1;
@@ -108,7 +130,7 @@
               border-radius: 999px;
               padding: 12px 24px;
               text-decoration: none;
-              background: linear-gradient(88deg, #275892 3.02%, #002D5D 64.84%, #144277 93.9%);
+              background: linear-gradient(88deg, #275892 3.02%, #002d5d 64.84%, #144277 93.9%);
               transition: all 0.3s ease;
               color: #fff;
             }
@@ -130,18 +152,18 @@
 
       > .menu-container {
         position: fixed;
-        top: calc(80px + var(--wp-adminbar-offset));
+        top: calc(var(--wp-adminbar-offset));
         left: 0;
-        width: 100%;
-        height: calc(100vh - 80px - var(--wp-adminbar-offset));
+        width: calc(100% - 50px);
+        height: calc(100vh - var(--wp-adminbar-offset));
         background-color: rgba(255, 255, 255, 0.98);
         z-index: 1000;
-        transform: translateX(100%);
+        transform: translateX(-100%);
         transition: transform 0.3s ease-in-out;
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
-        background: var(--text-blue-highlight, #238dc1);
+        background: var(--text-blue-highlight, #001D3C);
 
         @media (min-width: 1024px) {
           background-color: transparent;
@@ -149,15 +171,19 @@
 
         &.active {
           transform: translateX(0);
-          background: var(--text-blue-highlight, #238dc1);
+          background: var(--text-blue-highlight, #001D3C);
           color: #fff;
+          border-radius: 0px 20px 20px 0px;
+          .close-icon {
+            display: flex;
+          }
         }
 
         > .menu {
           flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          text-align: center;
+          justify-content: flex-start;
+          align-items: flex-start;
+          text-align: left;
           gap: 0px;
           width: 100%;
 

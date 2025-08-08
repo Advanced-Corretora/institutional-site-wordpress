@@ -3,6 +3,7 @@ class MobileMenu {
     this.menuItems = document.querySelectorAll('.menu-item-has-children > a');
     this.hamburgerButton = document.querySelector('.hamburger-menu');
     this.menuContainer = document.querySelector('.menu-container');
+    this.closeButton = document.querySelector('.close-icon');
     this.body = document.body;
     this.init();
   }
@@ -28,20 +29,27 @@ class MobileMenu {
     // Fecha o menu ao clicar em um link no mobile
     const menuLinks = document.querySelectorAll('.menu a');
     menuLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
+      link.addEventListener('click', e => {
         // Se for um link que não tem submenu, fecha o menu
         if (!link.parentElement.classList.contains('menu-item-has-children')) {
           this.toggleMenu(false);
         }
       });
     });
+
+    // Fecha o menu ao clicar no botão de fechar
+    if (this.closeButton) {
+      this.closeButton.addEventListener('click', () => {
+        this.toggleMenu(false);
+      });
+    }
   }
 
   setupMenuItems() {
     this.menuItems.forEach(menuItem => {
       // Adiciona um botão de toggle para os itens com submenu no mobile
       if (window.innerWidth <= 1024) {
-        menuItem.addEventListener('click', (e) => {
+        menuItem.addEventListener('click', e => {
           // Só previne o comportamento padrão se for um item com submenu
           if (menuItem.parentElement.classList.contains('menu-item-has-children')) {
             e.preventDefault();
@@ -60,14 +68,14 @@ class MobileMenu {
 
   toggleMenu(show) {
     this.hamburgerButton.setAttribute('aria-expanded', show);
-    
+
     if (show) {
       this.menuContainer.classList.add('active');
       this.body.style.overflow = 'hidden'; // Impede o scroll do body
     } else {
       this.menuContainer.classList.remove('active');
       this.body.style.overflow = ''; // Restaura o scroll do body
-      
+
       // Fecha todos os submenus abertos
       document.querySelectorAll('.menu-item-has-children').forEach(item => {
         item.classList.remove('active');
@@ -77,14 +85,14 @@ class MobileMenu {
 
   toggleSubmenu(parentItem) {
     const isActive = parentItem.classList.contains('active');
-    
+
     // Fecha outros submenus abertos
     document.querySelectorAll('.menu-item-has-children').forEach(item => {
       if (item !== parentItem) {
         item.classList.remove('active');
       }
     });
-    
+
     // Alterna o estado do submenu clicado
     if (isActive) {
       parentItem.classList.remove('active');

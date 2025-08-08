@@ -33,14 +33,14 @@
                     echo file_get_contents(get_template_directory() . '/assets/icons/icon_menu_list.svg');
                     ?>
                 </span>
-                <span class="close-icon">
-                    <?php
-                    echo file_get_contents(get_template_directory() . '/assets/icons/icon_close.svg');
-                    ?>  
-                </span>
             </button>
 
             <div class="menu-container">
+                <span class="close-icon">
+                    <?php
+                    echo file_get_contents(get_template_directory() . '/assets/icons/icon_close.svg');
+                    ?>
+                </span>
                 <div class="menu">
                     <?php
                     if (has_nav_menu('top-menu')) {

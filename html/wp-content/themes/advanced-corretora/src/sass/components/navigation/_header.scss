@@ -1,15 +1,19 @@
 // Header
 .header {
-  background-color: #ffffff;
   position: fixed;
   z-index: 1000;
-  padding: 10px 0;
   width: 100%;
 
   > .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 16px;
+    border-radius: 0 0 20px 20px;
+    border-right: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    border-left: 1px solid #fff;
     > .content {
       display: flex;
       justify-content: space-between;
@@ -96,21 +100,17 @@
             justify-content: center;
             align-items: center;
             > a {
-              color: var(--text-blue-default, #002d5d);
-              font-family: var(--font-inter);
               text-align: center;
               font-size: 14px;
               font-style: normal;
-              font-weight: 600;
+              font-weight: 350;
               line-height: 16px;
-              border-radius: var(--Spacing-System-radius-sm, 12px);
-              border: 1.5px solid var(--color-default, #002d5d);
+              border-radius: 999px;
               padding: 12px 24px;
               text-decoration: none;
+              background: linear-gradient(88deg, #275892 3.02%, #002D5D 64.84%, #144277 93.9%);
               transition: all 0.3s ease;
-              &:hover {
-                background: var(--Primary-50, #edeffe);
-              }
+              color: #fff;
             }
           }
         }

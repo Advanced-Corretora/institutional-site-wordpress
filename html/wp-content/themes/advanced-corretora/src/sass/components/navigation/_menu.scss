@@ -24,19 +24,22 @@
           color: #000;
 
           font-weight: 350;
-          &::before {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            right: 0px;
-            left: 0;
-            height: 3px;
-            width: 0%;
-            background: var(--color-default, #002d5d);
-            border-radius: 10px;
-            transition: width 0.3s ease;
-            z-index: 1;
+          @media (min-width: 1024px) {
+            &::before {
+              content: '';
+              position: absolute;
+              bottom: -8px;
+              right: 0px;
+              left: 0;
+              height: 3px;
+              width: 0%;
+              background: var(--color-default, #002d5d);
+              border-radius: 10px;
+              transition: width 0.3s ease;
+              z-index: 1;
+            }
           }
+
           &:hover {
             color: var(--color-default, #002d5d);
             &::before {
@@ -48,43 +51,49 @@
     }
 
     .submenu-area {
-      position: relative;
-      background-color: rgb(0, 45, 93); /* cor de fundo principal */
-      z-index: 1; /* o conteúdo precisa ficar acima do ::before */
-      top: calc(90px + var(--wp-adminbar-offset));
-      position: fixed;
-      left: 50%;
-      transform: translate(-50%, -10px); /* -50% X para centralizar, -10px Y para efeito */
-      display: flex;
-      flex-direction: row;
-      opacity: 0;
-      transform: translateY(-10px);
-      visibility: hidden;
-      pointer-events: none;
-      transition:
-        opacity 2s ease,
-        transform 2s ease;
-      animation-fill-mode: forwards;
-      width: 100%;
-      max-width: var(--container-max-width);
-      padding: 48px;
-      border-radius: 20px;
+      padding: 0;
+      border-radius: 0;
+      @media (min-width: 1024px) {
+        padding: 48px;
+        border-radius: 20px;
+        position: relative;
+        background-color: rgb(0, 45, 93); /* cor de fundo principal */
+        z-index: 100001;
+        top: calc(90px + var(--wp-adminbar-offset));
+        position: fixed;
+        left: 50%;
+        transform: translate(-50%, -10px); /* -50% X para centralizar, -10px Y para efeito */
+        display: flex;
+        flex-direction: row;
+        opacity: 0;
+        transform: translateY(-10px);
+        visibility: hidden;
+        pointer-events: none;
+        transition:
+          opacity 2s ease,
+          transform 2s ease;
+        animation-fill-mode: forwards;
+        width: 100%;
+        max-width: var(--container-max-width);
+      }
       & > * {
         z-index: 1;
       }
 
-      &::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background-image: url('/wp-content/themes/advanced-corretora/assets/images/submenu-background.jpg');
-        background-size: auto;
-        background-position: 100% 50%;
-        opacity: 0.2;
-        mix-blend-mode: difference;
-        z-index: 0;
-        border-radius: 20px;
-        pointer-events: none;
+      @media (min-width: 1024px) {
+        &::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background-image: url('/wp-content/themes/advanced-corretora/assets/images/submenu-background.jpg');
+          background-size: auto;
+          background-position: 100% 50%;
+          opacity: 0.2;
+          mix-blend-mode: difference;
+          z-index: 0;
+          border-radius: 20px;
+          pointer-events: none;
+        }
       }
       > .submenu-inner {
         width: 100%;
@@ -96,9 +105,12 @@
           /*quero que essa área tenha 340px de largura respeitando o flex*/
           width: 340px;
           flex: 0 0 340px;
-          display: flex;
           flex-direction: column;
           gap: 24px;
+          display: none;
+          @media (min-width: 1024px) {
+            display: flex;
+          }
           > .submenu-image {
             width: 100%;
             aspect-ratio: 341/156;
@@ -122,13 +134,17 @@
           width: 1px;
           height: 100%;
           background: #194f90;
+          display: none;
+          @media (min-width: 1024px) {
+            display: block;
+          }
         }
         > .submenu-links {
           flex: 1;
           > .submenu-column {
             > .sub-menu {
               display: grid;
-              grid-template-columns: 1fr 2fr;
+              grid-template-columns: 1fr 1fr;
               gap: 32px;
               padding: 0;
               margin: 0;
@@ -239,7 +255,13 @@
 
     .menu-item-has-children.closing > .submenu-area {
       animation: slide-out-top 0.5s ease forwards;
+      visibility: visible; /* mantém visível p/ animar */
+      pointer-events: none; /* evita cliques durante saída */
+      opacity: 1; /* garante estado inicial coerente */
+      transform: translateY(0);
+      transition: none; /* evita que a transition base (2s) domine a saída */
     }
+
     @media (min-width: 1024px) {
       .list > .menu-item-has-children > a::after {
         display: inline-block;
@@ -253,6 +275,28 @@
       left: 100%;
       top: 0;
     }
+  }
+}
+
+/* Overlay global para fundo escurecido atrás do submenu */
+.submenu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 100000;
+}
+body.submenu-open {
+  .submenu-overlay {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  .header {
+    position: relative;
   }
 }
 
@@ -287,25 +331,25 @@
 // Keyframes para saída
 @-webkit-keyframes slide-out-top {
   0% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
     opacity: 1;
   }
   100% {
-    -webkit-transform: translateY(-10px);
-    transform: translateY(-10px);
+    -webkit-transform: translate(-50%, -1000px);
+    transform: translate(-50%, -1000px);
     opacity: 0;
   }
 }
 @keyframes slide-out-top {
   0% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
     opacity: 1;
   }
   100% {
-    -webkit-transform: translateY(-10px);
-    transform: translateY(-10px);
+    -webkit-transform: translate(-50%, -1000px);
+    transform: translate(-50%, -1000px);
     opacity: 0;
   }
 }

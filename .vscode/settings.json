@@ -13,5 +13,12 @@
     "intelephense.environment.includePaths": [
         "wp-includes",
         "wp-admin"
-    ]
+    ],
+    "files.eol": "\n",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true,
+      "source.fixAll": true
+    },
+    "prettier.endOfLine": "lf"
 }
+

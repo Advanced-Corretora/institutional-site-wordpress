@@ -21,7 +21,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  font-family: 'Quicksand', sans-serif;
+  font-family: var(--font-gotham);
   font-weight: 400;
   color: #000;
   font-size: 16px;

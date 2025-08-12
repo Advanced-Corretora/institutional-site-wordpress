@@ -5,11 +5,31 @@ class MobileMenu {
     this.menuContainer = document.querySelector('.menu-container');
     this.closeButton = document.querySelector('.close-icon');
     this.body = document.body;
+    this.headerEl = document.querySelector('.header');
+    this.overlay = document.querySelector('.submenu-overlay');
     this.handleMenuItemClickBound = this.handleMenuItemClick.bind(this);
+    this.closeSubmenuBound = this.closeSubmenu.bind(this);
     this.init();
   }
 
   init() {
+
+    if (!this.overlay) {
+      this.overlay = document.createElement('div');
+      this.overlay.className = 'submenu-overlay';
+      (this.headerEl || document.body).appendChild(this.overlay);
+    } else {
+      if (this.headerEl && this.overlay.parentElement !== this.headerEl) {
+        this.headerEl.appendChild(this.overlay);
+      }
+    }
+    
+    this.overlay.addEventListener('click', () => {
+      document.querySelectorAll('.menu-item-has-children.active').forEach(item => {
+        this.closeSubmenu(item);
+      });
+    });
+
     if (this.hamburgerButton) {
       this.setupHamburgerMenu();
     }
@@ -42,10 +62,8 @@ class MobileMenu {
   }
 
   setupMenuItems() {
-    // Aplica eventos iniciais
     this.applyDesktopSubmenuEvents();
 
-    // Reaplica ao redimensionar
     window.addEventListener('resize', () => {
       this.removeDesktopSubmenuEvents();
       this.applyDesktopSubmenuEvents();
@@ -72,14 +90,45 @@ class MobileMenu {
     if (show) {
       this.menuContainer.classList.add('active');
       this.body.style.overflow = 'hidden';
+      this.updateOverlayState();
     } else {
       this.menuContainer.classList.remove('active');
       this.body.style.overflow = '';
 
       document.querySelectorAll('.menu-item-has-children').forEach(item => {
         item.classList.remove('active');
+        item.classList.remove('closing');
       });
+      this.updateOverlayState();
     }
+  }
+
+  updateOverlayState() {
+    const anyOpenSubmenu = document.querySelector(
+      '.menu-item-has-children.active, .menu-item-has-children.closing'
+    );
+    const mobileMenuOpen = this.menuContainer && this.menuContainer.classList.contains('active');
+    document.body.classList.toggle('submenu-open', !!anyOpenSubmenu || mobileMenuOpen);
+  }
+
+  closeSubmenu(item) {
+    if (!item || !item.classList.contains('active')) return;
+    item.classList.add('closing');
+    item.classList.remove('active');
+
+    const submenuArea = item.querySelector('.submenu-area');
+    if (submenuArea) {
+      const onAnimationEnd = e => {
+        if (e.target !== submenuArea) return;
+        item.classList.remove('closing');
+        submenuArea.removeEventListener('animationend', onAnimationEnd);
+        this.updateOverlayState();
+      };
+      submenuArea.addEventListener('animationend', onAnimationEnd, { once: true });
+    } else {
+      item.classList.remove('closing');
+    }
+    this.updateOverlayState();
   }
 
   handleMenuItemClick(e) {
@@ -87,44 +136,21 @@ class MobileMenu {
     const parent = e.currentTarget.parentElement;
 
     if (parent.classList.contains('active')) {
-      parent.classList.add('closing');
-      parent.classList.remove('active');
-
-      const submenu = parent.querySelector('.sub-menu');
-      if (submenu) {
-        const onAnimationEnd = () => {
-          parent.classList.remove('closing');
-          submenu.removeEventListener('animationend', onAnimationEnd);
-        };
-        submenu.addEventListener('animationend', onAnimationEnd);
-      } else {
-        parent.classList.remove('closing');
-      }
+      this.closeSubmenu(parent);
     } else {
       document.querySelectorAll('.menu-item-has-children.active').forEach(item => {
         if (item !== parent) {
-          item.classList.add('closing');
-          item.classList.remove('active');
-          const submenu = item.querySelector('.sub-menu');
-          if (submenu) {
-            const onAnimationEnd = () => {
-              item.classList.remove('closing');
-              submenu.removeEventListener('animationend', onAnimationEnd);
-            };
-            submenu.addEventListener('animationend', onAnimationEnd);
-          } else {
-            item.classList.remove('closing');
-          }
+          this.closeSubmenu(item);
         }
       });
 
       parent.classList.remove('closing');
       parent.classList.add('active');
+      this.updateOverlayState();
     }
   }
 }
 
-// Inicialização
 let mobileMenu;
 document.addEventListener('DOMContentLoaded', () => {
   mobileMenu = new MobileMenu();

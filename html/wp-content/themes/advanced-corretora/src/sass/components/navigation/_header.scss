@@ -1,3 +1,5 @@
+
+
 // Header
 .header {
   position: fixed;
@@ -24,7 +26,7 @@
         //logo com max-width de 192
         max-width: 192px;
         flex: 0 0 auto;
-        z-index: 10; // Garante que o logo fique acima do menu mobile
+        z-index: 10; 
 
         > .logo-image {
           display: block;
@@ -46,9 +48,8 @@
         }
       }
 
-      // Botão do menu hambúrguer
       .hamburger-menu {
-        display: none; // Escondido por padrão, visível apenas em mobile/tablet
+        display: none;
         background: none;
         border: none;
         cursor: pointer;
@@ -67,14 +68,6 @@
           display: none;
         }
 
-        // &[aria-expanded='true'] {
-        //   .hamburger-icon {
-        //     display: none;
-        //   }
-        //   .close-icon {
-        //     display: flex;
-        //   }
-        // }
       }
 
       > .menu-container {
@@ -108,7 +101,7 @@
           transition: transform 0.3s ease-in-out;
 
           > .mobile-cta {
-            display: none; // Escondido no desktop, visível apenas em mobile
+            display: none;
           }
 
           > .cta {
@@ -135,12 +128,10 @@
     }
   }
 
-  // Estilos para tablet e mobile
   @media (max-width: 1024px) {
     > .container > .content {
       gap: 20px;
 
-      // Mostra o botão hambúrguer em telas menores
       .hamburger-menu {
         display: flex;
       }
@@ -152,7 +143,7 @@
         width: calc(100% - 50px);
         height: calc(100vh - var(--wp-adminbar-offset));
         background-color: rgba(255, 255, 255, 0.98);
-        z-index: 1000;
+        z-index: 100001;
         transform: translateX(100%);
         transition: transform 0.3s ease-in-out;
         display: flex;
@@ -304,7 +295,6 @@
             }
           }
 
-          // Esconde o CTA do desktop no mobile
           > .cta {
             width: 100%;
             height: auto;

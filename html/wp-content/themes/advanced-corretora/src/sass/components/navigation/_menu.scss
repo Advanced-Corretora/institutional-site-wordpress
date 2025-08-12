@@ -58,7 +58,7 @@
         border-radius: 20px;
         position: relative;
         background-color: rgb(0, 45, 93); /* cor de fundo principal */
-        z-index: 1; /* o conteúdo precisa ficar acima do ::before */
+        z-index: 100001;
         top: calc(90px + var(--wp-adminbar-offset));
         position: fixed;
         left: 50%;
@@ -255,7 +255,13 @@
 
     .menu-item-has-children.closing > .submenu-area {
       animation: slide-out-top 0.5s ease forwards;
+      visibility: visible; /* mantém visível p/ animar */
+      pointer-events: none; /* evita cliques durante saída */
+      opacity: 1; /* garante estado inicial coerente */
+      transform: translateY(0);
+      transition: none; /* evita que a transition base (2s) domine a saída */
     }
+
     @media (min-width: 1024px) {
       .list > .menu-item-has-children > a::after {
         display: inline-block;
@@ -269,6 +275,28 @@
       left: 100%;
       top: 0;
     }
+  }
+}
+
+/* Overlay global para fundo escurecido atrás do submenu */
+.submenu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 100000;
+}
+body.submenu-open {
+  .submenu-overlay {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  .header {
+    position: relative;
   }
 }
 
@@ -303,25 +331,25 @@
 // Keyframes para saída
 @-webkit-keyframes slide-out-top {
   0% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
     opacity: 1;
   }
   100% {
-    -webkit-transform: translateY(-10px);
-    transform: translateY(-10px);
+    -webkit-transform: translate(-50%, -1000px);
+    transform: translate(-50%, -1000px);
     opacity: 0;
   }
 }
 @keyframes slide-out-top {
   0% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
     opacity: 1;
   }
   100% {
-    -webkit-transform: translateY(-10px);
-    transform: translateY(-10px);
+    -webkit-transform: translate(-50%, -1000px);
+    transform: translate(-50%, -1000px);
     opacity: 0;
   }
 }

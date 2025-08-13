@@ -11,6 +11,7 @@ function produtos_carrossel_block()
                 ->add_fields([
                     Field::make('image', 'imagem', 'Imagem do Produto'),
                     Field::make('text', 'titulo', 'Título'),
+                    Field::make('text', 'subtitulo', 'Subtítulo'),
                     Field::make('text', 'cta_texto', 'Texto do Botão'),
                     Field::make('text', 'cta_link', 'Link do Botão'),
                 ])
@@ -29,11 +30,16 @@ function produtos_carrossel_block()
                     <div class="carousel-cell">
                         <div class="product">
                             <div class="image">
-                                <?php echo wp_get_attachment_image($produto['imagem'], 'medium'); ?>
+                                <?php echo wp_get_attachment_image($produto['imagem'], 'slide-size'); ?>
                             </div>
                             <div class="content">
                                 <div class="title">
-                                    <h3><?php echo esc_html($produto['titulo']); ?></h3>
+                                    <?php if (!empty($produto['titulo'])) : ?>
+                                        <h3><?php echo esc_html($produto['titulo']); ?></h3>
+                                    <?php endif; ?>
+                                    <?php if (!empty($produto['subtitulo'])) : ?>
+                                        <p><?php echo esc_html($produto['subtitulo']); ?></p>
+                                    <?php endif; ?>
                                 </div>
                                 <div class="cta">
                                     <a href="<?php echo esc_url($produto['cta_link']); ?>" class="button">

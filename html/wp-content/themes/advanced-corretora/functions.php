@@ -48,6 +48,9 @@ function advanced_corretora_setup()
 		*/
 	add_theme_support('post-thumbnails');
 
+	// Custom image sizes
+	add_image_size('slide-size', 756, 425, true); // 756x425 hard crop for carousel slides
+
 	// Menu registration moved to inc/menu-functions.php
 
 	/*

@@ -1,3 +1,5 @@
+@use "../components/gutenberg/sobre" as *;
+
 .alignfull {
   width: 100vw;
   position: relative;
@@ -6,3 +8,4 @@
   margin-left: -50vw;
   margin-right: -50vw;
 }
+

@@ -1,7 +1,4 @@
 import Flickity from 'flickity';
-import 'flickity/css/flickity.css';
-
-console.log('carousel.js loaded2');
 
 function equalizeCarouselHeights(carouselEl) {
   const products = carouselEl.querySelectorAll('.carousel-cell .product');

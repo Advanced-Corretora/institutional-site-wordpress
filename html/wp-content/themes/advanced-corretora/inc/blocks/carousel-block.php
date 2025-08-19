@@ -108,11 +108,18 @@ function gutenberg_enqueue_assets()
         );
         wp_enqueue_script('advanced-corretora-carousel');
 
-
-        wp_enqueue_style(
-            'swiper-style',
-            'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css'
-        );
+        // Enqueue dedicated carousel stylesheet built from src/sass/carousel.scss (only if it exists)
+        $carousel_style_path = get_template_directory() . '/dist/css/carouselStyle.css';
+        if (file_exists($carousel_style_path)) {
+            $carousel_style_uri  = get_template_directory_uri() . '/dist/css/carouselStyle.css';
+            $carousel_style_ver  = filemtime($carousel_style_path);
+            wp_enqueue_style(
+                'advanced-corretora-carousel-style',
+                $carousel_style_uri,
+                array('advanced-corretora-style'),
+                $carousel_style_ver
+            );
+        }
     }
 }
 add_action('wp_enqueue_scripts', 'gutenberg_enqueue_assets');

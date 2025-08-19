@@ -34,7 +34,7 @@
     "dev": "vite",
     "build": "vite build",
     "watch:build": "vite build --watch",
-    "start": "concurrently \"cross-env NODE_ENV=development vite build --watch --config vite.dev.config.js\" \"cross-env NODE_ENV=development vite\"",
+    "start": "concurrently \"cross-env NODE_ENV=development vite build --watch \" \"cross-env NODE_ENV=development vite\"",
     "lint:scss": "wp-scripts lint-style 'sass/**/*.scss'",
     "lint:js": "wp-scripts lint-js 'js/*.js'",
     "bundle": "dir-archiver --src . --dest ../advanced-corretora.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map yarn.lock"

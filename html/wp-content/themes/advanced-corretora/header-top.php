@@ -26,21 +26,17 @@
             <?php } ?>
         </div>
 
-        <!-- Botão do menu hambúrguer -->
-        <button class="hamburger-menu" aria-label="Menu" aria-expanded="false">
-            <span class="hamburger-icon">
-                <?php
-                echo file_get_contents(get_template_directory() . '/assets/icons/icon_menu_list.svg');
-                ?>
-            </span>
-        </button>
-
         <div class="menu-container">
-            <span class="close-icon">
-                <?php
-                echo file_get_contents(get_template_directory() . '/assets/icons/icon_close.svg');
-                ?>
-            </span>
+            <div class="mobile-search">
+                <div class="search-input-container">
+                    <input type="search" class="mobile-search-input" placeholder="Buscar...">
+                    <span class="mobile-search-icon">
+                        <?php
+                        echo file_get_contents(get_template_directory() . '/assets/icons/icon_lupa.svg');
+                        ?>
+                    </span>
+                </div>
+            </div>
             <div class="menu">
                 <?php
                 if (has_nav_menu('top-menu')) {
@@ -73,18 +69,41 @@
             </div>
         </div>
 
+
+
         <div class="deskButtonArea">
             <div class="search">
                 <button class="search-button">
                     <span class="search-icon">
-                      b
+                        <?php
+                        echo file_get_contents(get_template_directory() . '/assets/icons/icon_lupa.svg');
+                        ?>
                     </span>
                 </button>
+                <div class="search-overlay">
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="Digite sua busca...">
+                        <button class="search-close" aria-label="Fechar busca">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
             </div>
             <div class="cta">
                 <a href="<?php echo esc_url($cta_url); ?>" class="link" target="<?php echo esc_attr($cta_target); ?>"><?php echo esc_attr($cta_text); ?></a>
             </div>
         </div>
+
+        <button class="hamburger-menu" aria-label="Menu" aria-expanded="false">
+            <span class="hamburger-icon">
+                <?php
+                echo file_get_contents(get_template_directory() . '/assets/icons/icon_menu.svg');
+                ?>
+            </span>
+        </button>
     </div>
 
 </header>

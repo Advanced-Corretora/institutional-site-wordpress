@@ -29,11 +29,11 @@ class Advanced_Corretora_Walker_Nav_Menu extends Walker_Nav_Menu
         
             $output .= "\n$indent<div class='submenu-area'>\n";
             $output .= "$indent\t<div class='submenu-inner'>\n";
-            $output .= "$indent\t\t<div class='submenu-left'>\n";
-            $output .= "$indent\t\t\t<img class='submenu-image' src='" . esc_url($image_url) . "' alt='' />\n";
-            $output .= "$indent\t\t\t<h3 class='submenu-title'>" . esc_html(get_the_title($this->current_parent_id)) . "</h3>\n";
-            $output .= "$indent\t\t</div>\n";
-            $output .= "$indent\t\t<div class='submenu-divider'></div>\n";
+            // $output .= "$indent\t\t<div class='submenu-left'>\n";
+            // $output .= "$indent\t\t\t<img class='submenu-image' src='" . esc_url($image_url) . "' alt='' />\n";
+            // $output .= "$indent\t\t\t<h3 class='submenu-title'>" . esc_html(get_the_title($this->current_parent_id)) . "</h3>\n";
+            // $output .= "$indent\t\t</div>\n";
+            // $output .= "$indent\t\t<div class='submenu-divider'></div>\n";
             $output .= "$indent\t\t<div class='submenu-links'>\n";
         }
 

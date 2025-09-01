@@ -29,7 +29,7 @@
         <div class="menu-container">
             <div class="mobile-search">
                 <div class="search-input-container">
-                    <input type="search" class="mobile-search-input" placeholder="Buscar...">
+                    <input type="search" class="mobile-search-input" placeholder="">
                     <span class="mobile-search-icon">
                         <?php
                         echo file_get_contents(get_template_directory() . '/assets/icons/icon_lupa.svg');

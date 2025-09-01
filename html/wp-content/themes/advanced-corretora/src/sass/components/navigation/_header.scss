@@ -13,7 +13,7 @@
     align-items: center;
     width: 100%;
     gap: 104px;
-    padding: 16px;
+    padding: 14px 20px;
     > .logo {
       //logo com max-width de 192
       max-width: 142px;
@@ -114,9 +114,9 @@
           .mobile-search-input {
             width: 100%;
             height: 48px;
-            padding: 12px 50px 12px 16px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 24px;
+            padding: 14px 50px 14px 16px;
+            border: 1.5px solid rgba(255, 255, 255, 1);
+            border-radius: 10px;
             background: rgba(255, 255, 255, 0.1);
             color: #fff;
             font-size: 16px;
@@ -365,7 +365,7 @@
         top: -100%;
         right: 0;
         width: calc(100%);
-        height: calc(100vh - var(--wp-adminbar-offset) - 80px);
+        height: calc(100vh - var(--wp-adminbar-offset) - 80px + 2px);
         background-color: rgba(255, 255, 255, 0.98);
         z-index: 100001;
         transform: translateY(-100%);
@@ -405,7 +405,7 @@
         &.active {
           transform: translateY(0);
           color: #fff;
-          top: calc(80px + var(--wp-adminbar-offset));
+          top: calc(32px + var(--wp-adminbar-offset));
 
           .close-icon {
             display: flex;
@@ -413,7 +413,7 @@
         }
 
         &.closing {
-          top: calc(80px + var(--wp-adminbar-offset));
+          top: calc(32px + var(--wp-adminbar-offset));
           transform: translateY(-100%);
           transition: transform 0.3s ease-in-out;
         }
@@ -425,21 +425,24 @@
           text-align: left;
           gap: 72px;
           width: 100%;
+          padding-left: 10px;
+          padding-right: 10px;
 
           .list {
             flex-direction: column;
             width: 100%;
-            gap: 32px;
+            gap: 40px;
 
             > li {
               width: 100%;
               display: flex;
               flex-direction: column;
-              gap: 16px;
+              gap: 20px;
 
               > a {
                 color: var(--text-white, #fff);
-                font-size: 24px;
+                font-size: 22px;
+                line-height: 44px;
                 font-weight: 400;
                 line-height: normal;
 
@@ -447,22 +450,6 @@
                 align-items: center;
                 justify-content: flex-start;
                 gap: 8px;
-              }
-
-              > a::after {
-                content: '';
-                display: inline-block;
-                width: 16px;
-                height: 16px;
-                background-image: url('../../../../assets/icons/icon_chevron_down.svg');
-                background-repeat: no-repeat;
-                background-position: center;
-                background-size: 16px;
-                transition: transform 0.3s ease;
-                margin-bottom: -12px;
-                position: relative;
-                bottom: 4px;
-                transform: rotate(-90deg);
               }
 
               // Estilos para submenus no mobile
@@ -494,7 +481,7 @@
                 .sub-menu {
                   display: flex;
                   flex-direction: column;
-                  gap: 16px;
+                  gap: 20px;
                   list-style: none;
                   padding: 0;
                   margin: 0;
@@ -550,6 +537,9 @@
               }
             }
           }
+        }
+        .cta {
+          display: none;
         }
       }
     }

@@ -143,18 +143,33 @@
           > .submenu-column {
             > .sub-menu {
               display: grid;
-              grid-template-columns: 1fr 1fr;
+              grid-template-columns: 1fr 2fr;
               gap: 32px;
               padding: 0;
               margin: 0;
               list-style: none;
               justify-items: start;
+              position: relative;
+              
+              &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: calc(33.33% + 5px);
+                width: 1px;
+                height: 100%;
+                background: white;
+                z-index: 1;
+              }
               & > li {
                 text-align: left;
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 16px;
+                &:nth-child(even) {
+                  padding-left: 24px;
+                }
                 > .submenu-link {
                   color: var(--text-white, #fff);
                   font-family: var(--font-gotham);
@@ -242,7 +257,7 @@
         }
       }
       > .submenu-area {
-        top: calc(94px + var(--wp-adminbar-offset));
+        top: calc(58px + var(--wp-adminbar-offset));
         animation: slide-in-top 0.5s ease forwards;
         opacity: 1;
         transform: translateY(0);

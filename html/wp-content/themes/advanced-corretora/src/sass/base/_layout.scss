@@ -1,8 +1,8 @@
 @use "../abstracts/variables/colors" as *;
 :root {
   --container-max-width: 100%;
-  --container-padding: 16px;
-  --container-max-width-lg: 1440px;
+  --container-padding: 20px;
+  --container-max-width-lg: 1180px;
   --wp-adminbar-offset: 0px;
 }
 
@@ -58,7 +58,7 @@ a {
 /* Responsive breakpoints */
 @media (min-width: 576px) {
   :root {
-    --container-padding: 16px;
+    --container-padding: 20px;
   }
 }
 

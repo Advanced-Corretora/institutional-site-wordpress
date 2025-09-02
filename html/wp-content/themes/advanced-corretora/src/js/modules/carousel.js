@@ -48,11 +48,13 @@ const gutenbergCarousel = () => {
 
   carousels.forEach(carousel => {
     const flkty = new Flickity(carousel, {
-      wrapAround: false,
-      pageDots: true,
+      wrapAround: true,
+      pageDots: false,
       prevNextButtons: true,
-      contain: true,
-      cellAlign: 'left',
+      contain: false,
+      cellAlign: 'center',
+      initialIndex: 0,
+      percentPosition: false,
       // add other options here if needed
     });
 

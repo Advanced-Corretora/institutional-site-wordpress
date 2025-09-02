@@ -160,6 +160,10 @@
                 height: 100%;
                 background: white;
                 z-index: 1;
+                display: none;
+                @media (min-width: 1024px) {
+                  display: block;
+                }
               }
               & > li {
                 text-align: left;
@@ -168,7 +172,10 @@
                 align-items: flex-start;
                 gap: 16px;
                 &:nth-child(even) {
-                  padding-left: 24px;
+                  padding-left: 0px;
+                  @media (min-width: 1024px) {
+                    padding-left: 24px;
+                  }
                 }
                 > .submenu-link {
                   color: var(--text-white, #fff);
@@ -257,7 +264,7 @@
         }
       }
       > .submenu-area {
-        top: calc(58px + var(--wp-adminbar-offset));
+        top: calc(90px + var(--wp-adminbar-offset));
         animation: slide-in-top 0.5s ease forwards;
         opacity: 1;
         transform: translateY(0);

@@ -25,10 +25,10 @@
     gap: 104px;
     padding: 14px 20px;
     > .logo {
-      //logo com max-width de 192
-      max-width: 142px;
+      max-width: 40%;
       flex: 0 0 auto;
       z-index: 10;
+      width: 142px;
       @media (min-width: 1024px) {
         max-width: 192px;
       }

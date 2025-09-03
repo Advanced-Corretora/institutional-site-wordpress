@@ -21,7 +21,7 @@
   }
   .carousel-cell {
     width: 363px;
-    max-width: 100%;
+    max-width: calc(100% - var(--container-padding) * 2);
     height: auto;
     margin-right: 20px;
     @media (min-width: 1024px) {
@@ -127,7 +127,8 @@
     width: 30px;
     height: 30px;
     padding: 0;
-    border: 1px solid #9ea2ae;
+    background-color: #666;
+    border: 1px solid #666;
     // @media (min-width: 1024px) {
     //   display: none;
     // }
@@ -145,7 +146,14 @@
     }
     &:focus {
       outline: none;
-      box-shadow: 0 0 0 5px #238dc11a;
+      box-shadow: 0 0 0 5px #0033661a;
+    }
+    path {
+      fill: #fff;
+    }
+    &:hover {
+      border-color: #003366;
+      background-color: #003366;
     }
   }
 }

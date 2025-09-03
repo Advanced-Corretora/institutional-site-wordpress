@@ -43,23 +43,58 @@ function setupEqualize(flkty, carouselEl) {
   window.addEventListener('load', debounced, { once: true });
 }
 
-const gutenbergCarousel = () => {
+let flickityInstances = [];
+
+const createFlickityInstance = carousel => {
+  return new Flickity(carousel, {
+    wrapAround: true,
+    pageDots: false,
+    prevNextButtons: true,
+    contain: false,
+    cellAlign: 'center',
+    initialIndex: 0,
+    percentPosition: false,
+    // add other options here if needed
+  });
+};
+
+const destroyAllInstances = () => {
+  flickityInstances.forEach(instance => {
+    if (instance.flkty && typeof instance.flkty.destroy === 'function') {
+      instance.flkty.destroy();
+    }
+  });
+  flickityInstances = [];
+};
+
+const initializeCarousels = () => {
   const carousels = document.querySelectorAll('.gutenberg-flickity');
 
   carousels.forEach(carousel => {
-    const flkty = new Flickity(carousel, {
-      wrapAround: true,
-      pageDots: false,
-      prevNextButtons: true,
-      contain: false,
-      cellAlign: 'center',
-      initialIndex: 0,
-      percentPosition: false,
-      // add other options here if needed
-    });
-
+    const flkty = createFlickityInstance(carousel);
     setupEqualize(flkty, carousel);
+
+    flickityInstances.push({
+      element: carousel,
+      flkty: flkty,
+    });
   });
+};
+
+const gutenbergCarousel = () => {
+  initializeCarousels();
+
+  // Debounced resize handler
+  let resizeTimeout;
+  const handleResize = () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      destroyAllInstances();
+      initializeCarousels();
+    }, 250);
+  };
+
+  window.addEventListener('resize', handleResize);
 };
 
 document.addEventListener('DOMContentLoaded', gutenbergCarousel);

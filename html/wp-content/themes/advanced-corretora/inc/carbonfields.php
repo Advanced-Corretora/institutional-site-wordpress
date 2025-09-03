@@ -51,3 +51,4 @@ add_action( 'carbon_fields_register_fields', function() {
 
 // blocks hook
 require_once get_template_directory() . '/inc/blocks/carousel-block.php';
+require_once get_template_directory() . '/inc/blocks/homeSlider-block.php';

@@ -49,8 +49,10 @@ export default defineConfig({
       input: {
         main: path.resolve(__dirname, 'src/js/main.js'),
         carousel: path.resolve(__dirname, 'src/js/modules/carousel.js'),
+        homeSlider: path.resolve(__dirname, 'src/js/modules/homeSlider.js'),
         style: path.resolve(__dirname, 'src/sass/style.scss'),
         carouselStyle: path.resolve(__dirname, 'src/sass/carousel.scss'),
+        homeSliderStyle: path.resolve(__dirname, 'src/sass/homeSlider.scss'),
       },
       output: {
         assetFileNames: 'css/[name].css',

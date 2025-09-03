@@ -8,7 +8,15 @@
   font-display: swap;
 }
 
-/*300*/
+@font-face {
+  font-family: 'gotham';
+  src: url('/wp-content/themes/advanced-corretora/src/fonts/gotham/GOTHAM-THIN.woff2')
+    format('woff2');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
 
 @font-face {
   font-family: 'gotham';

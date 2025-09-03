@@ -107,6 +107,14 @@ function gutenberg_enqueue_assets()
             )
         );
         wp_enqueue_script('advanced-corretora-carousel');
+        
+        // Add type="module" to carousel script
+        add_filter('script_loader_tag', function($tag, $handle, $src) {
+            if ('advanced-corretora-carousel' === $handle) {
+                $tag = str_replace('<script ', '<script type="module" ', $tag);
+            }
+            return $tag;
+        }, 10, 3);
 
         // Enqueue dedicated carousel stylesheet built from src/sass/carousel.scss (only if it exists)
         $carousel_style_path = get_template_directory() . '/dist/css/carouselStyle.css';

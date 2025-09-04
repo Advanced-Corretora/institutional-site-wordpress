@@ -1,0 +1,29 @@
+.secao-cta-block .cta-content .cta-text {
+  border: 2px dashed #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.secao-cta-block .cta-content .cta-text:hover {
+  border-color: #007cba;
+  background-color: rgba(0, 124, 186, 0.05);
+}
+
+.secao-cta-block .cta-content .cta-image {
+  border: 2px dashed #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+.secao-cta-block .cta-content .cta-image:hover {
+  border-color: #007cba;
+  background-color: rgba(0, 124, 186, 0.05);
+}
+
+.secao-cta-block .wp-block-rich-text__editable:focus {
+  outline: 2px solid #007cba;
+  outline-offset: 2px;
+}

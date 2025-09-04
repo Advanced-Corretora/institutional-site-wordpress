@@ -1,0 +1,102 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "advanced-corretora/secao-cta",
+  "version": "1.0.0",
+  "title": "Seção CTA",
+  "category": "advanced-corretora",
+  "icon": "layout",
+  "description": "Uma seção 50/50 com título, subtítulo, botão CTA e imagem.",
+  "keywords": [
+    "cta",
+    "seção",
+    "botão",
+    "imagem",
+    "50/50"
+  ],
+  "example": {
+    "attributes": {
+      "title": "Transforme seu Negócio",
+      "subtitle": "Descubra como nossa solução pode revolucionar seus resultados",
+      "ctaText": "Saiba Mais",
+      "ctaLink": "#"
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Seu Título Aqui"
+    },
+    "subtitle": {
+      "type": "string",
+      "default": "Seu subtítulo explicativo aqui"
+    },
+    "ctaText": {
+      "type": "string",
+      "default": "Clique Aqui"
+    },
+    "ctaLink": {
+      "type": "string",
+      "default": "#"
+    },
+    "image": {
+      "type": "object",
+      "default": null
+    },
+    "imageId": {
+      "type": "number",
+      "default": 0
+    },
+    "textAlignment": {
+      "type": "string",
+      "default": "left"
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": "#f8f9fa"
+    },
+    "textColor": {
+      "type": "string",
+      "default": "#333333"
+    },
+    "buttonColor": {
+      "type": "string",
+      "default": "#007cba"
+    },
+    "buttonTextColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "backgroundImage": {
+      "type": "object",
+      "default": null
+    },
+    "backgroundImageId": {
+      "type": "number",
+      "default": 0
+    },
+    "overlayOpacity": {
+      "type": "number",
+      "default": 0.5
+    },
+    "overlayColor": {
+      "type": "string",
+      "default": "#000000"
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
+  },
+  "textdomain": "advanced-corretora",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./editor.css",
+  "render": "file:./render.php"
+}

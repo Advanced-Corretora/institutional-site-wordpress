@@ -218,6 +218,11 @@ require get_template_directory() . '/inc/carbonfields.php';
  */
 require get_template_directory() . '/inc/themeSupport.php';
 
+/**
+ * Custom Blocks
+ */
+require get_template_directory() . '/inc/blocks.php';
+
 
 add_action('init', function () {
 	header("Access-Control-Allow-Origin: *");

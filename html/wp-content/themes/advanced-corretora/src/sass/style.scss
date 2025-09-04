@@ -41,3 +41,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 // Utilities
 @use "utilities/accessibility" as *;
 @use "utilities/alignments" as *;
+
+// Blocks
+@use "blocks/sessao-numeros" as *;

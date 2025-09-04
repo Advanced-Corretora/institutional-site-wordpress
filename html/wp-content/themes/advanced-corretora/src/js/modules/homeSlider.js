@@ -11,7 +11,7 @@ const createHomeSliderInstance = slider => {
     cellAlign: 'center',
     initialIndex: 0,
     percentPosition: false,
-    // autoPlay: 5000, // Auto-play a cada 5 segundos
+    autoPlay: 8000, // Auto-play a cada 5 segundos
     pauseAutoPlayOnHover: true,
     // Configurações específicas para full width
     adaptiveHeight: false,

@@ -62,7 +62,7 @@
           width: 100%;
           max-width: var(--container-max-width, 1200px);
           margin: 0 auto;
-          padding: 100px var(--container-padding, 20px);
+          padding: 100px 40px;
           display: flex;
           align-items: center;
           @media (min-width: 1024px) {

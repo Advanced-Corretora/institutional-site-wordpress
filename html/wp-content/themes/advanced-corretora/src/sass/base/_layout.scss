@@ -29,6 +29,10 @@ body {
   overflow-x: hidden; 
 }
 
+.entry-content {
+ margin: 0 !important; 
+}
+
 .container {
   width: 100%;
   max-width: var(--container-max-width);

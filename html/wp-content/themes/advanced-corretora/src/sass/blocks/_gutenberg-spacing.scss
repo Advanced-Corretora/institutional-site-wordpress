@@ -1,0 +1,92 @@
+/**
+ * Gutenberg Spacing Controls Support
+ * Adds CSS support for custom padding, margin, and spacing controls with responsive breakpoints
+ */
+
+/* Define responsive breakpoint variables */
+$mobile: 768px;
+$tablet: 1024px;
+$desktop: 1200px;
+
+/* Columns block (parent container) spacing support */
+.wp-block-columns {
+    /* Base container spacing */
+    box-sizing: border-box;
+    
+    /* Desktop spacing (default) - maintains original padding values */
+    &[style*="padding"] {
+        position: relative;
+    }
+    
+    /* Tablet spacing adjustments */
+    @media (max-width: #{$desktop}) and (min-width: #{$mobile + 1px}) {
+        &[style*="padding"] {
+            /* Reduce container padding on tablet */
+            --container-spacing-multiplier: 0.8;
+        }
+    }
+    
+    /* Mobile spacing adjustments */
+    @media (max-width: #{$mobile}) {
+        &[style*="padding"] {
+            /* Reduce container padding significantly on mobile */
+            --container-spacing-multiplier: 0.6;
+        }
+        
+        /* Force smaller gaps between columns on mobile */
+        gap: var(--wp--preset--spacing--small, 0.5rem) !important;
+        
+        /* Mobile-specific padding overrides */
+        &[style*="padding-top"] { 
+            padding-top: calc(var(--wp--preset--spacing--medium, 1rem) * 0.6) !important; 
+        }
+        &[style*="padding-right"] { 
+            padding-right: calc(var(--wp--preset--spacing--small, 0.5rem)) !important; 
+        }
+        &[style*="padding-bottom"] { 
+            padding-bottom: calc(var(--wp--preset--spacing--medium, 1rem) * 0.6) !important; 
+        }
+        &[style*="padding-left"] { 
+            padding-left: calc(var(--wp--preset--spacing--small, 0.5rem)) !important; 
+        }
+    }
+    
+    /* Block gap support with responsive adjustments */
+    &[style*="--wp--style--block-gap"] {
+        gap: var(--wp--style--block-gap);
+        
+        @media (max-width: #{$mobile}) {
+            gap: calc(var(--wp--style--block-gap) * 0.5);
+        }
+    }
+}
+
+/* General spacing utilities for all blocks with custom spacing */
+[class*="wp-block"][style*="padding"],
+[class*="wp-block"][style*="margin"] {
+    /* Ensure custom spacing values are respected */
+    box-sizing: border-box;
+}
+
+/* Responsive spacing adjustments */
+@media (max-width: 768px) {
+    .wp-block-column,
+    .wp-block-columns {
+        /* Reduce spacing on mobile if needed */
+        &[style*="padding"] {
+            padding: calc(var(--wp--style--block-gap, 1rem) * 0.75) !important;
+        }
+    }
+}
+
+/* Editor-specific styles (for backend editing) */
+.block-editor-block-list__layout {
+    .wp-block-column,
+    .wp-block-columns {
+        /* Ensure spacing controls work properly in the editor */
+        &[style*="padding"],
+        &[style*="margin"] {
+            transition: all 0.2s ease;
+        }
+    }
+}

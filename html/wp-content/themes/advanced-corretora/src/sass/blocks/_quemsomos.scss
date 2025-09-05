@@ -1,0 +1,128 @@
+.quemsomos {
+  background: url('/wp-content/themes/advanced-corretora/assets/images/fundoquemsomos.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  .wp-block-group__inner-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .guardachuva {
+    position: relative;
+    overflow: visible;
+    z-index: 1;
+
+    &::before {
+      content: url('/wp-content/themes/advanced-corretora/assets/images/guardachuva.png');
+      position: absolute;
+
+      position: absolute;
+      top: -299%;
+      right: 150%;
+      width: 100%;
+      transform: scale(0.4);
+      @media (min-width: 500px) {
+        right: 500px;
+      }
+
+      @media (min-width: 1024px) {
+        top: -83%;
+        right: -50%;
+        transform: scale(1);
+        width: auto;
+      }
+    }
+
+    // Altura mínima para a coluna
+    min-height: 308px;
+    @media (min-width: 1024px) {
+      min-height: 600px;
+    }
+  }
+  .descricao {
+    position: relative;
+    z-index: 2;
+    padding-top: 110px;
+    padding-bottom: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 65px;
+    h2 {
+      margin-bottom: 0rem;
+      max-width: 416px;
+      font-size: 2.2rem;
+    }
+    p {
+      margin-bottom: 0rem;
+      margin-top: 0rem;
+      max-width: 416px;
+      font-size: 21px;
+      line-height: 25px;
+      font-weight: 300;
+      &.p2 {
+        font-size: 28px;
+        font-weight: 400;
+        line-height: 32px;
+      }
+    }
+    .wp-block-image {
+      margin-top: -32px;
+      img {
+        width: 416px !important;
+      }
+    }
+  }
+  .formsection {
+    position: relative;
+    z-index: 2;
+    padding-bottom: 110px;
+    h2 {
+      font-size: 42px;
+      line-height: 46px;
+    }
+    p {
+      font-size: 21px;
+      line-height: 25px;
+      font-weight: 300;
+      padding-right: 30%;
+    }
+    .whatsapp {
+        .wp-block-button__link {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 20px;
+            line-height: 36px;
+            font-weight: 500;
+            padding: 11px 20px;
+            background-color: transparent;
+            color: #002D5D;
+            border: 1.5px solid #002D5D;
+            border-radius: 999px;
+            transition: all 0.3s ease;
+            &::before {
+                content: "";
+                display: block;
+                width: 37px;
+                height: 37px;
+                background: url("/wp-content/themes/advanced-corretora/assets/icons/whatsapp.svg") no-repeat center center;
+                background-size: cover;
+            }
+            &:hover {
+                background-color: #002D5D;
+                color: #fff;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            }
+        }
+    }
+  }
+}

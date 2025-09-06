@@ -1,3 +1,5 @@
+@use '../components/widgets/form';
+
 .quemsomos {
   background: url('/wp-content/themes/advanced-corretora/assets/images/fundoquemsomos.jpg');
   background-size: cover;
@@ -16,11 +18,10 @@
     position: relative;
     overflow: visible;
     z-index: 1;
+    min-height: 308px;
 
     &::before {
       content: url('/wp-content/themes/advanced-corretora/assets/images/guardachuva.png');
-      position: absolute;
-
       position: absolute;
       top: -299%;
       right: 150%;
@@ -35,13 +36,8 @@
         right: -50%;
         transform: scale(1);
         width: auto;
+        min-height: 600px;
       }
-    }
-
-    // Altura mínima para a coluna
-    min-height: 308px;
-    @media (min-width: 1024px) {
-      min-height: 600px;
     }
   }
   .descricao {
@@ -95,34 +91,50 @@
       padding-right: 30%;
     }
     .whatsapp {
-        .wp-block-button__link {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            font-size: 20px;
-            line-height: 36px;
-            font-weight: 500;
-            padding: 11px 20px;
-            background-color: transparent;
-            color: #002D5D;
-            border: 1.5px solid #002D5D;
-            border-radius: 999px;
-            transition: all 0.3s ease;
-            &::before {
-                content: "";
-                display: block;
-                width: 37px;
-                height: 37px;
-                background: url("/wp-content/themes/advanced-corretora/assets/icons/whatsapp.svg") no-repeat center center;
-                background-size: cover;
-            }
-            &:hover {
-                background-color: #002D5D;
-                color: #fff;
-                transform: translateY(-2px);
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            }
+      .wp-block-button__link {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        font-size: 20px;
+        line-height: 36px;
+        font-weight: 500;
+        padding: 11px 20px;
+        background-color: transparent;
+        color: #002d5d;
+        border: 1.5px solid #002d5d;
+        border-radius: 999px;
+        transition: all 0.3s ease;
+        &::before {
+          content: '';
+          display: block;
+          width: 37px;
+          height: 37px;
+          background: url('/wp-content/themes/advanced-corretora/assets/icons/whatsapp.svg')
+            no-repeat center center;
+          background-size: cover;
         }
+        &:hover {
+          background-color: #002d5d;
+          color: #fff;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+      }
     }
+
+    .formhome {
+      padding: 16px;
+      border-radius: 6px;
+      background: #fff;
+
+      box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+      @media (min-width: 1024px) {
+        padding: 32px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+      @include form.form-styles;
+    }
+    // Incluir estilos do formulário aqui
   }
 }

@@ -1,0 +1,82 @@
+<div class="contact-form-container">
+  <div class="form-section">
+    <div class="title">
+      <h3><span>1</span> Informações gerais</h3>
+    </div>
+    <div class="group-forms">
+      <div class="input-group">
+        <fieldset aria-hidden="true" class="mui-outlined-fieldset">
+          <legend class="mui-legend"><span>Nome</span></legend>
+        </fieldset>
+        <div>[text* nome placeholder "Nome"]</div>
+      </div>
+      <div class="input-group">
+        <fieldset aria-hidden="true" class="mui-outlined-fieldset">
+          <legend class="mui-legend"><span>Sobrenome</span></legend>
+        </fieldset>
+        <div>[text* sobrenome placeholder "Sobrenome"]</div>
+      </div>
+      <div class="input-group">
+        <fieldset aria-hidden="true" class="mui-outlined-fieldset">
+          <legend class="mui-legend"><span>Seu e-mail</span></legend>
+        </fieldset>
+        <div>[email* email placeholder "Seu e-mail"]</div>
+      </div>
+      <div class="input-group">
+        <fieldset aria-hidden="true" class="mui-outlined-fieldset">
+          <legend class="mui-legend">
+            <span>Seu Telefone (com WhatsApp)</span>
+          </legend>
+        </fieldset>
+        <div>[tel* telefone placeholder "(__) _____-____"]</div>
+      </div>
+      <div class="input-group">
+        <fieldset aria-hidden="true" class="mui-outlined-fieldset">
+          <legend class="mui-legend"><span>CPF</span></legend>
+        </fieldset>
+        <div>[text* cpf placeholder "000.000.000-00"]</div>
+      </div>
+      <div class="input-group">
+        <fieldset aria-hidden="true" class="mui-outlined-fieldset">
+          <legend class="mui-legend">
+            <span>Melhor horário para contato</span>
+          </legend>
+        </fieldset>
+        <div>[text horario placeholder "Ex: 09h - 12h"]</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-section">
+    <div class="title">
+      <h3><span>2</span> Informações sobre suas solicitações</h3>
+    </div>
+    <div class="group-forms">
+      <div class="input-group">
+        <fieldset aria-hidden="true" class="mui-outlined-fieldset">
+          <legend class="mui-legend">
+            <span>Serviços que você precisa</span>
+          </legend>
+        </fieldset>
+        <div>
+          [select* servicos "" "Importação de produtos" "Exportação de produtos" "Receber
+          dinheiro do exterior" "Enviar dinheiro para o exterior" "Outro"]
+        </div>
+      </div>
+      <div class="urgencia-buttons">
+        <legend class="mui-legend">
+          <span>Selecione seu nível de urgência</span>
+        </legend>
+        <div>[radio urgencia-opcoes use_label_element default:1 "Preciso urgentemente" "Média" "Pouca" "Nenhuma"]</div>
+      </div>
+      <div class="input-group">
+        <fieldset aria-hidden="true" class="mui-outlined-fieldset">
+          <legend class="mui-legend">
+            <span>Descreva em poucas palavras qual sua necessidade</span>
+          </legend>
+        </fieldset>
+        <div>[textarea* necessidade placeholder "Digite aqui sua necessidade..."]</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-submit">[submit "Enviar solicitação de contato"]</div>
+</div>

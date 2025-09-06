@@ -102,3 +102,4 @@ function advanced_corretora_block_supports() {
     });
 }
 add_action( 'init', 'advanced_corretora_block_supports' );
+add_filter( 'wpcf7_autop_or_not', '__return_false' );

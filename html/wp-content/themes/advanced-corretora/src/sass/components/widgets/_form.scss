@@ -1,0 +1,219 @@
+@mixin form-styles {
+  form.wpcf7-form {
+    .contact-form-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .form-section {
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+
+      .title {
+        h3 {
+          font-size: 1.5rem;
+          font-weight: 300;
+          color: #0099cc;
+          margin: 0rem;
+          padding-bottom: 0rem;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          gap: 16px;
+        }
+        span {
+          display: inline-flex; // mantém alinhado e centralizado
+          align-items: center;
+          justify-content: center;
+          width: 40px; // largura fixa
+          height: 40px; // altura fixa
+          border-radius: 50%; // bolinha perfeita
+          border: 1px solid #002d5d;
+          font-size: 1.5rem;
+          font-weight: 300;
+          text-align: center;
+        }
+      }
+
+      .group-forms {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+      &:first-child {
+        .group-forms {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      // Grid layout para a primeira seção (Informações gerais)
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 1.5rem;
+
+      .mui-outlined-fieldset {
+        position: absolute;
+        top: -5px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0;
+        padding: 0 8px;
+        border: 1px solid #c4c4c4;
+        border-radius: 8px;
+        pointer-events: none;
+        transition: border-color 0.2s ease;
+
+        .mui-legend {
+          position: absolute;
+          top: -8px;
+          left: 12px;
+          padding: 0 8px;
+          background: #fff;
+          font-size: 12px;
+          font-weight: 400;
+          color: #666;
+          line-height: 1;
+
+          span {
+            display: block;
+          }
+        }
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 16px 14px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        background: transparent;
+        position: relative;
+        z-index: 1;
+        box-sizing: border-box;
+
+        &:focus {
+          outline: none;
+        }
+
+        &::placeholder {
+          color: #999;
+          opacity: 1;
+        }
+      }
+
+      textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      // Focus state
+      &:focus-within {
+        .mui-outlined-fieldset {
+          border-color: #0099cc;
+          border-width: 2px;
+
+          .mui-legend {
+            color: #0099cc;
+          }
+        }
+      }
+
+      // Error state (for Contact Form 7 validation)
+      &.wpcf7-not-valid {
+        .mui-outlined-fieldset {
+          border-color: #d32f2f;
+
+          .mui-legend {
+            color: #d32f2f;
+          }
+        }
+      }
+    }
+
+    .urgencia-buttons {
+      display: flex;
+      gap: 1rem;
+      margin: 0;
+      flex-direction: column;
+
+      legend span {
+        font-size: 1rem;
+        font-weight: 400;
+        color: #666;
+        line-height: 1;
+      }
+
+      .wpcf7-form-control-wrap .wpcf7-radio {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        .wpcf7-list-item {
+          margin-left: 0rem;
+          flex: 1; // tamanho baseado no conteúdo
+          display: flex;
+          &:first-child {
+            flex: 0 0 auto; // tamanho baseado no conteúdo
+          }
+          &:last-child {
+            flex: 0 0 auto; // tamanho baseado no conteúdo
+          }
+        }
+      }
+
+      label {
+        flex: 1;
+        text-align: center;
+        padding: 0.6rem;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        input {
+          display: none;
+        }
+
+        &:hover {
+          border-color: #0099cc;
+        }
+
+        input:checked + & {
+          background: #0099cc;
+          color: #fff;
+          border-color: #0099cc;
+        }
+      }
+    }
+
+    .form-submit {
+      text-align: center;
+
+      input[type='submit'] {
+        background: #002a5e;
+        color: #fff;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 12px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.3s;
+
+        &:hover {
+          background: #004080;
+        }
+
+        &:disabled {
+          background: #ccc;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}

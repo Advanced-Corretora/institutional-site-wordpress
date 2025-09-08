@@ -6,15 +6,18 @@
     }
 
     .form-section {
-      margin-bottom: 1.5rem;
+      margin-bottom: 15px;
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
+      @media (min-width: 1024px) {
+        margin-bottom: 1.5rem;
+      }
 
       .title {
         h3 {
-          font-size: 1.5rem;
-          font-weight: 300;
+          font-size: 14px;
+          font-weight: 400;
           color: #0099cc;
           margin: 0rem;
           padding-bottom: 0rem;
@@ -22,18 +25,27 @@
           align-items: center;
           justify-content: flex-start;
           gap: 16px;
+          @media (min-width: 1024px) {
+            font-size: 1.5rem;
+            font-weight: 300;
+          }
         }
         span {
           display: inline-flex; // mantém alinhado e centralizado
           align-items: center;
           justify-content: center;
-          width: 40px; // largura fixa
-          height: 40px; // altura fixa
+          width: 24px; // largura fixa
+          height: 24px; // altura fixa
           border-radius: 50%; // bolinha perfeita
           border: 1px solid #002d5d;
-          font-size: 1.5rem;
+          font-size: 1rem;
           font-weight: 300;
           text-align: center;
+          @media (min-width: 1024px) {
+            width: 40px; // largura fixa
+            height: 40px; // altura fixa
+            font-size: 1.5rem;
+          }
         }
       }
 
@@ -44,7 +56,10 @@
       }
       &:first-child {
         .group-forms {
-          grid-template-columns: 1fr 1fr;
+          grid-template-columns: 1fr;
+          @media (min-width: 1024px) {
+            grid-template-columns: 1fr 1fr;
+          }
         }
       }
 
@@ -74,10 +89,13 @@
           left: 12px;
           padding: 0 8px;
           background: #fff;
-          font-size: 12px;
+          font-size: 14px;
           font-weight: 400;
           color: #666;
           line-height: 1;
+          @media (min-width: 1024px) {
+            font-size: 12px;
+          }
 
           span {
             display: block;
@@ -89,7 +107,7 @@
       select,
       textarea {
         width: 100%;
-        padding: 16px 14px;
+        padding: 8px 14px;
         border: none;
         border-radius: 8px;
         font-size: 1rem;
@@ -97,6 +115,9 @@
         position: relative;
         z-index: 1;
         box-sizing: border-box;
+        @media (min-width: 1024px) {
+          padding: 16px 14px;
+        }
 
         &:focus {
           outline: none;
@@ -109,7 +130,8 @@
       }
 
       textarea {
-        min-height: 120px;
+        height: 70px;
+        min-height: 70px;
         resize: vertical;
       }
 
@@ -140,7 +162,7 @@
     .urgencia-buttons {
       display: flex;
       gap: 1rem;
-      margin: 0;
+      margin-bottom: 1.5rem;
       flex-direction: column;
 
       legend span {
@@ -154,11 +176,20 @@
         display: flex;
         flex-direction: row;
         gap: 1rem;
+        flex-wrap: wrap;
+        @media (min-width: 1024px) {
+          flex-wrap: nowrap;
+        }
         .wpcf7-list-item {
           margin-left: 0rem;
           flex: 1; // tamanho baseado no conteúdo
           display: flex;
           &:first-child {
+            width: 100%;
+            @media (min-width: 1024px) {
+              width: auto;
+              flex-wrap: nowrap;
+            }
             flex: 0 0 auto; // tamanho baseado no conteúdo
           }
           &:last-child {
@@ -184,7 +215,8 @@
           border-color: #0099cc;
         }
 
-        input:checked + & {
+        // Estado selecionado - classe adicionada via JavaScript
+        &.selected {
           background: #0099cc;
           color: #fff;
           border-color: #0099cc;
@@ -193,17 +225,26 @@
     }
 
     .form-submit {
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      text-align: left;
+      @media (min-width: 1024px) {
+        justify-content: flex-start;
+      }
 
       input[type='submit'] {
         background: #002a5e;
         color: #fff;
         border: none;
         padding: 1rem 2rem;
-        border-radius: 12px;
-        font-size: 1rem;
+        border-radius: 999px;
+        font-weight: 500;
+        font-size: 14px;
         cursor: pointer;
         transition: background 0.3s;
+        @media (min-width: 1024px) {
+          font-size: 18px;
+        }
 
         &:hover {
           background: #004080;
@@ -213,6 +254,25 @@
           background: #ccc;
           cursor: not-allowed;
         }
+      }
+    }
+
+    // .input-group:has(.wpcf7-not-valid-tip) {
+    //   fieldset {
+    //     margin-bottom: 16px;
+    //   }
+    // }
+    .wpcf7-not-valid-tip {
+      position: absolute;
+    }
+
+    .wpcf7-spinner {
+      display: none;
+    }
+    &.submitting {
+      display: block;
+      .wpcf7-spinner {
+        display: none;
       }
     }
   }

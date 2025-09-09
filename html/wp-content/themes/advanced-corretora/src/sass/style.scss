@@ -34,6 +34,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 // Components
 @use "components/components" as *;
+@use "components/footer" as *;
 
 // Plugins
 @use "plugins/jetpack/infinite-scroll" as *;

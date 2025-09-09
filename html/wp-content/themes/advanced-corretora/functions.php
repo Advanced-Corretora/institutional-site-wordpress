@@ -228,6 +228,11 @@ require get_template_directory() . '/inc/blocks.php';
  */
 require get_template_directory() . '/inc/required-plugins.php';
 
+/**
+ * Footer Menu Walker
+ */
+require get_template_directory() . '/inc/footer-menu-walker.php';
+
 
 add_action('init', function () {
 	header("Access-Control-Allow-Origin: *");

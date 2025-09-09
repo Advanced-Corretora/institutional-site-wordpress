@@ -176,6 +176,7 @@ function advanced_corretora_register_menus()
         array(
             'top-menu' => esc_html__('Menu Principal', 'advanced-corretora'),
             'menu-1' => esc_html__('Primary', 'advanced-corretora'),
+            'footer-menu' => esc_html__('Menu do Rodapé', 'advanced-corretora'),
         )
     );
 }

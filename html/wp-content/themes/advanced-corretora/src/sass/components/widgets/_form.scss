@@ -186,11 +186,11 @@
           display: flex;
           &:first-child {
             width: 100%;
+            flex: 0 0 auto; // tamanho baseado no conteúdo
             @media (min-width: 1024px) {
               width: auto;
               flex-wrap: nowrap;
             }
-            flex: 0 0 auto; // tamanho baseado no conteúdo
           }
           &:last-child {
             flex: 0 0 auto; // tamanho baseado no conteúdo

@@ -223,6 +223,11 @@ require get_template_directory() . '/inc/themeSupport.php';
  */
 require get_template_directory() . '/inc/blocks.php';
 
+/**
+ * Required and recommended plugins
+ */
+require get_template_directory() . '/inc/required-plugins.php';
+
 
 add_action('init', function () {
 	header("Access-Control-Allow-Origin: *");

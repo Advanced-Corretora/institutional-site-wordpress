@@ -84,6 +84,8 @@
 			</div>
 		<?php endif; ?>
 
+		<div class="footer-divider"></div>
+
 		<?php
 		// Seção 4: Selos e Política de Privacidade
 		$seals = carbon_get_theme_option('footer_seals');
@@ -102,6 +104,9 @@
 								$seal_image_url = wp_get_attachment_image_url($seal['seal_image'], 'full');
 								if ($seal_image_url) : ?>
 									<div class="seal-item">
+										<?php if (! empty($seal['seal_title'])) : ?>
+											<p class="seal-title"><?php echo esc_html($seal['seal_title']); ?></p>
+										<?php endif; ?>
 										<?php if (! empty($seal['seal_link'])) : ?>
 											<a href="<?php echo esc_url($seal['seal_link']); ?>" target="_blank" rel="noopener noreferrer">
 											<?php endif; ?>
@@ -117,27 +122,29 @@
 						<?php endif;
 							endif;
 						endforeach; ?>
-					</div>
-				<?php endif; ?>
+						<?php if (! empty($privacy_btn1_text) || ! empty($privacy_btn2_text)) : ?>
+							<div class="privacy-policy-section">
+								<p class="privacy-policy-title">Política de Privacidade</p>
+								<?php if (! empty($privacy_btn1_text)) : ?>
+									<a href="<?php echo esc_url($privacy_btn1_link); ?>" class="privacy-button">
+										<?php echo esc_html($privacy_btn1_text); ?>
+									</a>
+								<?php endif; ?>
 
-				<?php if (! empty($privacy_btn1_text) || ! empty($privacy_btn2_text)) : ?>
-					<div class="privacy-policy-section">
-						<?php if (! empty($privacy_btn1_text)) : ?>
-							<a href="<?php echo esc_url($privacy_btn1_link); ?>" class="privacy-button">
-								<?php echo esc_html($privacy_btn1_text); ?>
-							</a>
-						<?php endif; ?>
-
-						<?php if (! empty($privacy_btn2_text)) : ?>
-							<a href="<?php echo esc_url($privacy_btn2_link); ?>" class="privacy-button">
-								<?php echo esc_html($privacy_btn2_text); ?>
-							</a>
+								<?php if (! empty($privacy_btn2_text)) : ?>
+									<a href="<?php echo esc_url($privacy_btn2_link); ?>" class="privacy-button">
+										<?php echo esc_html($privacy_btn2_text); ?>
+									</a>
+								<?php endif; ?>
+							</div>
 						<?php endif; ?>
 					</div>
 				<?php endif; ?>
 
 			</div>
 		<?php endif; ?>
+
+		<div class="footer-divider"></div>
 
 		<?php
 		// Seção 5: Logos Advanced Grupo
@@ -172,31 +179,50 @@
 		if (! empty($copyright) || ! empty($cnpj) || ! empty($address)) : ?>
 			<div class="footer-section footer-final-section">
 				<div class="footer-final-info">
+					<div class="footer-final-info-left">
 
-					<?php if (! empty($copyright)) : ?>
-						<div class="footer-copyright">
-							<?php echo esc_html($copyright); ?>
-						</div>
-					<?php endif; ?>
+						<?php if (! empty($copyright)) : ?>
+							<div class="footer-copyright">
+								<?php echo esc_html($copyright); ?>
+							</div>
+						<?php endif; ?>
 
-					<?php if (! empty($cnpj)) : ?>
-						<div class="footer-cnpj">
-							<?php echo esc_html($cnpj); ?>
-						</div>
-					<?php endif; ?>
+						<?php if (! empty($cnpj)) : ?>
+							<div class="footer-cnpj">
+								<?php echo esc_html($cnpj); ?>
+							</div>
+						<?php endif; ?>
 
-					<?php if (! empty($address)) : ?>
-						<div class="footer-address">
-							<?php echo wp_kses_post($address); ?>
-						</div>
-					<?php endif; ?>
-
+					</div>
+					<div class="footer-final-info-right">
+						<?php if (! empty($address)) : ?>
+							<div class="footer-address">
+								<?php echo wp_kses_post($address); ?>
+							</div>
+						<?php endif; ?>
+					</div>
 				</div>
-			</div>
-		<?php endif; ?>
+			<?php endif; ?>
 
-	</div><!-- .container -->
+			<!-- Back to Top Button (Mobile) -->
+			<div class="back-to-top-container">
+				<button id="back-to-top" class="back-to-top-btn" aria-label="Voltar ao topo">
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M12 19V5M5 12L12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+					<span class="back-to-top-text">Voltar ao topo</span>
+				</button>
+			</div>
+
+		</div><!-- .container -->
 </footer><!-- #colophon -->
+
+<!-- Back to Top Button (Desktop Fixed) -->
+<button id="back-to-top-desktop" class="back-to-top-btn back-to-top-desktop" aria-label="Voltar ao topo">
+	<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path d="M12 19V5M5 12L12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+	</svg>
+</button>
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

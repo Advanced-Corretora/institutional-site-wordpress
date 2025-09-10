@@ -24,6 +24,9 @@
     width: 100%;
     gap: 104px;
     padding: 14px 20px;
+    @media (min-width: 1024px) {
+      gap: 32px;
+    }
     > .logo {
       max-width: 40%;
       flex: 0 0 auto;
@@ -418,7 +421,7 @@
         &.active {
           transform: translateY(0);
           color: #fff;
-          top: calc(32px + var(--wp-adminbar-offset));
+          top: calc(77px + var(--wp-adminbar-offset));
 
           .close-icon {
             display: flex;

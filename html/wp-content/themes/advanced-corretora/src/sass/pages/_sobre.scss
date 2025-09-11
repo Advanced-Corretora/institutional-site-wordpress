@@ -41,3 +41,81 @@
     }
   }
 }
+
+.sobrecontainer {
+  background-image: url('/wp-content/themes/advanced-corretora/assets/images/backgroundquemsomos.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  .wp-block-group__inner-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: 80px;
+    padding-bottom: 85px;
+    @media (min-width: 1024px) {
+      padding-top: 165px;
+      padding-bottom: 225px;
+    }
+  }
+
+  .sobre-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    h2 {
+      margin: 0;
+      font-weight: 26px;
+      line-height: 32px;
+      font-weight: 300;
+      padding-bottom: 30px;
+      color: #003366;
+      @media (min-width: 1024px) {
+        font-size: 42px;
+        line-height: 46px;
+      }
+    }
+    p {
+      margin: 0;
+      font-size: 16px;
+      line-height: 20px;
+      color: #666;
+      font-weight: 300;
+      @media (min-width: 1024px) {
+        font-size: 21px;
+        line-height: 29px;
+      }
+    }
+  }
+
+  .guardachuva {
+    position: relative;
+    overflow: visible;
+    z-index: 1;
+    min-height: 308px;
+
+    &::before {
+      content: url('/wp-content/themes/advanced-corretora/assets/images/guardachuva.png');
+      position: absolute;
+      top: -299%;
+      right: 150%;
+      width: 100%;
+      transform: scale(0.4);
+      @media (min-width: 500px) {
+        right: 500px;
+      }
+
+      @media (min-width: 1024px) {
+        top: -125%;
+        right: -358%;
+        transform: scale(1);
+        width: auto;
+        min-height: 600px;
+        transform: rotate(-226deg);
+      }
+    }
+  }
+}

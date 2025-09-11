@@ -54,7 +54,8 @@ function has_flickity_blocks() {
     $flickity_blocks = [
         'carbon-fields/produtos-carrossel',
         'carbon-fields/home-slider',
-        'carbon-fields/timeline'
+        'carbon-fields/timeline',
+        'carbon-fields/carrossel-diferenciais'
     ];
     
     // Check in post content

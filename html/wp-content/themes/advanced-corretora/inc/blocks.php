@@ -76,3 +76,10 @@ function advanced_corretora_compile_block_scss() {
     }
 }
 add_action('init', 'advanced_corretora_compile_block_scss');
+
+/**
+ * Include Carbon Fields blocks
+ */
+require_once get_template_directory() . '/inc/blocks/homeSlider-block.php';
+require_once get_template_directory() . '/inc/blocks/carousel-block.php';
+require_once get_template_directory() . '/inc/blocks/timeline-block.php';

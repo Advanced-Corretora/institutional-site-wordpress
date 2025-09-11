@@ -50,9 +50,9 @@ export default defineConfig({
         main: path.resolve(__dirname, 'src/js/main.js'),
         carousel: path.resolve(__dirname, 'src/js/modules/carousel.js'),
         homeSlider: path.resolve(__dirname, 'src/js/modules/homeSlider.js'),
+        timeline: path.resolve(__dirname, 'src/js/modules/timeline.js'),
         style: path.resolve(__dirname, 'src/sass/style.scss'),
-        carouselStyle: path.resolve(__dirname, 'src/sass/carousel.scss'),
-        homeSliderStyle: path.resolve(__dirname, 'src/sass/homeSlider.scss'),
+        flickityStyle: path.resolve(__dirname, 'src/sass/flickity.scss'),
       },
       output: {
         assetFileNames: 'css/[name].css',

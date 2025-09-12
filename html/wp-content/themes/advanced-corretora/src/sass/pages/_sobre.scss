@@ -60,22 +60,43 @@
       padding-top: 165px;
       padding-bottom: 225px;
     }
+
+    .wp-block-columns:nth-child(1) {
+      margin-bottom: 48px;
+      @media (min-width: 782px) {
+        flex-wrap: wrap !important;
+      }
+      @media (min-width: 1024px) {
+        flex-wrap: nowrap !important;
+      }
+    }
   }
 
   .sobre-texto {
     display: flex;
     flex-direction: column;
     gap: 40px;
+    order: 2;
+    margin-top: -160px;
+    position: relative;
+    z-index: 2;
+    @media (min-width: 1024px) {
+      margin-top: 0;
+      order: 1;
+    }
     h2 {
       margin: 0;
-      font-weight: 26px;
+      font-size: 26px;
       line-height: 32px;
       font-weight: 300;
-      padding-bottom: 30px;
+      padding-bottom: 0px;
       color: #003366;
+      text-align: center;
       @media (min-width: 1024px) {
         font-size: 42px;
         line-height: 46px;
+        text-align: left;
+        padding-bottom: 30px;
       }
     }
     p {
@@ -84,9 +105,11 @@
       line-height: 20px;
       color: #666;
       font-weight: 300;
+      text-align: center;
       @media (min-width: 1024px) {
         font-size: 21px;
         line-height: 29px;
+        text-align: left;
       }
     }
   }
@@ -96,21 +119,30 @@
     overflow: visible;
     z-index: 1;
     min-height: 308px;
+    order: 1;
+    @media (min-width: 1024px) {
+      order: 2;
+    }
 
     &::before {
       content: url('/wp-content/themes/advanced-corretora/assets/images/guardachuva.png');
       position: absolute;
-      top: -299%;
-      right: 150%;
+      top: -382%;
+      right: 80%;
       width: 100%;
-      transform: scale(0.4);
-      @media (min-width: 500px) {
-        right: 500px;
+      transform: scale(0.3);
+      @media (min-width: 467px) {
+        right: 64%;
+      }
+
+      @media (min-width: 600px) {
+        right: 66%;
+        ransform: scale(0.5);
       }
 
       @media (min-width: 1024px) {
-        top: -125%;
-        right: -358%;
+        top: -70%;
+        right: -360%;
         transform: scale(1);
         width: auto;
         min-height: 600px;

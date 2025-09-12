@@ -3,16 +3,22 @@
   width: 100%;
   max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 2rem var(--container-padding);
+
+  @media (max-width: 768px) {
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
 
   .diferenciais-container {
     display: flex;
     gap: 2rem;
-    align-items: flex-start;
+    align-items: center;
 
     @media (max-width: 768px) {
       flex-direction: column;
-      gap: 2rem;
+      gap: 1rem;
     }
 
     // Left Column - Title and Navigation (25%)
@@ -20,23 +26,27 @@
       flex: 0 0 25%;
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      gap: 24px;
 
       @media (max-width: 768px) {
         flex: none;
         width: 100%;
+        order: 1; // Move navigation below carousel on mobile
       }
 
       .diferenciais-title {
         h2 {
-          font-size: 2rem;
-          font-weight: 700;
-          color: #002d50;
+          font-size: 20px;
+          font-weight: 300;
+          color: #003366;
           margin: 0;
-          line-height: 1.2;
-
+          line-height: 32px;
+          padding-bottom: 0rem;
+          text-align: center;
           @media (min-width: 1024px) {
-            font-size: 2.5rem;
+            font-size: 42px;
+            line-height: 50px;
+            text-align: left;
           }
         }
       }
@@ -46,26 +56,29 @@
         gap: 1rem;
 
         @media (max-width: 768px) {
-          justify-content: center;
+          display: none; // Hide navigation on mobile
         }
 
         button {
-          background: #002d50;
+          background: transparent;
           border: none;
           border-radius: 50%;
-          width: 50px;
-          height: 50px;
+          width: 35px;
+          height: 35px;
           display: flex;
           align-items: center;
           justify-content: center;
           cursor: pointer;
           transition: all 0.3s ease;
-          color: white;
+          color: #002d50;
+          border: 1px solid #002d50;
+          padding: 0;
 
           &:hover {
-            background: #001a30;
+            background: #002d50;
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(0, 45, 80, 0.3);
+            color: #fff;
           }
 
           &:focus {
@@ -83,6 +96,13 @@
           svg {
             width: 24px;
             height: 24px;
+            path {
+              stroke: #0099cc;
+            }
+          }
+
+          &:hover svg path {
+            stroke: #fff;
           }
         }
       }
@@ -92,29 +112,54 @@
     .diferenciais-right {
       flex: 1;
       overflow: hidden;
+      padding-top: 20px;
+      padding-bottom: 66px;
+      @media (min-width: 1024px) {
+        padding-bottom: 20px;
+      }
+
+      @media (max-width: 768px) {
+        order: 1; // Show carousel first on mobile
+        width: 100%;
+        overflow: visible;
+        padding-left: 0;
+        padding-right: 0;
+      }
 
       .diferenciais-carousel {
+        @media (max-width: 768px) {
+          overflow: visible;
+        }
+
         .diferencial-cell {
-          width: 100%;
-          padding: 0 1rem;
+          width: 320px;
+          max-width: calc(100% - var(--container-padding) * 2);
+          height: auto;
+          margin-right: 10px;
 
           @media (min-width: 768px) {
             width: 50%; // 2 slides on tablet+
+            max-width: 50%;
+            padding: 0 16px;
+            margin-right: 0;
           }
 
           @media (min-width: 1024px) {
             width: 33.333%; // 3 slides on desktop
+            max-width: 33.333%;
           }
 
           .diferencial-item {
             background: white;
             border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             height: 100%;
             display: flex;
             flex-direction: column;
+            align-items: center;
+            gap: 20px;
 
             &:hover {
               transform: translateY(-5px);
@@ -122,43 +167,50 @@
             }
 
             .diferencial-numero {
-              font-size: 3rem;
-              font-weight: 700;
-              color: #00ffff;
-              margin-bottom: 1rem;
-              line-height: 1;
-
-              @media (min-width: 1024px) {
-                font-size: 4rem;
-              }
+              width: 35px;
+              height: 35px;
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 50%;
+              border: 1px solid #002d5d;
+              font-size: 23px;
+              font-weight: 300;
+              text-align: center;
+              color: #0099cc;
             }
 
             .diferencial-content {
               flex: 1;
               display: flex;
               flex-direction: column;
+              gap: 20px;
 
               .diferencial-titulo {
-                font-size: 1.5rem;
-                font-weight: 600;
-                color: #002d50;
-                margin: 0 0 1rem 0;
-                line-height: 1.3;
-
+                font-size: 30px;
+                font-weight: 400;
+                color: #0099cc;
+                margin: 0;
+                line-height: 40px;
+                text-align: center;
                 @media (min-width: 1024px) {
-                  font-size: 1.75rem;
+                  font-size: 24px;
+                  line-height: 1.3;
+                  font-weight: 300;
                 }
               }
 
               .diferencial-descricao {
-                font-size: 1rem;
-                line-height: 1.6;
+                font-size: 20px;
+                line-height: 24px;
                 color: #666;
                 margin: 0;
                 flex: 1;
-
+                text-align: center;
+                font-weight: 400;
                 @media (min-width: 1024px) {
-                  font-size: 1.1rem;
+                  font-size: 14px;
+                  line-height: 20px;
                 }
               }
             }
@@ -171,51 +223,55 @@
   // Flickity viewport adjustments
   .flickity-viewport {
     overflow: visible;
+
+    @media (max-width: 768px) {
+      overflow: visible;
+    }
   }
 
-  // Hide default Flickity buttons since we use custom ones
   .flickity-button {
-    display: none;
-  }
-
-  // Responsive adjustments
-  @media (max-width: 768px) {
-    padding: 1rem var(--container-padding);
-
-    .diferenciais-container {
-      .diferenciais-left {
-        .diferenciais-title h2 {
-          text-align: center;
-          font-size: 1.75rem;
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #002d50;
+    border: 1px solid #002d50;
+    padding: 0;
+    top: auto;
+    bottom: -83px;
+    &.flickity-prev-next-button.previous {
+      left: calc(50% - 43px);
+    }
+    &.flickity-prev-next-button.next {
+      right: calc(50% - 43px);
+    }
+    .flickity-button-icon {
+      left: 9px;
+      top: 9px;
+      width: 15px;
+      height: 15px;
+      path {
+        fill: #0099cc;
+      }
+    }
+    &:hover {
+      border-color: #003366;
+      background-color: #003366;
+      .flickity-button-icon {
+        path {
+          fill: #fff;
         }
       }
-
-      .diferenciais-right {
-        .diferenciais-carousel {
-          .diferencial-cell {
-            width: 100%; // Single slide on mobile
-            
-            .diferencial-item {
-              padding: 1.5rem;
-              text-align: center;
-
-              .diferencial-numero {
-                font-size: 2.5rem;
-              }
-
-              .diferencial-content {
-                .diferencial-titulo {
-                  font-size: 1.25rem;
-                }
-
-                .diferencial-descricao {
-                  font-size: 0.95rem;
-                }
-              }
-            }
-          }
-        }
-      }
+    }
+    @media (min-width: 1024px) {
+      // Hide default Flickity buttons since we use custom ones
+      display: none;
     }
   }
 }

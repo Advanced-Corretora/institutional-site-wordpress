@@ -151,3 +151,48 @@
     }
   }
 }
+.missaocontainer {
+  @media (max-width: 1023px) {
+    background-color: #456570;
+    padding-top: 450px !important;
+    padding-bottom: 90px !important;
+    .wp-block-cover__image-background {
+      height: 450px;
+      width: auto;
+      left: auto;
+      right: -150px;
+    }
+    .wp-block-cover__background {
+      opacity: 1 !important;
+      height: 451px;
+    }
+  }
+}
+.missao {
+  .wp-block-cover__inner-container {
+    padding: 0;
+  }
+  .wp-block-column {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+    @media (min-width: 1024px) {
+      text-align: left;
+    }
+    h2 {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: 400;
+      @media (min-width: 1024px) {
+        font-weight: 300;
+      }
+    }
+    p {
+      margin: 0;
+      margin-bottom: 20px;
+      font-weight: 300;
+      font-size: 21px;
+    }
+  }
+}

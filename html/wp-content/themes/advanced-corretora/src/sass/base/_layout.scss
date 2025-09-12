@@ -59,6 +59,16 @@ a {
   font-weight: 500;
 }
 
+.wp-block-cover__inner-container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0;
+  @media (min-width: 1024px) {
+    padding: 0 var(--container-padding);
+  }
+}
+
 /* Responsive breakpoints */
 @media (min-width: 576px) {
   :root {

@@ -20,6 +20,8 @@ function home_slider_block()
                             'light' => 'Light',
                         ])
                         ->set_default_value('dark'),
+                    Field::make('color', 'cor_submenu', 'Cor do Submenu')
+                        ->set_help_text('Cor que será aplicada ao submenu do header quando este slide estiver ativo'),
                 ])
                 ->set_layout('tabbed-horizontal'), // melhora visual no editor
         ])
@@ -50,7 +52,7 @@ function home_slider_block()
         <div <?php echo implode(' ', $block_attributes); ?>>
             <div class="gutenberg-home-slider" data-flickity='{ "wrapAround": true, "pageDots": true, "prevNextButtons": true, "cellAlign": "center", "contain": false }'>
                 <?php foreach ($block['slides'] as $index => $slide) : ?>
-                    <div class="slider-cell">
+                    <div class="slider-cell" <?php echo !empty($slide['cor_submenu']) ? 'data-submenu-color="' . esc_attr($slide['cor_submenu']) . '"' : ''; ?>>
                         <div class="slide" style="background-image: url('<?php echo wp_get_attachment_image_url($slide['imagem_fundo'], 'full'); ?>');">
                             <div class="slide-content <?php echo (!empty($slide['tema']) && $slide['tema'] === 'light') ? 'light' : 'dark'; ?>">
                                 <div class="container">

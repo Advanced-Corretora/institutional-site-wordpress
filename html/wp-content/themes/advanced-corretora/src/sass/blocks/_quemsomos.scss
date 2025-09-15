@@ -62,7 +62,7 @@
 
     h2 {
       margin-bottom: 0rem;
-      max-width: 416px;
+      // max-width: 416px;
       font-size: 2.2rem;
     }
     p {
@@ -91,6 +91,14 @@
         width: 416px !important;
       }
     }
+    > * {
+      @media (min-width: 1600px) {
+        width: 717px;
+        max-width: 717px;
+        left: 75px;
+        position: relative;
+      }
+    }
   }
   .formsection {
     position: relative;
@@ -115,7 +123,7 @@
       text-align: center;
       @media (min-width: 1024px) {
         text-align: left;
-        padding-right: 30%;
+        padding-right: 19%;
       }
     }
     .ctasobre {
@@ -132,7 +140,7 @@
       .wp-block-button__link {
         display: flex;
         align-items: center;
-        gap: 20px;
+        gap: 10px;
         font-size: 20px;
         line-height: 36px;
         font-weight: 500;
@@ -157,22 +165,28 @@
           transform: translateY(-2px);
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
+        @media (min-width: 1024px) {
+          font-size: 18px;
+          line-height: 26px;
+          padding: 8px 16px;
+          color: #003366;
+          border: 1.5px solid #003366;
+        }
       }
     }
 
     .formhome {
-      padding: 16px;
-      border-radius: 6px;
-      background: #fff;
-      box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
       order: 1;
       @media (min-width: 1024px) {
-        padding: 32px;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         order: 2;
       }
       @include form.form-styles;
+
+      .wpcf7-form {
+        @media (min-width: 1600px) {
+          width: 717px;
+        }
+      }
     }
     // Incluir estilos do formulário aqui
   }

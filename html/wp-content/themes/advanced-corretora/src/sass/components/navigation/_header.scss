@@ -200,10 +200,10 @@
             text-align: center;
             font-size: 14px;
             font-style: normal;
-            font-weight: 400;
+            font-weight: 500;
             line-height: 16px;
             border-radius: 999px;
-            padding: 12px 24px;
+            padding: 18px 31px;
             text-decoration: none;
             background: linear-gradient(88deg, #275892 3.02%, #002d5d 64.84%, #144277 93.9%);
             transition: all 0.3s ease;
@@ -333,14 +333,15 @@
         height: 40px;
         justify-content: center;
         align-items: center;
-
+        position: relative;
+        z-index: 2;
         > a {
           text-align: center;
           font-size: 12px;
           font-style: normal;
-          font-weight: 400;
+          font-weight: 500;
           border-radius: 999px;
-          padding: 10px 16px;
+          padding: 14px 15px;
           text-decoration: none;
           background: transparent;
           transition: all 0.3s ease;
@@ -349,6 +350,7 @@
           @media (min-width: 1024px) {
             font-size: 18px;
             line-height: 16px;
+            padding: 18px 32px;
           }
         }
       }
@@ -421,7 +423,7 @@
         &.active {
           transform: translateY(0);
           color: #fff;
-          top: calc(77px + var(--wp-adminbar-offset));
+          top: calc(76px + var(--wp-adminbar-offset));
 
           .close-icon {
             display: flex;
@@ -443,6 +445,10 @@
           width: 100%;
           padding-left: 10px;
           padding-right: 10px;
+          overflow-y: scroll;
+          @media (min-width: 1024px) {
+            overflow-y: auto;
+          }
 
           .list {
             flex-direction: column;

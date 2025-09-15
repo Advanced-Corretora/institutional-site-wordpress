@@ -55,16 +55,21 @@ document.addEventListener('DOMContentLoaded', function () {
     submitButton.disabled = true;
   }
 
+  // Track if user has interacted with radio buttons
+  let userHasInteracted = false;
+
   // Função para atualizar visual dos radio buttons
   function updateRadioButtons() {
     const radioButtons = document.querySelectorAll('.urgencia-buttons input[type="radio"]');
     radioButtons.forEach(radio => {
       const label = radio.closest('label');
       if (label) {
-        if (radio.checked) {
-          label.classList.add('selected');
-        } else {
-          label.classList.remove('selected');
+        // Remove both old and new classes
+        label.classList.remove('selected', 'user-selected');
+
+        // Only show selection if user has interacted and radio is checked
+        if (radio.checked && userHasInteracted) {
+          label.classList.add('user-selected');
         }
       }
     });
@@ -82,7 +87,16 @@ document.addEventListener('DOMContentLoaded', function () {
   // Adiciona listeners específicos para radio buttons
   const radioButtons = document.querySelectorAll('.urgencia-buttons input[type="radio"]');
   radioButtons.forEach(radio => {
+    // Listen for both change and click events
     radio.addEventListener('change', function () {
+      userHasInteracted = true; // Mark that user has interacted
+      updateRadioButtons();
+      validateForm();
+    });
+    
+    // Also listen for click to catch cases where the radio is already selected
+    radio.addEventListener('click', function () {
+      userHasInteracted = true; // Mark that user has interacted
       updateRadioButtons();
       validateForm();
     });

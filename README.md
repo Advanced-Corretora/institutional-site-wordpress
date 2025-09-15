@@ -1,4 +1,4 @@
-# Advanced Corretora Blog
+# Advanced Corretora Blog teste
 
 This project is a WordPress-based blog environment, using Docker for local development and deployment.
 

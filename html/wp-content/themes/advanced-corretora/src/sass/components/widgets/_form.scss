@@ -167,12 +167,15 @@
           outline: none;
         }
 
-        // Custom arrow using background image
-        background-image: url('data:image/svg+xml;charset=US-ASCII,<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6.25L1.5 1.75" stroke="%23666666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.5 1.75L6 6.25" stroke="%23666666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
-        background-repeat: no-repeat;
-        background-position: right 14px center;
-        background-size: 12px 8px;
-        padding-right: 40px; // Make space for the arrow
+        & {
+          // Custom arrow using background image
+          background-image: url('data:image/svg+xml;charset=US-ASCII,<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6.25L1.5 1.75" stroke="%23666666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.5 1.75L6 6.25" stroke="%23666666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+          background-repeat: no-repeat;
+          background-position: right 14px center;
+          background-size: 12px 8px;
+          padding-right: 40px; // Make space for the arrow
+        }
+
       }
 
 

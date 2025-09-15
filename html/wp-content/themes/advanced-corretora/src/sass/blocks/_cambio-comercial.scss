@@ -1,0 +1,123 @@
+.wp-block-group.bg-external-finance {
+  position: relative;
+  z-index: 1;
+  background: url('/wp-content/uploads/2025/09/fundo-cambio-dinheiro.png') no-repeat center center;
+  background-size: cover;
+  overflow: hidden;
+  width: 100%;
+  padding: 80px 0;
+  margin-bottom: 100px;
+
+  .wp-block-group__inner-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  h2.wp-block-heading {
+    color: #00e5ff;
+  }
+
+  p {
+    margin: 0px !important;
+    margin-bottom: 20px !important;
+  }
+
+  a.wp-element-button {
+    border: solid 1px #00e5ff;
+    background-color: transparent;
+    color: #FFF;
+    width: 296px;
+    height: 54px;
+  }
+}
+
+.wp-block-column.box-blue {
+  background-color: rgba(4, 248, 248, 0.05);
+  border: 1px solid #04f6f8;
+  border-radius: 16px;
+  text-align: center;
+  flex: 1;
+  height: 260px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h3 {
+    color: #00e5ff;
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: #fff;
+  }
+}
+
+.wp-block-columns.is-layout-flex {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.wp-block-button.has-text-align-center {
+  text-align: center;
+  margin-top: 40px;
+
+  .wp-block-button__link {
+    border: 1px solid #00e5ff;
+    border-radius: 50px;
+    padding: 12px 30px;
+    color: #00e5ff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: #00e5ff;
+      color: #000;
+    }
+  }
+}
+
+.wp-block-group.bg-cambio-paises {
+    position: relative;
+    z-index: 1;
+    background: url('/wp-content/uploads/2025/09/fundo-cambio-paises.png') no-repeat center center;
+    background-size: cover;
+    overflow: hidden;
+    width: 100%;
+    padding: 80px 0;
+
+    .box-white {
+        background-color: #FFF;
+        border-radius: 16px;
+        padding: 30px 20px;
+        text-align: center;
+        margin: 0 auto;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.vantagens-slider {
+  &.box-white {
+    background-color: #FFF;
+    border-radius: 16px;
+    padding: 30px 20px;
+    text-align: center;
+    margin: 0 auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.bg-page-exchange-value {
+    position: relative;
+    z-index: 1;
+    background: url('/wp-content/uploads/2025/09/fundo-cambio-valor.png') no-repeat center center;
+    background-size: cover;
+    overflow: hidden;
+    width: 100%;
+    padding: 80px 0;
+}

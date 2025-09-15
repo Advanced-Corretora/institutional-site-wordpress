@@ -66,10 +66,10 @@ $wrapper_attributes = get_block_wrapper_attributes([
                     <?php if (isset($item['number']) && isset($item['label'])) : ?>
                         <div class="number-item" style="animation-delay: <?php echo esc_attr(($index + 1) * 0.1); ?>s; animation-fill-mode: both;">
                             <div class="number" style="color: <?php echo esc_attr($number_color); ?>; display: block;">
-                                <?php echo esc_html($item['number']); ?>
+                                <?php echo wp_kses_post($item['number']); ?>
                             </div>
                             <div class="label" style="color: <?php echo esc_attr($text_color); ?>;">
-                                <?php echo esc_html($item['label']); ?>
+                                <?php echo wp_kses_post($item['label']); ?>
                             </div>
                         </div>
                     <?php endif; ?>

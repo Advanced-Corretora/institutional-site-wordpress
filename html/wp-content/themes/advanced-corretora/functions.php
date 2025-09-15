@@ -233,6 +233,12 @@ require get_template_directory() . '/inc/required-plugins.php';
  */
 require get_template_directory() . '/inc/footer-menu-walker.php';
 
+/**
+ * Flickity CSS Global Enqueue Handler
+ */
+require get_template_directory() . '/inc/flickity-enqueue.php';
+
+
 
 add_action('init', function () {
 	header("Access-Control-Allow-Origin: *");

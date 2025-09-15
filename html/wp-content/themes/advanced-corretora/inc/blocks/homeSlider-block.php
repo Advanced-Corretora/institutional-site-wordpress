@@ -23,14 +23,31 @@ function home_slider_block()
                 ])
                 ->set_layout('tabbed-horizontal'), // melhora visual no editor
         ])
-        ->set_render_callback(function ($block) {
+        ->set_render_callback(function ($block, $attributes) {
             if (empty($block['slides'])) {
                 return;
             }
 
+            // Get additional classes and anchor from Gutenberg
+            $className = isset($attributes['className']) ? $attributes['className'] : '';
+            $anchor = isset($attributes['anchor']) ? $attributes['anchor'] : '';
+            
+            // Build classes array
+            $classes = ['wp-block-home-slider'];
+            if (!empty($className)) {
+                $classes[] = $className;
+            }
+            
+            // Build attributes array
+            $block_attributes = [];
+            if (!empty($anchor)) {
+                $block_attributes[] = 'id="' . esc_attr($anchor) . '"';
+            }
+            $block_attributes[] = 'class="' . esc_attr(implode(' ', $classes)) . '"';
+
             ob_start();
 ?>
-        <div class="wp-block-home-slider">
+        <div <?php echo implode(' ', $block_attributes); ?>>
             <div class="gutenberg-home-slider" data-flickity='{ "wrapAround": true, "pageDots": true, "prevNextButtons": true, "cellAlign": "center", "contain": false }'>
                 <?php foreach ($block['slides'] as $index => $slide) : ?>
                     <div class="slider-cell">
@@ -108,7 +125,6 @@ function home_slider_enqueue_assets()
         }
     }
     if ($should_enqueue) {
-
         wp_register_script(
             'advanced-corretora-home-slider',
             get_template_directory_uri() . '/dist/js/homeSlider.js',
@@ -129,18 +145,8 @@ function home_slider_enqueue_assets()
             return $tag;
         }, 10, 3);
 
-        // Enqueue dedicated home slider stylesheet built from src/sass/homeSlider.scss (only if it exists)
-        $home_slider_style_path = get_template_directory() . '/dist/css/homeSliderStyle.css';
-        if (file_exists($home_slider_style_path)) {
-            $home_slider_style_uri  = get_template_directory_uri() . '/dist/css/homeSliderStyle.css';
-            $home_slider_style_ver  = filemtime($home_slider_style_path);
-            wp_enqueue_style(
-                'advanced-corretora-home-slider-style',
-                $home_slider_style_uri,
-                array('advanced-corretora-style'),
-                $home_slider_style_ver
-            );
-        }
+        // Enqueue Flickity CSS (global function prevents duplicates)
+        enqueue_flickity_css_once();
     }
 }
 add_action('wp_enqueue_scripts', 'home_slider_enqueue_assets');

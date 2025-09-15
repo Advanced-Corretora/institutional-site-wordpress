@@ -22,6 +22,11 @@ function advanced_corretora_body_classes( $classes ) {
 		$classes[] = 'no-sidebar';
 	}
 
+	// Check if current page is using the full-width template
+	if ( is_page_template( 'page-fullwidth.php' ) ) {
+		$classes[] = 'page-fullwidth';
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'advanced_corretora_body_classes' );

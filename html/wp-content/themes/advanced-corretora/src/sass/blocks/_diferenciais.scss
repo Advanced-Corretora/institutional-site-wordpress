@@ -134,7 +134,7 @@
         .diferencial-cell {
           width: 320px;
           max-width: calc(100% - var(--container-padding) * 2);
-          height: auto;
+          height: 100%;
           margin-right: 10px;
 
           @media (min-width: 768px) {

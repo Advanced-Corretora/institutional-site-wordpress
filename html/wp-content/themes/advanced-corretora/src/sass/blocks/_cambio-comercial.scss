@@ -12,7 +12,7 @@
 
   @media (max-width: 767px) {
     .wp-block-cover__inner-container {
-      background-color: #0A2445 !important;
+      background-color: #0a2445 !important;
       padding: 0px !important;
     }
 
@@ -58,6 +58,26 @@
   }
 }
 
+.vantagens-section {
+  padding: 280px var(--container-padding);
+  @media (min-width: 1024px) {
+    padding: 80px var(--container-padding);
+  }
+  .diferenciais-title {
+    h2 {
+      font-size: 24px;
+      line-height: 32px;
+      font-weight: 300;
+      color: #003366;
+      @media (min-width: 1024px) {
+        font-size: 24px;
+        line-height: 28px;
+        font-weight: 300;
+      }
+    }
+  }
+}
+
 /* Box Blue */
 .wp-block-column.box-blue {
   display: flex;
@@ -88,7 +108,6 @@
 =============================== */
 
 .secao-cambio-paises {
-
   .box-white,
   .vantagens-slider.box-white {
     background: #fff;
@@ -147,7 +166,6 @@
       padding: 0px !important;
     }
   }
-
 
   .flex-cambio-paises .items {
     display: grid !important;

@@ -11,6 +11,7 @@ function home_slider_block()
                 ->add_fields([
                     Field::make('image', 'imagem_fundo', 'Imagem de Fundo'),
                     Field::make('text', 'titulo', 'Título'),
+                    Field::make('text', 'subtitulo', 'Subtítulo'),
                     Field::make('textarea', 'texto', 'Texto'),
                     Field::make('text', 'cta_texto', 'Texto do Botão'),
                     Field::make('text', 'cta_link', 'Link do Botão'),
@@ -65,6 +66,10 @@ function home_slider_block()
                                                 <h2 class="slide-title"><?php echo ($slide['titulo']); //phpcs:ignore 
                                                                         ?></h2>
                                             <?php endif; ?>
+                                        <?php endif; ?>
+                                        <?php if (!empty($slide['subtitulo'])) : ?>
+                                            <p class="slide-subtitle"><?php echo ($slide['subtitulo']); //phpcs:ignore 
+                                                                        ?></p>
                                         <?php endif; ?>
                                         <?php if (!empty($slide['texto'])) : ?>
                                             <p class="slide-text"><?php echo esc_html($slide['texto']); ?></p>

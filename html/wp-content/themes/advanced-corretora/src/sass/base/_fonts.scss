@@ -55,6 +55,15 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'gotham';
+  src: url('/wp-content/themes/advanced-corretora/src/fonts/gotham/GOTHAM-BOLD.woff2')
+    format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* In development, Vite will handle the paths */
 :root {
   --font-quicksand:

@@ -1,5 +1,3 @@
-@use '../components/widgets/form';
-
 .quemsomos {
   background: url('/wp-content/themes/advanced-corretora/assets/images/fundoquemsomos.jpg');
   background-size: cover;
@@ -180,7 +178,6 @@
       @media (min-width: 1024px) {
         order: 2;
       }
-      @include form.form-styles;
 
       .wpcf7-form {
         @media (min-width: 1600px) {

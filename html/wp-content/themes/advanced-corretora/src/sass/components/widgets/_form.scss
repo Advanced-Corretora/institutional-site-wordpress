@@ -181,10 +181,16 @@
 
       &:has(select) {
         .mui-outlined-fieldset {
-          width: 50%;
+          width: 100%;
+          @media (min-width: 1024px) {
+            width: 50%;
+          }
         }
         select {
-          width: 49%;
+          width: 99%;
+          @media (min-width: 1024px) {
+            width: 49%;
+          }
         }
       }
 

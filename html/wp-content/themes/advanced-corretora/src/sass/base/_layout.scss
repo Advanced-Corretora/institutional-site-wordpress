@@ -1,4 +1,5 @@
 @use "../abstracts/variables/colors" as *;
+@use "../components/widgets/form" as *;
 :root {
   --container-max-width: 100%;
   --container-padding: 20px;
@@ -89,5 +90,5 @@ a {
   }
 }
 
-
-
+//CF7 form styles
+@include form-styles;

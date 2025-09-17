@@ -12,14 +12,34 @@ function diferenciais_carrossel_block()
                 ->help_text('Título que aparecerá na coluna da esquerda'),
             Field::make('complex', 'diferenciais', 'Diferenciais')
                 ->add_fields([
+                    Field::make('select', 'tipo_visual', 'Tipo de Visual')
+                        ->set_options([
+                            'numero' => 'Número',
+                            'icone' => 'Ícone'
+                        ])
+                        ->set_default_value('numero')
+                        ->set_required(false)
+                        ->help_text('Escolha se deseja exibir um número ou um ícone'),
                     Field::make('text', 'numero', 'Número')
-                        ->set_required(true)
-                        ->help_text('Ex: 01, 02, 03...'),
+                        ->help_text('Ex: 01, 02, 03...')
+                        ->set_conditional_logic([
+                            [
+                                'field' => 'tipo_visual',
+                                'value' => 'numero',
+                            ]
+                        ]),
+                    Field::make('image', 'icone', 'Ícone')
+                        ->help_text('Faça upload do ícone para este diferencial')
+                        ->set_conditional_logic([
+                            [
+                                'field' => 'tipo_visual',
+                                'value' => 'icone',
+                            ]
+                        ]),
                     Field::make('text', 'titulo', 'Título')
                         ->set_required(true),
                     Field::make('textarea', 'descricao', 'Descrição')
-                        ->set_rows(4)
-                        ->set_required(true),
+                        ->set_rows(4),
                 ])
                 ->set_layout('tabbed-horizontal')
                 ->set_min(2)
@@ -54,7 +74,7 @@ function diferenciais_carrossel_block()
                 <!-- Left Column: Title and Navigation -->
                 <div class="diferenciais-left">
                     <div class="diferenciais-title">
-                        <h2><?php echo esc_html($block['titulo']); ?></h2>
+                        <h2><?php echo wp_kses_post($block['titulo']); ?></h2>
                     </div>
                     <div class="diferenciais-navigation">
                         <button class="diferenciais-prev" aria-label="Anterior">
@@ -76,12 +96,18 @@ function diferenciais_carrossel_block()
                         <?php foreach ($block['diferenciais'] as $diferencial) : ?>
                             <div class="diferencial-cell">
                                 <div class="diferencial-item">
-                                    <div class="diferencial-numero">
-                                        <?php echo esc_html($diferencial['numero']); ?>
-                                    </div>
+                                    <?php if ($diferencial['tipo_visual'] === 'icone' && !empty($diferencial['icone'])) : ?>
+                                        <div class="diferencial-icone">
+                                            <?php echo wp_get_attachment_image($diferencial['icone'], 'medium', false, array('alt' => esc_attr($diferencial['titulo']))); ?>
+                                        </div>
+                                    <?php elseif ($diferencial['tipo_visual'] === 'numero' && !empty($diferencial['numero'])) : ?>
+                                        <div class="diferencial-numero">
+                                            <?php echo esc_html($diferencial['numero']); ?>
+                                        </div>
+                                    <?php endif; ?>
                                     <div class="diferencial-content">
                                         <h3 class="diferencial-titulo">
-                                            <?php echo esc_html($diferencial['titulo']); ?>
+                                            <?php echo wp_kses_post($diferencial['titulo']); ?>
                                         </h3>
                                         <p class="diferencial-descricao">
                                             <?php echo esc_html($diferencial['descricao']); ?>

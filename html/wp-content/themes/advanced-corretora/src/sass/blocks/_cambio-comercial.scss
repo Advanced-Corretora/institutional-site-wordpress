@@ -1,0 +1,251 @@
+/* ============================
+   Seção Receber Dinheiro Exterior
+=============================== */
+.secao-dinheiro-exterior {
+  .wp-block-group.bg-external-finance a.wp-element-button {
+    width: 296px;
+    height: 54px;
+    border: 1px solid #00e5ff;
+    background: transparent;
+    color: #fff;
+  }
+
+  @media (max-width: 767px) {
+    .wp-block-cover__inner-container {
+      background-color: #0A2445 !important;
+      padding: 0px !important;
+    }
+
+    h2 {
+      font-size: 24px !important;
+      padding: 0px 20px !important;
+      margin-bottom: 50px !important;
+    }
+
+    .btn-float-primary {
+      margin-top: 50px !important;
+    }
+
+    .bg-external-finance .wp-block-columns.is-layout-flex {
+      flex-direction: column !important;
+      align-items: center !important;
+      gap: 0px !important;
+      padding: 0 12px !important;
+    }
+
+    .bg-external-finance .wp-block-column {
+      width: 100% !important;
+      max-width: 360px !important;
+      margin: 0 auto !important;
+    }
+
+    .wp-block-column.box-blue {
+      aspect-ratio: 1 / 1;
+      width: 100%;
+      max-width: 360px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .bg-external-finance .wp-block-gallery .wp-block-image img,
+    .bg-external-finance img.wp-image-358 {
+      transform: rotate(90deg) !important;
+      width: 125px !important;
+      margin: 6px auto !important;
+    }
+  }
+}
+
+/* Box Blue */
+.wp-block-column.box-blue {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 260px;
+  margin: 0 auto;
+  flex: 1;
+  text-align: center;
+  border: 1px solid #04f6f8;
+  border-radius: 16px;
+  background: rgba(0, 35, 71, 0.2);
+  padding: 0px 30px !important;
+}
+
+.wp-block-column.box-blue h3 {
+  color: #00e5ff;
+  margin-bottom: 10px;
+}
+
+.wp-block-column.box-blue p {
+  color: #fff;
+}
+
+/* ============================
+   Seção Câmbio Países
+=============================== */
+
+.secao-cambio-paises {
+
+  .box-white,
+  .vantagens-slider.box-white {
+    background: #fff;
+    border-radius: 16px;
+    padding: 30px 20px;
+    text-align: center;
+    margin: 0 auto;
+    box-shadow: 0 4px 6px rgba(0, 4, 4, 0.25);
+  }
+
+  .wp-block-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .wp-block-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  h2,
+  p {
+    margin: 0 !important;
+  }
+
+  .wp-block-columns.is-layout-flex {
+    gap: 30px !important;
+  }
+
+  :where(.wp-block-columns) {
+    margin-bottom: 30px;
+  }
+
+  .box-white {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    max-width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 30px;
+    margin: 0 !important;
+  }
+
+  @media (max-width: 767px) {
+    h2 {
+      font-size: 30px !important;
+      padding: 50px 20px !important;
+    }
+
+    p {
+      font-size: 18px !important;
+      padding: 0px !important;
+    }
+  }
+
+
+  .flex-cambio-paises .items {
+    display: grid !important;
+    flex-wrap: unset !important;
+    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+    padding: 0 var(--container-padding);
+  }
+
+  @media (max-width: 768px) {
+    .flex-cambio-paises .items {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+/* ============================
+   Seção Câmbio Valor
+=============================== */
+.bg-page-exchange-value {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 80px 0;
+  background: url('/wp-content/uploads/2025/09/fundo-cambio-valor.png') no-repeat center/cover;
+  overflow: hidden;
+}
+
+/* ============================
+   Seção Etapas
+=============================== */
+
+@media (max-width: 767px) {
+  .bg-external-finance .wp-block-columns.is-layout-flex {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0px !important;
+    padding: 0 12px !important;
+  }
+
+  .bg-external-finance .wp-block-column {
+    width: 100% !important;
+    max-width: 360px !important;
+    margin: 0 auto !important;
+  }
+
+  .wp-block-column.box-blue {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    max-width: 360px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+  }
+
+  .bg-external-finance .wp-block-gallery .wp-block-image img,
+  .bg-external-finance img.wp-image-358 {
+    transform: rotate(90deg) !important;
+    width: 125px !important;
+    margin: 6px auto !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .wp-block-columns.is-layout-flex {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 0;
+  }
+}
+
+/* ============================
+   Botão Flutuante
+=============================== */
+
+.btn-float-primary {
+  .wp-block-button__link.wp-element-button {
+    width: 240px;
+    border: 1px solid #00e5ff;
+    background: transparent;
+    color: #fff;
+    display: inline-block;
+    padding: 10px 14px;
+    text-decoration: none;
+    border-radius: 999px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .wp-block-button__link.wp-element-button:hover {
+    transform: translateY(-5px);
+    background: #00e5ff;
+    border: 1px solid #00e5ff;
+    color: #000;
+  }
+}

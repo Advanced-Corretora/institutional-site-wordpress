@@ -135,6 +135,7 @@
           width: 320px;
           max-width: calc(100% - var(--container-padding) * 2);
           height: 100%;
+          min-height: 250px;
           margin-right: 10px;
 
           @media (min-width: 768px) {
@@ -152,7 +153,7 @@
           .diferencial-item {
             background: white;
             border-radius: 12px;
-            padding: 30px 20px;
+            padding: 50px 20px;
             box-shadow: 0 7px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             height: 100%;
@@ -230,6 +231,12 @@
                   line-height: 20px;
                 }
               }
+            }
+          }
+          &.diferencial-icone {
+            height: auto !important;
+            .diferencial-item {
+              padding: 30px 20px;
             }
           }
         }

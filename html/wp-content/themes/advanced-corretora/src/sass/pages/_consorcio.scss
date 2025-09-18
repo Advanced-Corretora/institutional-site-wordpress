@@ -111,13 +111,31 @@
 }
 
 .quemsomos-consorcios {
-  padding: 76px var(--container-padding);
+  padding: 76px 0px;
   @media (min-width: 1024px) {
     padding: 175px var(--container-padding);
   }
   h2 {
     @media (min-width: 1024px) {
       margin-top: 90px;
+    }
+  }
+  .formhome {
+    gap: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .wp-block-buttons {
+      display: flex;
+      @media (min-width: 1024px) {
+        display: none;
+      }
+    }
+    .wp-block-image {
+      display: flex;
+      @media (min-width: 1024px) {
+        display: none;
+      }
     }
   }
   .ctasobre {
@@ -130,6 +148,13 @@
       order: 2;
     }
     h2 {
+      text-align: left;
+      font-size: 32px;
+      line-height: 36px;
+      @media (min-width: 1024px) {
+        font-size: 42px;
+        line-height: 46px;
+      }
       br {
         display: none;
         @media (min-width: 1024px) {
@@ -137,8 +162,35 @@
         }
       }
     }
+    p {
+      text-align: left;
+      font-size: 18px;
+      @media (min-width: 1024px) {
+        font-size: 21px;
+      }
+    }
+    .wp-block-image {
+      display: none;
+      @media (min-width: 1024px) {
+        display: flex;
+      }
+    }
   }
   .logoconsorcios {
     width: 100%;
+  }
+  .consorcio-descricao {
+    .wp-block-group__inner-container {
+      padding: 0;
+      @media (min-width: 1024px) {
+        padding: var(--container-padding);
+      }
+    }
+    .wp-block-buttons {
+      display: none;
+      @media (min-width: 1024px) {
+        display: flex;
+      }
+    }
   }
 }

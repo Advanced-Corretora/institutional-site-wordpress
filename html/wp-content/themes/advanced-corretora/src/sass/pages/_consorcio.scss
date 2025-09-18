@@ -1,0 +1,32 @@
+.slider-consorcio {
+  .slide-title {
+    color: #666 !important;
+    span {
+      color: #00b2e3 !important;
+    }
+  }
+  .slide-subtitle {
+    color: #666 !important;
+  }
+  .slide-text {
+    color: #666 !important;
+  }
+  .slide-cta {
+    .slide-button {
+      background-color: transparent !important;
+      border: 2px solid #002d50 !important;
+      color: #002d50 !important;
+      &:hover {
+        background-color: #002d50 !important;
+        border-color: #002d50 !important;
+        color: #fff !important;
+      }
+    }
+  }
+  .slide-disclaimer {
+    color: #666;
+  }
+}
+.vantagensconsorcio-section {
+  padding: 295px var(--container-padding);
+}

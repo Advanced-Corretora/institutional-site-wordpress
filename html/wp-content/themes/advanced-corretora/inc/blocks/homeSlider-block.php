@@ -15,6 +15,7 @@ function home_slider_block()
                     Field::make('textarea', 'texto', 'Texto'),
                     Field::make('text', 'cta_texto', 'Texto do Botão'),
                     Field::make('text', 'cta_link', 'Link do Botão'),
+                    Field::make('text', 'disclaimer', 'Disclaimer'),
                     Field::make('select', 'tema', 'Tema do Slide (dark ou light)')
                         ->set_options([
                             'dark' => 'Dark',
@@ -72,14 +73,17 @@ function home_slider_block()
                                                                         ?></p>
                                         <?php endif; ?>
                                         <?php if (!empty($slide['texto'])) : ?>
-                                            <p class="slide-text"><?php echo esc_html($slide['texto']); ?></p>
+                                            <p class="slide-text"><?php echo ($slide['texto']); ?></p>
                                         <?php endif; ?>
                                         <?php if (!empty($slide['cta_texto']) && !empty($slide['cta_link'])) : ?>
                                             <div class="slide-cta">
                                                 <a href="<?php echo esc_url($slide['cta_link']); ?>" class="button slide-button">
-                                                    <?php echo esc_html($slide['cta_texto']); ?>
+                                                    <?php echo ($slide['cta_texto']); ?>
                                                 </a>
                                             </div>
+                                        <?php endif; ?>
+                                        <?php if (!empty($slide['disclaimer'])) : ?>
+                                            <p class="slide-disclaimer"><?php echo ($slide['disclaimer']); ?></p>
                                         <?php endif; ?>
                                     </div>
                                 </div>

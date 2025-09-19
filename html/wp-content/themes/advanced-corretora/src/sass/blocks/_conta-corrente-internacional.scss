@@ -1,0 +1,122 @@
+/* ============================
+   Seção Bancos
+=============================== */
+.secao-bancos .gap-logos {
+    gap: 60px !important;
+}
+
+@media (max-width: 768px) {
+    .secao-bancos {
+        .titulo-bancos {
+            font-size: 26px !important;
+            padding: 0 20px !important;
+            text-align: left !important;
+            margin-bottom: -100px !important;
+        }
+
+        .gap-logos {
+            flex-direction: column;
+        }
+
+        .gap-logos figure {
+            margin: 10px 0;
+        }
+    }
+}
+
+/* ============================
+   Listagem com ícone em imagem
+=============================== */
+ul.list-icon-secondary {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.wp-block-list.list-icon-secondary li {
+    position: relative;
+    padding-left: 32px;
+    font-weight: 300;
+    line-height: 1.6;
+    text-align: left;
+}
+
+ul.wp-block-list.list-icon-secondary li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background: url("/wp-content/uploads/2025/09/check-icon.svg") no-repeat center center;
+    background-size: contain;
+}
+
+/* Versão para fundo claro */
+ul.wp-block-list.list-icon-secondary.dark li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background: url('/wp-content/uploads/2025/09/check-icon-white.svg') no-repeat center center;
+    background-size: contain;
+}
+
+
+/* ============================
+   Seção PF e PJ
+=============================== */
+.secao-pj-pf {
+    strong {
+        font-weight: 500;
+    }
+
+    .wp-block-group .wp-block-heading {
+        font-size: 20px !important;
+    }
+
+    @media (max-width: 768px) {
+        .wp-block-group.is-layout-grid {
+            grid-template-columns: 1fr;
+            /* só uma coluna */
+        }
+
+        .wp-block-group {
+            padding-top: 20px !important;
+        }
+    }
+}
+
+/* ============================
+   Seção Conta Global
+=============================== */
+.secao-conta-global {
+    @media (max-width: 768px) {
+        .wp-container-core-group-is-layout-c1dfda1e {
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .wp-container-core-group-is-layout-c1dfda1e img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .wp-block-group .wp-block-heading {
+            padding-top: 40px;
+            font-weight: 400 !important;
+        }
+
+        ul.wp-block-list.list-icon-secondary {
+            padding: 20px 0 !important;
+        }
+
+        .wp-block-buttons {
+            width: 100% !important;
+        }
+
+        .wp-element-button {
+            font-size: 13px;
+        }
+    }
+}

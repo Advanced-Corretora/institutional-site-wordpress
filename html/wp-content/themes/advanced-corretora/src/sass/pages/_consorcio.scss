@@ -108,6 +108,14 @@
       line-height: 46px !important;
     }
   }
+  p {
+    padding-top: 24px;
+    color: #666;
+    font-size: 14px;
+    @media (min-width: 1024px) {
+      font-size: 14px;
+    }
+  }
 }
 
 .quemsomos-consorcios {
@@ -190,6 +198,92 @@
       display: none;
       @media (min-width: 1024px) {
         display: flex;
+      }
+    }
+  }
+}
+
+.comparativo-section {
+  padding: 76px var(--container-padding);
+  @media (min-width: 1024px) {
+    padding: 135px var(--container-padding);
+  }
+  .wp-block-cover__inner-container {
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+    @media (min-width: 1024px) {
+      gap: 70px;
+    }
+  }
+  .wp-block-columns.is-layout-flex {
+    gap: 20px;
+  }
+  h2 {
+    font-size: 24px;
+    line-height: 28px;
+    @media (min-width: 1024px) {
+      font-size: 42px;
+      line-height: 46px;
+    }
+  }
+
+  .wp-block-column {
+    background-color: #fff;
+    padding: 30px 20px;
+    border-radius: 12px;
+    box-shadow: 7px 7px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    @media (min-width: 1024px) {
+      padding: 40px 60px;
+    }
+    .wp-block-table {
+      table,
+      tr,
+      td {
+        border: 0px;
+      }
+      td {
+        padding: 0px;
+        padding-bottom: 10px;
+      }
+      margin: 0px;
+    }
+
+    h3 {
+      margin: 0px;
+      font-size: 24px;
+      line-height: 28px;
+    }
+    hr {
+      margin: 0px;
+      border-top: 1px solid #002d5d;
+      height: 1px;
+    }
+    p {
+      margin: 0px;
+    }
+    td:last-child {
+      width: 132px;
+    }
+    &.white-column {
+      background-color: #fff;
+      h3 {
+        color: #002d5d;
+      }
+      p {
+        color: #666;
+      }
+    }
+    &.blue-column {
+      background-color: #002d5d;
+      h3 {
+        color: #fff;
+      }
+      p {
+        color: #fff;
       }
     }
   }

@@ -41,11 +41,13 @@ function produtos_carrossel_block()
                                         <p><?php echo esc_html($produto['subtitulo']); ?></p>
                                     <?php endif; ?>
                                 </div>
+                                <?php if (!empty($produto['cta_texto']) && !empty($produto['cta_link'])) : ?>
                                 <div class="cta">
                                     <a href="<?php echo esc_url($produto['cta_link']); ?>" class="button">
                                         <?php echo esc_html($produto['cta_texto']); ?>
                                     </a>
                                 </div>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>

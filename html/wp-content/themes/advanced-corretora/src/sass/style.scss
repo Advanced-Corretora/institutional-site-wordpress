@@ -51,9 +51,11 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @use "blocks/cambio-comercial" as *;
 @use "blocks/timeline" as *;
 @use "blocks/diferenciais" as *;
+@use "blocks/carrossel-imagens" as *;
 @use "blocks/conta-corrente-internacional" as *;
 
 // Pages
 @use "pages/sobre" as *;
 @use "pages/cambioturismo" as *;
 @use "pages/consorcio" as *;
+@use "pages/financial" as *;

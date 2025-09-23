@@ -6,7 +6,7 @@
     background: #fff;
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
     @media (min-width: 1024px) {
-      padding: 32px;
+      padding: 48px 32px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
@@ -65,7 +65,7 @@
       .group-forms {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 0.5rem;
+        gap: 16px;
       }
       &:first-child {
         .group-forms {
@@ -160,6 +160,7 @@
         -webkit-appearance: none;
         -moz-appearance: none;
         cursor: pointer;
+        color: #666;
         
         @media (min-width: 1024px) {
           padding: 15px 14px;
@@ -177,7 +178,7 @@
           background-repeat: no-repeat;
           background-position: right 14px center;
           background-size: 12px 8px;
-          padding-right: 40px; // Make space for the arrow
+          padding-right: 30px; // Make space for the arrow
         }
 
       }
@@ -271,6 +272,7 @@
         border-radius: 8px;
         cursor: pointer;
         transition: all 0.2s;
+        color: #666;
         @media (min-width: 1024px) {
           border-radius: 10px;
           padding: 10px;

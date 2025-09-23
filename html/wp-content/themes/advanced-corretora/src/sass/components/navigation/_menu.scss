@@ -195,17 +195,6 @@
                   gap: 8px;
                   font-weight: 400;
                   text-decoration: none;
-                  &::after {
-                    content: '';
-                    display: inline-block;
-                    width: 13px;
-                    height: 13px;
-                    background: url('/wp-content/themes/advanced-corretora/assets/icons/chevron-right.svg')
-                      no-repeat center center;
-                    background-size: contain;
-                    position: relative;
-                    top: 2px;
-                  }
                 }
               }
             }

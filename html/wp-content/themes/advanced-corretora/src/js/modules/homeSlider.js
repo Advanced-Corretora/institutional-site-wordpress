@@ -58,6 +58,19 @@ const createHomeSliderInstance = slider => {
     setGallerySize: true,
   });
 
+  // Force hide navigation elements after initialization
+  flkty.on('ready', () => {
+    const dotsContainer = slider.querySelector('.flickity-page-dots');
+    if (dotsContainer) {
+      dotsContainer.style.display = 'none';
+    }
+    
+    const buttons = slider.querySelectorAll('.flickity-prev-next-button');
+    buttons.forEach(button => {
+      button.style.display = 'none';
+    });
+  });
+
   // Handle slide change events
   flkty.on('change', (index) => {
     const currentSlide = slider.querySelector('.slider-cell.is-selected');
@@ -92,12 +105,15 @@ const initializeHomeSliders = () => {
   const sliders = document.querySelectorAll('.gutenberg-home-slider');
 
   sliders.forEach(slider => {
-    const flkty = createHomeSliderInstance(slider);
+    // Wait a bit to ensure Flickity is fully loaded
+    setTimeout(() => {
+      const flkty = createHomeSliderInstance(slider);
 
-    homeSliderInstances.push({
-      element: slider,
-      flkty: flkty,
-    });
+      homeSliderInstances.push({
+        element: slider,
+        flkty: flkty,
+      });
+    }, 50);
   });
 };
 
@@ -117,4 +133,16 @@ const gutenbergHomeSlider = () => {
   window.addEventListener('resize', handleResize);
 };
 
-document.addEventListener('DOMContentLoaded', gutenbergHomeSlider);
+// Wait for both DOM and window load to ensure everything is ready
+document.addEventListener('DOMContentLoaded', () => {
+  // Additional delay to ensure Flickity library is fully loaded
+  setTimeout(gutenbergHomeSlider, 100);
+});
+
+// Fallback for window load
+window.addEventListener('load', () => {
+  // Only initialize if not already done
+  if (homeSliderInstances.length === 0) {
+    gutenbergHomeSlider();
+  }
+});

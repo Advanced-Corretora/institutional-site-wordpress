@@ -1,0 +1,122 @@
+.secao-diferenciais-do-negocio {
+    .box-diferenciais {
+        gap: 70px !important;
+
+        .wp-block-group {
+            width: 260px;
+            height: 260px;
+            padding: 20px;
+            border-radius: 16px;
+            background: #FFF;
+            box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+            text-align: center;
+            align-items: center;
+            display: flex;
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding-top: 70px !important;
+        padding-bottom: 70px !important;
+
+        .wp-block-heading {
+            font-size: 34px !important;
+        }
+
+        .box-diferenciais {
+            flex-direction: column !important;
+            gap: 20px !important;
+            align-items: center;
+
+            h2 {
+                color: #09C;
+                text-align: center;
+                font-size: 22px;
+                font-style: normal;
+                font-weight: 300;
+                line-height: normal;
+            }
+
+            p {
+                color: #666;
+                text-align: center;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 325;
+                line-height: normal;
+            }
+        }
+
+        h2.wp-block-heading.has-x-large-font-size {
+            color: #09C;
+            text-align: center;
+            font-size: 34px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: 44px;
+        }
+    }
+}
+
+.secao-nossas-solucoes {
+    @media (max-width: 768px) {
+        padding-top: 70px !important;
+        padding-bottom: 70px !important;
+
+        .wp-block-heading {
+            font-size: 34px !important;
+            font-weight: 300 !important;
+            padding-bottom: 50px !important;
+        }
+
+        .wp-block-cover__image-background {
+            object-position: right center !important;
+        }
+    }
+
+    .lista-icones {
+        gap: 40px !important;
+
+        div.wp-block-group {
+            height: 260px;
+            width: 260px;
+            border-radius: 12px;
+            border: 1px solid #0FF;
+            background: rgba(0, 45, 93, 0.60);
+            text-align: center;
+            align-items: center;
+            display: flex;
+            padding: 20px;
+            color: #0FF;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 325;
+            line-height: normal;
+        }
+
+        div.wp-block-group .wp-block-group__inner-container {
+            width: 100%;
+        }
+
+        .wp-block-image img {
+            width: 60px;
+            height: 60px;
+        }
+
+        @media (max-width: 768px) {
+            flex-direction: column !important;
+            gap: 20px !important;
+            align-items: center;
+
+            p {
+                color: #0FF;
+                text-align: center;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 325;
+                line-height: normal;
+            }
+        }
+
+    }
+}

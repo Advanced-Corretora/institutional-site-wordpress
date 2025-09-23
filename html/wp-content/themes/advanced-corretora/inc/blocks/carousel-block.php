@@ -25,7 +25,7 @@ function produtos_carrossel_block()
             ob_start();
 ?>
         <div class="wp-block-products-carousel">
-            <div class="gutenberg-flickity" data-flickity='{ "wrapAround": true, "pageDots": true, "prevNextButtons": true, "cellAlign": "left", "contain": true }'>
+            <div class="gutenberg-flickity">
                 <?php foreach ($block['produtos'] as $produto) : ?>
                     <div class="carousel-cell">
                         <div class="product">

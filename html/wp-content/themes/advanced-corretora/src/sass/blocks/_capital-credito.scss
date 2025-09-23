@@ -31,7 +31,7 @@
             h2 {
                 color: #09C;
                 text-align: center;
-                font-size: 22px;
+                font-size: 22px !important;
                 font-style: normal;
                 font-weight: 300;
                 line-height: normal;
@@ -50,7 +50,6 @@
         h2.wp-block-heading.has-x-large-font-size {
             color: #09C;
             text-align: center;
-            font-size: 34px;
             font-style: normal;
             font-weight: 300;
             line-height: 44px;

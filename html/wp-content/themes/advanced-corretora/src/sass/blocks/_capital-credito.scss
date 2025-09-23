@@ -120,3 +120,15 @@
 
     }
 }
+
+.logo-advanced img {
+    margin-top: 450px !important;
+    margin-left: -28px;
+}
+
+@media (max-width: 768px) {
+    .logo-advanced img {
+        margin-top: 0px !important;
+        margin-left: 0px !important;
+    }
+}

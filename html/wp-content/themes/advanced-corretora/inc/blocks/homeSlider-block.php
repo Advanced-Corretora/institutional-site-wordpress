@@ -52,7 +52,7 @@ function home_slider_block()
             ob_start();
 ?>
         <div <?php echo implode(' ', $block_attributes); ?>>
-            <div class="gutenberg-home-slider" data-flickity='{ "wrapAround": true, "pageDots": true, "prevNextButtons": true, "cellAlign": "center", "contain": false }'>
+            <div class="gutenberg-home-slider">
                 <?php foreach ($block['slides'] as $index => $slide) : ?>
                     <div class="slider-cell" <?php echo !empty($slide['cor_submenu']) ? 'data-submenu-color="' . esc_attr($slide['cor_submenu']) . '"' : ''; ?>>
                         <div class="slide" style="background-image: url('<?php echo wp_get_attachment_image_url($slide['imagem_fundo'], 'full'); ?>');">

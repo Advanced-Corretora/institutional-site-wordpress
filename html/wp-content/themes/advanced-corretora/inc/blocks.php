@@ -84,3 +84,4 @@ require_once get_template_directory() . '/inc/blocks/homeSlider-block.php';
 require_once get_template_directory() . '/inc/blocks/carousel-block.php';
 require_once get_template_directory() . '/inc/blocks/timeline-block.php';
 require_once get_template_directory() . '/inc/blocks/diferenciais-block.php';
+require_once get_template_directory() . '/inc/blocks/carrossel-imagens-block.php';

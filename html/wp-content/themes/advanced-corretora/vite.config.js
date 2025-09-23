@@ -49,6 +49,7 @@ export default defineConfig({
       input: {
         main: path.resolve(__dirname, 'src/js/main.js'),
         carousel: path.resolve(__dirname, 'src/js/modules/carousel.js'),
+        carrosselImagens: path.resolve(__dirname, 'src/js/modules/carrossel-imagens.js'),
         homeSlider: path.resolve(__dirname, 'src/js/modules/homeSlider.js'),
         diferenciais: path.resolve(__dirname, 'src/js/modules/diferenciais.js'),
         timeline: path.resolve(__dirname, 'src/js/modules/timeline.js'),

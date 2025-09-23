@@ -46,7 +46,7 @@ function setupEqualize(flkty, carouselEl) {
 let flickityInstances = [];
 
 const createFlickityInstance = carousel => {
-  return new Flickity(carousel, {
+  const flkty = new Flickity(carousel, {
     wrapAround: true,
     pageDots: false,
     prevNextButtons: true,
@@ -56,6 +56,21 @@ const createFlickityInstance = carousel => {
     percentPosition: false,
     // add other options here if needed
   });
+
+  // Force hide dots and ensure buttons are visible after initialization
+  flkty.on('ready', () => {
+    const dotsContainer = carousel.querySelector('.flickity-page-dots');
+    if (dotsContainer) {
+      dotsContainer.style.display = 'none';
+    }
+    
+    const buttons = carousel.querySelectorAll('.flickity-prev-next-button');
+    buttons.forEach(button => {
+      button.style.display = 'block';
+    });
+  });
+
+  return flkty;
 };
 
 const destroyAllInstances = () => {
@@ -71,13 +86,16 @@ const initializeCarousels = () => {
   const carousels = document.querySelectorAll('.gutenberg-flickity');
 
   carousels.forEach(carousel => {
-    const flkty = createFlickityInstance(carousel);
-    setupEqualize(flkty, carousel);
+    // Wait a bit to ensure Flickity is fully loaded
+    setTimeout(() => {
+      const flkty = createFlickityInstance(carousel);
+      setupEqualize(flkty, carousel);
 
-    flickityInstances.push({
-      element: carousel,
-      flkty: flkty,
-    });
+      flickityInstances.push({
+        element: carousel,
+        flkty: flkty,
+      });
+    }, 50);
   });
 };
 
@@ -97,4 +115,16 @@ const gutenbergCarousel = () => {
   window.addEventListener('resize', handleResize);
 };
 
-document.addEventListener('DOMContentLoaded', gutenbergCarousel);
+// Wait for both DOM and window load to ensure everything is ready
+document.addEventListener('DOMContentLoaded', () => {
+  // Additional delay to ensure Flickity library is fully loaded
+  setTimeout(gutenbergCarousel, 100);
+});
+
+// Fallback for window load
+window.addEventListener('load', () => {
+  // Only initialize if not already done
+  if (flickityInstances.length === 0) {
+    gutenbergCarousel();
+  }
+});

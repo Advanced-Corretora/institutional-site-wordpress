@@ -7,6 +7,17 @@
 
 @media (max-width: 768px) {
     .secao-bancos {
+        padding-top: 100px !important;
+        padding-bottom: 100px !important;
+
+        .wp-block-heading {
+            font-size: 27px !important;
+        }
+
+        .wp-block-group {
+            padding-bottom: 200px !important;
+        }
+
         .titulo-bancos {
             font-size: 26px !important;
             padding: 0 20px !important;
@@ -45,8 +56,8 @@ ul.wp-block-list.list-icon-secondary li::before {
     content: "";
     position: absolute;
     left: 0;
-    width: 20px;
-    height: 20px;
+    width: 30px !important;
+    height: 29px !important;
     background: url("/wp-content/uploads/2025/09/check-icon.svg") no-repeat center center;
     background-size: contain;
 }
@@ -67,22 +78,59 @@ ul.wp-block-list.list-icon-secondary.dark li::before {
    Seção PF e PJ
 =============================== */
 .secao-pj-pf {
+    background-color: #ededed !important;
+
     strong {
         font-weight: 500;
     }
 
+    .wp-block-group {
+        gap: 20px !important;
+    }
+
     .wp-block-group .wp-block-heading {
-        font-size: 20px !important;
+        font-size: 42px !important;
+        line-height: 1.2 !important;
+    }
+
+    li {
+        padding-top: 20px !important;
+        padding-bottom: 20px !important;
+        font-size: 21px !important;
+    }
+
+    li:first-child {
+        padding-top: 0;
+    }
+
+    li:last-child {
+        padding-bottom: 0;
     }
 
     @media (max-width: 768px) {
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
+
         .wp-block-group.is-layout-grid {
             grid-template-columns: 1fr;
-            /* só uma coluna */
         }
 
         .wp-block-group {
             padding-top: 20px !important;
+        }
+
+        .wp-block-group .wp-block-image img {
+            width: 54px !important;
+        }
+
+        .wp-block-group .wp-block-heading {
+            font-size: 24px !important;
+            line-height: 1.2 !important;
+            font-weight: 500 !important;
+        }
+
+        li {
+            font-size: 16px !important;
         }
     }
 }
@@ -91,7 +139,38 @@ ul.wp-block-list.list-icon-secondary.dark li::before {
    Seção Conta Global
 =============================== */
 .secao-conta-global {
+    .wp-block-group p {
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+        font-size: 18px !important;
+    }
+
+    .btn-float-primary .wp-block-button .wp-element-button {
+        width: 340px !important;
+        height: 54px;
+        font-size: 18px;
+        margin-top: 25px;
+    }
+
+    ul.list-icon-secondary li {
+        padding-bottom: 10px !important;
+    }
+
     @media (max-width: 768px) {
+        padding-top: 0px !important;
+
+        .wp-block-heading {
+            font-size: 38px !important;
+        }
+
+        ul li {
+            font-size: 16px !important;
+        }
+
+        .wp-block-image img {
+            height: 459px !important;
+        }
+
         .wp-container-core-group-is-layout-c1dfda1e {
             flex-direction: column;
             gap: 20px;
@@ -107,16 +186,17 @@ ul.wp-block-list.list-icon-secondary.dark li::before {
             font-weight: 400 !important;
         }
 
-        ul.wp-block-list.list-icon-secondary {
-            padding: 20px 0 !important;
-        }
-
         .wp-block-buttons {
             width: 100% !important;
+            justify-content: center !important;
         }
 
         .wp-element-button {
             font-size: 13px;
+        }
+
+        .wp-block-group.is-vertical.wp-block-group-is-layout-flex {
+            padding-bottom: 0px !important;
         }
     }
 }

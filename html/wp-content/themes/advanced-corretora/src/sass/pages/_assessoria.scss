@@ -1,0 +1,17 @@
+.vantagens-assessoria {
+  .diferenciais-title h2 {
+    @media (min-width: 1024px) {
+      font-size: 24px !important;
+      line-height: 28px !important;
+    }
+  }
+  .diferencial-item {
+    @media (min-width: 1024px) {
+      padding: 20px 20px !important;
+    }
+  }
+}
+
+.secao-vantagens-financial.assessoria .box-white {
+  justify-content: center !important;
+}

@@ -179,11 +179,11 @@
         &.dark {
           .slide-cta .slide-button {
             background-color: transparent;
-            border: 2px solid #fff;
+            border: 1px solid #fff;
             color: #fff;
 
             &:hover {
-              border: 2px solid #002244;
+              border: 1px solid #002244;
               background-color: #002244;
               transform: translateY(-2px);
               box-shadow: 0 4px 12px rgba(0, 51, 102, 0.3);
@@ -196,7 +196,7 @@
           .slide-cta .slide-button {
             background-color: transparent;
             color: #666;
-            border: 2px solid #666;
+            border: 1px solid #666;
 
             &:hover {
               background-color: #666;

@@ -56,6 +56,42 @@
             font-weight: 400;
           }
         }
+
+        // Estilos para página atual (classes nativas do WordPress)
+        &.current-menu-item,
+        &.current_page_item {
+          > a {
+            color: var(--color-blue-light, #00ffff);
+            font-weight: 400;
+            &::before {
+              width: 100%;
+            }
+          }
+        }
+
+        // Estilos para página pai atual (classes nativas do WordPress)
+        &.current-menu-parent,
+        &.current_page_parent {
+          > a {
+            color: var(--color-blue-light, #00ffff);
+            font-weight: 500;
+            &::before {
+              width: 100%;
+            }
+          }
+        }
+
+        // Estilos para ancestral da página atual (classes nativas do WordPress)
+        &.current-menu-ancestor,
+        &.current_page_ancestor {
+          > a {
+            color: var(--color-blue-light, #00ffff);
+            opacity: 0.8;
+            &::before {
+              width: 50%;
+            }
+          }
+        }
       }
     }
 
@@ -195,6 +231,33 @@
                   gap: 8px;
                   font-weight: 400;
                   text-decoration: none;
+                  transition: all 0.3s ease;
+
+                  &:hover {
+                    color: var(--color-blue-light, #00ffff);
+                  }
+                }
+
+                // Estilos para itens ativos no submenu (classes nativas do WordPress)
+                &.current-menu-item,
+                &.current_page_item {
+                  > .submenu-link {
+                    color: var(--color-blue-light, #00ffff);
+                    font-weight: 600;
+                    position: relative;
+                    
+                    &::before {
+                      content: '';
+                      position: absolute;
+                      left: -8px;
+                      top: 50%;
+                      transform: translateY(-50%);
+                      width: 4px;
+                      height: 100%;
+                      background: var(--color-blue-light, #00ffff);
+                      border-radius: 2px;
+                    }
+                  }
                 }
               }
             }

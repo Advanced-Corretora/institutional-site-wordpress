@@ -9,6 +9,7 @@
   @media (min-width: 1024px) {
     padding-bottom: 175px;
   }
+
   .wp-block-group__inner-container {
     max-width: var(--container-max-width);
     margin: 0 auto;
@@ -191,4 +192,8 @@
     }
     // Incluir estilos do formulário aqui
   }
+}
+
+.page-template:not(.home) .quemsomos {
+  background: url('/wp-content/themes/advanced-corretora/assets/images/bg-form-nothome.jpg');
 }

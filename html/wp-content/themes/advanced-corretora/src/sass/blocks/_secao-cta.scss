@@ -82,10 +82,15 @@
     order: 2;
     width: 130%;
     margin-left: -15%;
+    @media (min-width: 768px) {
+      width: 100%;
+      margin-left: 0;
+    }
 
     .cta-image-element {
       width: 100%;
       height: auto;
+      // max-width: 350px;
     }
   }
 

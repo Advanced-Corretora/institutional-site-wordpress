@@ -107,6 +107,12 @@
     position: relative;
     z-index: 2;
     padding-bottom: 110px;
+    br {
+      display: none;
+      @media (min-width: 1024px) {
+        display: block;
+      }
+    }
     h2 {
       font-size: 22px;
       line-height: 26px;
@@ -195,5 +201,5 @@
 }
 
 .page-template:not(.home) .quemsomos {
-  background: url('/wp-content/themes/advanced-corretora/assets/images/bg-form-nothome.jpg');
+  background-image: url('/wp-content/themes/advanced-corretora/assets/images/bg-form-nothome.jpg');
 }

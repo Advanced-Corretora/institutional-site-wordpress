@@ -188,6 +188,11 @@
     z-index: 1;
     transform: rotate(61deg);
     margin: 0;
+    background: radial-gradient(
+      ellipse at center,
+      rgb(148 148 148 / 42%) 0%,
+      rgba(255, 255, 255, 0) 70%
+    );
     @media (min-width: 1024px) {
       top: 500px;
       left: -21vw;

@@ -214,6 +214,28 @@
 }
 
 /* ============================
+   Seção Câmbio Caro
+=============================== */
+
+.secao-cambio-caro {
+  h2.wp-block-heading {
+    font-size: 32px !important;
+  }
+
+  .btn-float-primary .wp-element-button {
+    width: 260px !important;
+    height: 48px !important;
+  }
+
+  @media (max-width: 767px) {
+    h2.wp-block-heading {
+      font-size: 26px !important;
+    }
+  }
+}
+
+
+/* ============================
    Seção Câmbio Valor
 =============================== */
 .bg-page-exchange-value {
@@ -277,7 +299,8 @@
 
 .btn-float-primary {
   .wp-block-button__link.wp-element-button {
-    width: 240px;
+    width: 296px;
+    height: 54px;
     border: 1px solid #00e5ff;
     background: transparent;
     color: #fff;

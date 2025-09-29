@@ -66,7 +66,7 @@
 		$units = carbon_get_theme_option('footer_units');
 		if (! empty($units)) : ?>
 			<div class="footer-section footer-units-section">
-				<p class="footer-units-title">Centrais de atendimento</p>
+				<p class="footer-units-title">Unidades de atendimento</p>
 				<div class="units-container">
 					<?php foreach ($units as $unit) :
 						if (! empty($unit['unit_title']) && ! empty($unit['unit_phone'])) : ?>

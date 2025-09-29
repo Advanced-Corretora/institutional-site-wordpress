@@ -2,6 +2,31 @@ import Flickity from 'flickity';
 
 let homeSliderInstances = [];
 
+// Global function to equalize heights for any slider
+function equalizeSlideHeights(slider) {
+  const slides = slider.querySelectorAll('.slider-cell');
+  if (slides.length === 0) return;
+
+  // Reset heights to auto to get natural heights
+  slides.forEach(slide => {
+    slide.style.height = 'auto';
+  });
+
+  // Get the tallest slide height
+  let maxHeight = 0;
+  slides.forEach(slide => {
+    const slideHeight = slide.offsetHeight;
+    if (slideHeight > maxHeight) {
+      maxHeight = slideHeight;
+    }
+  });
+
+  // Apply the max height to all slides
+  slides.forEach(slide => {
+    slide.style.height = maxHeight + 'px';
+  });
+}
+
 // Function to convert hex color to rgba with opacity
 const hexToRgba = (hex, opacity) => {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -69,7 +94,39 @@ const createHomeSliderInstance = slider => {
     buttons.forEach(button => {
       button.style.display = 'none';
     });
+
+    // Equalize slide heights after Flickity is ready
+    setTimeout(() => equalizeSlideHeights(slider), 100);
   });
+
+  // Also equalize immediately after initialization
+  setTimeout(() => equalizeSlideHeights(slider), 200);
+
+  // Re-equalize on window resize
+  flkty.on('resize', () => equalizeSlideHeights(slider));
+
+  // Re-equalize when images load (important for slides with background images)
+  const images = slider.querySelectorAll('img');
+  let loadedImages = 0;
+  const totalImages = images.length;
+
+  if (totalImages > 0) {
+    images.forEach(img => {
+      if (img.complete) {
+        loadedImages++;
+        if (loadedImages === totalImages) {
+          setTimeout(() => equalizeSlideHeights(slider), 50);
+        }
+      } else {
+        img.addEventListener('load', function () {
+          loadedImages++;
+          if (loadedImages === totalImages) {
+            setTimeout(() => equalizeSlideHeights(slider), 50);
+          }
+        });
+      }
+    });
+  }
 
   // Handle slide change events
   flkty.on('change', (index) => {
@@ -127,6 +184,14 @@ const gutenbergHomeSlider = () => {
     resizeTimeout = setTimeout(() => {
       destroyAllHomeSliderInstances();
       initializeHomeSliders();
+      
+      // Re-equalize heights after resize
+      setTimeout(() => {
+        const sliders = document.querySelectorAll('.gutenberg-home-slider');
+        sliders.forEach(slider => {
+          equalizeSlideHeights(slider);
+        });
+      }, 100);
     }, 250);
   };
 
@@ -145,4 +210,12 @@ window.addEventListener('load', () => {
   if (homeSliderInstances.length === 0) {
     gutenbergHomeSlider();
   }
+  
+  // Additional check when window is fully loaded (including images)
+  setTimeout(() => {
+    const sliders = document.querySelectorAll('.gutenberg-home-slider');
+    sliders.forEach(slider => {
+      equalizeSlideHeights(slider);
+    });
+  }, 100);
 });

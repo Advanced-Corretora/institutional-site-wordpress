@@ -92,7 +92,7 @@ function diferenciais_carrossel_block()
 
                 <!-- Right Column: Carousel -->
                 <div class="diferenciais-right">
-                    <div class="diferenciais-carousel" data-flickity='{ "wrapAround": true, "pageDots": false, "prevNextButtons": false, "cellAlign": "left", "contain": true }'>
+                    <div class="diferenciais-carousel">
                         <?php foreach ($block['diferenciais'] as $diferencial) : ?>
                             <div class="diferencial-cell <?php echo $diferencial['tipo_visual'] === 'numero' ? 'diferencial-numero' : 'diferencial-icone'; ?>">
                                 <div class="diferencial-item">

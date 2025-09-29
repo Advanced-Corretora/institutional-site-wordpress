@@ -43,7 +43,7 @@ function carrossel_imagens_block()
 ?>
         <div <?php echo implode(' ', $block_attributes); ?>>
             <div class="carrossel-imagens-container">
-                <div class="carrossel-imagens-carousel" data-flickity='{ "wrapAround": true, "pageDots": false, "prevNextButtons": true, "cellAlign": "left", "contain": false }'>
+                <div class="carrossel-imagens-carousel">
                     <?php foreach ($block['imagens'] as $item) : ?>
                         <div class="imagem-cell">
                             <div class="imagem-item">

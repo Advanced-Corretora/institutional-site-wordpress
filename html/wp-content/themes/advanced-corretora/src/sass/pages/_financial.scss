@@ -15,6 +15,45 @@
       color: #fff !important;
     }
   }
+  .slide-title {
+    display: flex;
+    flex-direction: column;
+  }
+
+  // Background overlay para slides light
+  .slide {
+    background-position: 70% !important;
+    @media (min-width: 1024px) {
+      background-position: inherit;
+    }
+  }
+  .slide-content.light {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(
+        65.3% 97.63% at 93.28% 30.16%,
+        rgba(255, 255, 255, 0.5) 0%,
+        #fff 100%
+      );
+      z-index: 1;
+      @media (min-width: 1024px) {
+        display: none;
+      }
+    }
+
+    // Garante que o conteúdo fique acima do overlay
+    .container {
+      position: relative;
+      z-index: 2;
+    }
+  }
 }
 
 /* ============================
@@ -36,6 +75,10 @@
 
   .wp-block-columns {
     gap: 20px;
+    justify-content: center;
+    @media (min-width: 1024px) {
+      justify-content: inherit;
+    }
   }
 
   .wp-block-column {
@@ -43,6 +86,10 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    max-width: 240px;
+    @media (min-width: 1024px) {
+      max-width: inherit;
+    }
   }
 
   h2,
@@ -52,11 +99,12 @@
   }
 
   h3 {
-    padding-top: 16px;
+    padding-top: 0px;
     font-size: 22px;
     line-height: 26px;
-    font-weight: 400;
+    font-weight: 300;
     @media (min-width: 1024px) {
+      padding-top: 16px;
       font-size: 24px;
       line-height: 28px;
       font-weight: 300;
@@ -66,6 +114,12 @@
     font-size: 17px;
     line-height: 21px;
     font-weight: 400;
+    br {
+      display: none;
+      @media (min-width: 1024px) {
+        display: block;
+      }
+    }
   }
 
   .wp-block-columns.is-layout-flex {
@@ -77,14 +131,18 @@
   }
 
   .box-white {
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 0;
     width: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 20px;
+    padding: 23px;
     margin: 0 !important;
     gap: 24px;
+    @media (min-width: 1024px) {
+      aspect-ratio: 1 / 1;
+      padding: 20px;
+    }
   }
 
   @media (max-width: 767px) {
@@ -108,9 +166,36 @@
     padding-top: 16px;
   }
   .flickity-prev-next-button {
-    background-color: transparent ;
+    background-color: transparent;
     path {
       fill: #00b2e3;
+    }
+  }
+}
+
+.slides-seguradoras-section {
+  h2 {
+    font-size: 34px !important;
+    line-height: 44px !important;
+    font-weight: 300 !important;
+    @media (min-width: 1024px) {
+      font-size: 42px !important;
+      line-height: 46px !important;
+      font-weight: 300 !important;
+    }
+  }
+  p {
+    font-size: 16px !important;
+    line-height: 20px !important;
+    @media (min-width: 1024px) {
+      font-size: 21px !important;
+      line-height: 26px !important;
+    }
+  }
+  .wp-block-group  {
+    gap: 40px;
+    @media (min-width: 1024px) {
+      gap: 16px;
     }
   }
 }

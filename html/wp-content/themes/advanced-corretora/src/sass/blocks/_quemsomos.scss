@@ -106,7 +106,9 @@
   .formsection {
     position: relative;
     z-index: 2;
-    padding-bottom: 110px;
+    @media (min-width: 1024px) {
+      padding-bottom: 110px;
+    }
     br {
       display: none;
       @media (min-width: 1024px) {

@@ -18,6 +18,15 @@
     }
   }
 
+  br {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    br {
+      display:block;
+    }
+  }
 
   .flickity-viewport {
     overflow: hidden;

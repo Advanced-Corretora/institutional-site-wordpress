@@ -5,7 +5,42 @@ document.addEventListener('DOMContentLoaded', function () {
   const diferenciaisBlocks = document.querySelectorAll('.wp-block-diferenciais-carousel');
 
   diferenciaisBlocks.forEach(initializeDiferenciais);
+
+  // Additional check when window is fully loaded (including images)
+  window.addEventListener('load', function () {
+    diferenciaisBlocks.forEach(block => {
+      const carousel = block.querySelector('.diferenciais-carousel');
+      if (carousel) {
+        equalizeCardHeights(carousel);
+      }
+    });
+  });
 });
+
+// Global function to equalize heights for any carousel
+function equalizeCardHeights(carousel) {
+  const cards = carousel.querySelectorAll('.diferencial-item');
+  if (cards.length === 0) return;
+
+  // Reset heights to auto to get natural heights
+  cards.forEach(card => {
+    card.style.height = 'auto';
+  });
+
+  // Get the tallest card height
+  let maxHeight = 0;
+  cards.forEach(card => {
+    const cardHeight = card.offsetHeight;
+    if (cardHeight > maxHeight) {
+      maxHeight = cardHeight;
+    }
+  });
+
+  // Apply the max height to all cards
+  cards.forEach(card => {
+    card.style.height = maxHeight + 'px';
+  });
+}
 
 function initializeDiferenciais(diferenciaisBlock) {
   const carousel = diferenciaisBlock.querySelector('.diferenciais-carousel');
@@ -30,6 +65,40 @@ function initializeDiferenciais(diferenciaisBlock) {
     initialIndex: 0,
     percentPosition: false,
   });
+
+  // Equalize heights after Flickity is ready
+  flickity.on('ready', function () {
+    setTimeout(() => equalizeCardHeights(carousel), 100); // Small delay to ensure DOM is ready
+  });
+
+  // Also equalize immediately after initialization
+  setTimeout(() => equalizeCardHeights(carousel), 200);
+
+  // Re-equalize on window resize
+  flickity.on('resize', () => equalizeCardHeights(carousel));
+
+  // Re-equalize when images load (important for cards with images)
+  const images = carousel.querySelectorAll('img');
+  let loadedImages = 0;
+  const totalImages = images.length;
+
+  if (totalImages > 0) {
+    images.forEach(img => {
+      if (img.complete) {
+        loadedImages++;
+        if (loadedImages === totalImages) {
+          setTimeout(() => equalizeCardHeights(carousel), 50);
+        }
+      } else {
+        img.addEventListener('load', function () {
+          loadedImages++;
+          if (loadedImages === totalImages) {
+            setTimeout(() => equalizeCardHeights(carousel), 50);
+          }
+        });
+      }
+    });
+  }
 
   // Custom navigation buttons
   if (prevButton && nextButton) {
@@ -74,8 +143,13 @@ function initializeDiferenciais(diferenciaisBlock) {
 
       // Update reference
       Object.assign(flickity, newFlickity);
+
+      // Re-equalize heights after recreating
+      setTimeout(() => equalizeCardHeights(carousel), 100);
     } else {
       flickity.resize();
+      // Re-equalize heights after resize
+      setTimeout(() => equalizeCardHeights(carousel), 100);
     }
   }
 

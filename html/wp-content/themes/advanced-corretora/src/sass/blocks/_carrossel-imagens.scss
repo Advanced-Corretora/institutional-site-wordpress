@@ -16,6 +16,12 @@
   .carrossel-imagens-container {
     width: 100%;
     padding-bottom: 50px; // Space for navigation buttons
+    padding-left: 50px;
+    padding-right: 50px;
+    @media (min-width: 1024px) {
+      padding-left: 0;
+      padding-right: 0;
+    }
 
     .carrossel-imagens-carousel {
       width: 100%;
@@ -66,62 +72,62 @@
       }
 
       // Flickity overrides for this specific carousel
-      .flickity-prev-next-button {
-        top: auto;
-        bottom: -50px;
-        width: 30px;
-        height: 30px;
+      .flickity-button {
+        background: transparent;
+        border: none;
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        color: #002d50;
+        border: 1px solid #002d50;
         padding: 0;
-        background-color: #666;
-        border: 1px solid #666;
-        
-        &:hover {
-          background-color: #003366;
-          border-color: #003366;
+        top: auto;
+        bottom: -83px;
+        &.flickity-prev-next-button.previous {
+          left: calc(50% - 43px);
         }
-
-        &:focus {
-          outline: none;
-          box-shadow: 0 0 0 5px rgba(0, 51, 102, 0.1);
+        &.flickity-prev-next-button.next {
+          right: calc(50% - 43px);
         }
-
-        &:disabled {
-          opacity: 0.3;
-          cursor: not-allowed;
-        }
-
         .flickity-button-icon {
-          left: 7px;
-          top: 7px;
+          left: 9px;
+          top: 9px;
           width: 15px;
           height: 15px;
+          path {
+            fill: #0099cc;
+          }
         }
-
-        // Previous button - positioned left of center
-        &.previous {
-          left: calc(50% - 36px);
+        &:hover {
+          border-color: #003366;
+          background-color: #003366;
+          .flickity-button-icon {
+            path {
+              fill: #fff;
+            }
+          }
         }
-
-        // Next button - positioned right of center
-        &.next {
-          right: calc(50% - 36px);
-        }
-
-        path {
-          fill: #fff;
-        }
+        // @media (min-width: 1024px) {
+        //   // Hide default Flickity buttons since we use custom ones
+        //   display: none;
+        // }
       }
 
       .flickity-page-dots {
         display: none; // Hide page dots as requested
       }
 
-      // Mobile specific adjustments
-      @media (max-width: 768px) {
-        .flickity-prev-next-button {
-          display: none; // Hide navigation buttons on mobile
-        }
-      }
+      // // Mobile specific adjustments
+      // @media (max-width: 768px) {
+      //   .flickity-prev-next-button {
+      //     display: none; // Hide navigation buttons on mobile
+      //   }
+      // }
     }
   }
 

@@ -25,10 +25,19 @@
     height: 100%;
   }
 
+  // Garante altura uniforme entre slides visíveis
+  &.flickity-enabled {
+    .flickity-slider {
+      display: flex;
+      align-items: stretch; // Faz todos os slides terem a mesma altura
+    }
+  }
+
   .slider-cell {
     width: 100%;
-    height: 100%;
-    min-height: 600px;
+    height: auto; // Permite altura dinâmica
+    min-height: 600px; // Altura mínima para consistência
+    display: flex; // Importante para altura uniforme
     &:has(.slide-disclaimer) {
       min-height: 700px;
     }
@@ -41,8 +50,9 @@
 
 
     .slide {
-      width: 100%;
-      height: 100%;
+      width: 100%; // Ocupa toda a largura da cell
+      height: auto; // Altura dinâmica
+      min-height: inherit; // Herda altura mínima da cell
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
@@ -108,6 +118,12 @@
                 font-size: 62px;
                 line-height: 74px;
               }
+              br {
+                display: none;
+                @media (min-width: 1024px) {
+                  display: block;
+                }
+              }
 
               span {
                 color: #00ffff;
@@ -118,11 +134,15 @@
               }
             }
             .slide-subtitle {
-              font-size: 21px;
-              line-height: 29px;
+              font-size: 14px;
+              line-height: 20px;
               font-weight: 500;
               color: #fff;
               margin: 0;
+              @media (min-width: 1024px) {
+                font-size: 21px;
+                line-height: 29px;
+              }
             }
 
             .slide-text {

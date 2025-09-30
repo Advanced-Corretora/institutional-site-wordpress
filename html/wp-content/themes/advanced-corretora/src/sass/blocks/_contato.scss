@@ -1,0 +1,199 @@
+.secao-informacoes {
+    @media (max-width: 768px) {
+        padding-top: 100px !important;
+        padding-bottom: 100px !important;
+
+        h2.wp-block-heading {
+            font-size: 34px !important;
+        }
+
+        p {
+            font-size: 16px !important;
+        }
+
+        ul li {
+            font-size: 14px !important;
+        }
+
+        ul li a {
+            font-size: 14px !important;
+        }
+
+        .wp-element-button {
+            font-size: 12px !important;
+        }
+
+        .informacoes {
+            display: flex;
+            flex-direction: column;
+            align-items: left !important;
+        }
+
+        .wp-block-group {
+            width: 100% !important;
+        }
+
+        .whatsapp {
+            .wp-block-button__link {
+                height: 42px !important;
+
+                &::before {
+                    width: 16px !important;
+                    height: 16px !important;
+                }
+            }
+        }
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    ul li {
+        margin-bottom: 10px;
+        padding-left: 30px;
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 18px;
+        color: #fff;
+    }
+
+    .item-contato {
+        background-image: url('/wp-content/uploads/2025/09/icone-telefone.svg');
+    }
+
+    .item-email {
+        background-image: url('/wp-content/uploads/2025/09/icone-envelope.svg');
+    }
+
+    a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 21px !important;
+        font-style: normal !important;
+        font-weight: 300 !important;
+    }
+
+    .whatsapp {
+        .wp-block-button__link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 20px;
+            line-height: 36px;
+            font-weight: 500 !important;
+            padding: 11px 20px;
+            background-color: transparent;
+            color: #ffffff;
+            border: 1.5px solid #ffffff;
+            border-radius: 999px;
+            transition: all 0.3s ease;
+
+            &::before {
+                content: '';
+                display: block;
+                width: 37px;
+                height: 37px;
+                background: url('/wp-content/themes/advanced-corretora/assets/icons/whatsapp.svg') no-repeat center center;
+                background-size: cover;
+            }
+
+            &:hover {
+                background-color: #ffffff;
+                color: #002d5d;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            }
+
+            @media (min-width: 1024px) {
+                font-size: 18px;
+                line-height: 26px;
+                padding: 8px 16px;
+                color: #ffffff;
+                border: 1.5px solid #ffffff;
+            }
+        }
+    }
+}
+
+.secao-ouvidoria {
+    @media (max-width: 768px) {
+        padding-top: 100px !important;
+        padding-bottom: 100px !important;
+
+        h2.wp-block-heading {
+            font-size: 34px !important;
+            font-weight: 300 !important;
+        }
+
+        p {
+            font-size: 16px !important;
+        }
+
+        ul li {
+            font-size: 14px !important;
+        }
+
+        .wp-element-button {
+            font-size: 12px !important;
+        }
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    ul li {
+        margin-bottom: 10px;
+        padding-left: 30px;
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 18px;
+        font-size: 16px;
+        color: #fff;
+    }
+
+    .item-contato-azul {
+        background-image: url('/wp-content/uploads/2025/09/icone-telefone-azul.svg');
+    }
+
+    .mv-0 {
+        margin: 0px !important;
+    }
+
+    .pt-2 {
+        padding-top: 20px !important;
+    }
+
+    .mt-2 {
+        margin-top: 20px !important;
+    }
+
+    .wp-block-button__link {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        padding: 11px 20px;
+        background-color: transparent;
+        color: #002d5d;
+        border: 1.5px solid #002d5d;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: #002d5d !important;
+            color: #ffffff !important;
+            border: 1.5px solid #002d5d;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (max-width: 768px) {
+            font-size: 18px;
+            height: 42px !important;
+        }
+    }
+}

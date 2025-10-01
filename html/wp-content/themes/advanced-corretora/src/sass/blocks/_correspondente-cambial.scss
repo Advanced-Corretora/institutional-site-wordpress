@@ -1,0 +1,291 @@
+.secao-servicos {
+    .cards-servicos {
+        gap: 45px !important;
+    
+        .wp-block-group {
+            width: 260px !important;
+            height: 340px !important;
+            align-items: center !important;
+            justify-content: center !important;
+            border-radius: 12px !important;
+            text-align: center !important;
+            line-height: 20.4px;
+    
+            .wp-block-image {
+                width: 100% !important;
+                margin-top: 35px !important;
+                margin-bottom: 23px !important;
+    
+                img {
+                    height: 65px !important;
+                    width: 65px !important;
+                }
+            }
+
+            h2.wp-block-heading {
+                line-height: 28.8px !important;
+                margin: 0 !important;
+            }
+        }
+    }
+
+    .wp-block-button__link {
+        height: 54px;
+        display: flex;
+        align-items: center;
+        background-color: transparent;
+        color: #002d5d;
+        border: 1.5px solid #002d5d;
+        transition: all 0.3s ease;
+        padding: 0px 32px;
+
+        &:hover {
+            background-color: #002d5d !important;
+            color: #ffffff !important;
+            border: 1.5px solid #002d5d;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (max-width: 768px) {
+            font-size: 18px;
+            height: 42px !important;
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: 100px 25px !important;
+
+        h2.wp-block-heading {
+            font-size: 34px !important;
+            text-align: center !important;
+            line-height: 35px !important;
+        }
+
+        p {
+            text-align: center !important;
+        }
+
+        .cards-servicos {
+            gap: 20px !important;
+            flex-direction: column !important;
+
+            .wp-block-group {
+                width: 100% !important;
+                height: auto !important;
+                padding: 20px !important;
+
+                .wp-block-image {
+                    margin-top: 0 !important;
+                    margin-bottom: 15px !important;
+
+                    img {
+                        height: 50px !important;
+                        width: 50px !important;
+                    }
+                }
+
+                h2.wp-block-heading {
+                    font-size: 18px !important;
+                    line-height: 24px !important;
+                }
+            }
+        }
+    }
+}
+
+.secao-junte {
+    .cards-junte {
+        .wp-block-group.item {
+            width: 260px !important;
+            height: 260px !important;
+            align-items: center !important;
+            justify-content: center !important;
+            display: flex !important;
+            text-align: center !important;
+            border: solid 1px #00ffff;
+            background-color: rgba(0, 46, 71, 0.5);
+            border-radius: 12px !important;
+        }
+
+        .wp-block-group.icon {
+            margin: -30px !important;
+
+            .wp-block-image img {
+                width: 100px !important;
+                height: 100px !important;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: 100px 25px !important;
+
+        h2.wp-block-heading {
+            font-size: 34px !important;
+            text-align: center !important;
+            line-height: 35px !important;
+        }
+
+        p {
+            text-align: center !important;
+        }
+
+        .cards-junte {
+            gap: 20px !important;
+            flex-direction: column !important;
+
+            .wp-block-group.item {
+                width: 280px !important;
+                height: 200px !important;
+                padding: 20px !important;
+
+                br {
+                    display: none !important;
+                }
+            }
+
+            .wp-block-group.icon {
+                margin: -50px !important;
+
+                .wp-block-image img {
+                    width: 80px !important;
+                    height: 80px !important;
+                    transform: rotate(90deg);
+                }
+            }
+
+            h2.wp-block-heading {
+                font-size: 18px !important;
+                line-height: 24px !important;
+            }
+        }
+    }
+}
+
+.secao-vantagens-correspondente {
+    .diferenciais-title h2 {
+        color: #ffffff !important;
+        font-size: 24px !important;
+        line-height: 28.8px !important;
+    }
+
+    .diferenciais-navigation button {
+        border: solid 1px #ffffff !important;
+    }
+
+    .diferenciais-navigation button:hover {
+        background-color: #002d5d !important;
+        border: solid 1px #002d5d !important;
+    }
+
+    h3.diferencial-titulo {
+        font-size: 24px !important;
+        font-weight: 500 !important;
+        line-height: 28.8px !important;
+        color: #333333 !important;
+    }
+
+    .diferencial-descricao {
+        font-size: 17px !important;
+        color: #666666 !important;
+        line-height: 20.4px !important;
+    }
+
+    .wp-block-button__link {
+        height: 54px;
+        display: flex;
+        align-items: center;
+        background-color: transparent;
+        color: #002d5d;
+        border: 1.5px solid #ffffff;
+        transition: all 0.3s ease;
+        padding: 0px 32px;
+
+        &:hover {
+            background-color: #002d5d !important;
+            color: #ffffff !important;
+            border: 1.5px solid #002d5d;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (max-width: 768px) {
+            font-size: 18px;
+            height: 42px !important;
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: 100px 25px !important;
+
+        h2.wp-block-heading {
+            font-size: 34px !important;
+            text-align: center !important;
+        }
+
+        p {
+            text-align: center !important;
+        }
+
+        .diferenciais-title h2 {
+            font-size: 34px !important;
+            line-height: 35px !important;
+        }
+
+        .diferenciais-slider .slick-list {
+            margin: 0 -10px !important;
+        }
+
+        h3.diferencial-titulo {
+            font-size: 20px !important;
+            line-height: 24px !important;
+        }
+
+        .diferencial-descricao {
+            font-size: 18px !important;
+            line-height: 22px !important;
+        }
+
+        .wp-block-group {
+            padding-top: 50px !important;
+            padding-bottom: 0px !important;
+        }
+    }
+}
+
+.secao-conheca {
+    .wp-block-button__link {
+        height: 54px;
+        display: flex;
+        align-items: center;
+        background-color: transparent;
+        color: #002d5d;
+        border: 1.5px solid #002d5d;
+        transition: all 0.3s ease;
+        padding: 0px 32px;
+
+        &:hover {
+            background-color: #002d5d !important;
+            color: #ffffff !important;
+            border: 1.5px solid #002d5d;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (max-width: 768px) {
+            font-size: 18px;
+            height: 42px !important;
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: 100px 25px !important;
+
+        p {
+            font-size: 34px !important;
+            text-align: center !important;
+            line-height: 35px !important;
+        }
+    }
+}

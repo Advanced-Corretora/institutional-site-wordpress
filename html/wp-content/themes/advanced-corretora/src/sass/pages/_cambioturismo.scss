@@ -206,8 +206,15 @@
     color: #003366;
     font-weight: 300 !important;
     padding-top: 300px;
+    br {
+      display: none;
+      @media (min-width: 1024px) {
+        display: block;
+      }
+    }
     @media (min-width: 1024px) {
       padding-top: 0px;
+      margin-top: 0px;
     }
   }
   p {

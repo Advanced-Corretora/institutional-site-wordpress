@@ -190,6 +190,7 @@
       order: 1;
       @media (min-width: 1024px) {
         order: 2;
+        align-self: flex-start;
       }
 
       .wpcf7-form {

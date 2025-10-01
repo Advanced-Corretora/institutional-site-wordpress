@@ -146,6 +146,9 @@
         display: none;
       }
     }
+    @media (min-width: 1024px) {
+      align-items: flex-start;
+    }
   }
   .ctasobre {
     display: flex !important;

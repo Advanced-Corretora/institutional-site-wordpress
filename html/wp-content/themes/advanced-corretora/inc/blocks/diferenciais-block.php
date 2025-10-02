@@ -53,13 +53,13 @@ function diferenciais_carrossel_block()
             // Get additional classes and anchor from Gutenberg
             $className = isset($attributes['className']) ? $attributes['className'] : '';
             $anchor = isset($attributes['anchor']) ? $attributes['anchor'] : '';
-            
+
             // Build classes array
             $classes = ['wp-block-diferenciais-carousel'];
             if (!empty($className)) {
                 $classes[] = $className;
             }
-            
+
             // Build attributes array
             $block_attributes = [];
             if (!empty($anchor)) {
@@ -79,12 +79,12 @@ function diferenciais_carrossel_block()
                     <div class="diferenciais-navigation">
                         <button class="diferenciais-prev" aria-label="Anterior">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </button>
                         <button class="diferenciais-next" aria-label="Próximo">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </button>
                     </div>
@@ -106,12 +106,16 @@ function diferenciais_carrossel_block()
                                         </div>
                                     <?php endif; ?>
                                     <div class="diferencial-content">
-                                        <h3 class="diferencial-titulo">
-                                            <?php echo wp_kses_post($diferencial['titulo']); ?>
-                                        </h3>
-                                        <p class="diferencial-descricao">
-                                            <?php echo esc_html($diferencial['descricao']); ?>
-                                        </p>
+                                        <?php if (!empty($diferencial['titulo'])) : ?>
+                                            <h3 class="diferencial-titulo">
+                                                <?php echo wp_kses_post($diferencial['titulo']); ?>
+                                            </h3>
+                                        <?php endif; ?>
+                                        <?php if (!empty($diferencial['descricao'])) : ?>
+                                            <p class="diferencial-descricao">
+                                                <?php echo esc_html($diferencial['descricao']); ?>
+                                            </p>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </div>
@@ -158,7 +162,7 @@ function diferenciais_enqueue_assets()
             }
         }
     }
-    
+
     if ($should_enqueue) {
         wp_register_script(
             'advanced-corretora-diferenciais',
@@ -171,9 +175,9 @@ function diferenciais_enqueue_assets()
             )
         );
         wp_enqueue_script('advanced-corretora-diferenciais');
-        
+
         // Add type="module" to diferenciais script
-        add_filter('script_loader_tag', function($tag, $handle, $src) {
+        add_filter('script_loader_tag', function ($tag, $handle, $src) {
             if ('advanced-corretora-diferenciais' === $handle) {
                 $tag = str_replace('<script ', '<script type="module" ', $tag);
             }

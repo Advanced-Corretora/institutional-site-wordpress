@@ -1,11 +1,11 @@
-.secao-diferenciais-do-negocio {
-    @media (min-width: 1600px){
-        h2.wp-block-heading.title-large {
-            width: 130%;
-            margin-left: -15%;
-        }
+@media (min-width: 1600px) {
+    .secao-diferenciais-do-negocio h2.wp-block-heading.title-large {
+        width: 130% !important;
+        margin-left: -15%;
     }
+}
 
+.secao-diferenciais-do-negocio {
     .box-diferenciais {
         gap: 70px !important;
 

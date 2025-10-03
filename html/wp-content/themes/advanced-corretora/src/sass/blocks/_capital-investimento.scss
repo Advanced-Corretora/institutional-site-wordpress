@@ -69,6 +69,13 @@
             }
         }
     }
+
+    @media (min-width: 1600px) {
+        h2.wp-block-heading {
+            width: 130% !important;
+            margin-left: -15% !important;
+        }
+    }
 }
 
 .secao-diferenciais-do-negocio {
@@ -89,6 +96,13 @@
         .image.mobile {
             display: block;
             padding: 40px;
+        }
+    }
+
+    @media (min-width: 1600px) {
+        h2.wp-block-heading {
+            width: 130% !important;
+            margin-left: -15% !important;
         }
     }
 }

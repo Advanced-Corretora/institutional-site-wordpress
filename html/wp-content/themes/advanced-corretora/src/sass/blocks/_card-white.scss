@@ -1,0 +1,32 @@
+.section-cards-white {
+    .wp-block-columns {
+        gap: 40px !important;
+    }
+
+    .card-white {
+        border-radius: 16px;
+        padding: 20px;
+        filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        min-height: 260px;
+        align-items: center;
+        display: flex;
+    }
+
+    .card-white:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    }
+}
+
+@media (max-width: 768px) {
+  .section-cards-white .wp-block-columns {
+    gap: 40px !important;
+  }
+
+  .section-cards-white .wp-block-column.card-white {
+    width: 240px !important;
+    max-width: 240px !important;
+    margin: 0 auto;
+  }
+}

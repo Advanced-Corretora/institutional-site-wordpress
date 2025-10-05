@@ -1,3 +1,42 @@
+@media (max-width: 1024px) {
+
+  .secao-cards-dinheiro-exterior,
+  .secao-cambio-caro {
+    .btn-outline-primary {
+      width: 204px;
+      height: 36px;
+
+      a {
+        font-size: 12px !important;
+      }
+    }
+  }
+}
+
+@media (min-width: 1025px) {
+  .secao-cards-dinheiro-exterior {
+    .btn-outline-primary {
+      width: 296px;
+      height: 54px;
+
+      a {
+        font-size: 18px !important;
+      }
+    }
+  }
+
+  .secao-cambio-caro {
+    .btn-outline-primary {
+      width: 260px;
+      height: 54px;
+
+      a {
+        font-size: 18px !important;
+      }
+    }
+  }
+}
+
 /* ============================
    Seção Receber Dinheiro Exterior
 =============================== */
@@ -137,6 +176,7 @@
 =============================== */
 
 .secao-cambio-paises {
+
   .box-white,
   .vantagens-slider.box-white {
     background: #fff;
@@ -222,11 +262,6 @@
     font-size: 32px !important;
   }
 
-  .btn-float-primary .wp-element-button {
-    width: 260px !important;
-    height: 48px !important;
-  }
-
   @media (max-width: 767px) {
     h2.wp-block-heading {
       font-size: 26px !important;
@@ -290,32 +325,5 @@
     gap: 0px;
     flex-wrap: wrap;
     padding: 0;
-  }
-}
-
-/* ============================
-   Botão Flutuante
-=============================== */
-
-.btn-float-primary {
-  .wp-block-button__link.wp-element-button {
-    width: 296px;
-    height: 54px;
-    border: 1px solid #00e5ff;
-    background: transparent;
-    color: #fff;
-    display: inline-block;
-    padding: 10px 14px;
-    text-decoration: none;
-    border-radius: 999px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-  }
-
-  .wp-block-button__link.wp-element-button:hover {
-    transform: translateY(-5px);
-    background: #00e5ff;
-    border: 1px solid #00e5ff;
-    color: #000;
   }
 }

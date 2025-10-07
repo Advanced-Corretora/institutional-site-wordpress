@@ -103,3 +103,13 @@ function advanced_corretora_block_supports() {
 }
 add_action( 'init', 'advanced_corretora_block_supports' );
 add_filter( 'wpcf7_autop_or_not', '__return_false' );
+
+
+function disable_srcset_for_class($attr, $attachment, $size) {
+    if (!empty($attr['class']) && strpos($attr['class'], 'no-srcset') !== false) {
+        unset($attr['srcset']);
+        unset($attr['sizes']);
+    }
+    return $attr;
+}
+add_filter('wp_get_attachment_image_attributes', 'disable_srcset_for_class', 10, 3);

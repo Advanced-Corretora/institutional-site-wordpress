@@ -60,6 +60,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @use "blocks/correspondente-cambial" as *;
 @use "blocks/card-white" as *;
 @use "blocks/buttons" as *;
+@use "blocks/card-neon-blue" as *;
 
 // Pages
 @use "pages/sobre" as *;
@@ -69,3 +70,5 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @use "pages/assessoria" as *;
 @use "pages/registrosdeclaracoes" as *;
 @use "pages/search" as *;
+@use "pages/cambiocomercial" as *;
+@use "pages/capitalinvestimento" as *;

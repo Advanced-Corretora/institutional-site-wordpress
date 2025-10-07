@@ -1,0 +1,173 @@
+/* ===================== */
+/* Botões               */
+/* ===================== */
+.secao-cards-dinheiro-exterior,
+.secao-cambio-caro {
+    .btn-outline-primary {
+        width: 204px;
+        height: 36px;
+
+        a {
+            font-size: 12px !important;
+        }
+    }
+}
+
+/* Desktop >= 1025px */
+@media (min-width: 1025px) {
+
+    .secao-cards-dinheiro-exterior,
+    .secao-cambio-caro {
+        .btn-outline-primary {
+            width: 296px;
+            height: 54px;
+
+            a {
+                font-size: 18px !important;
+            }
+        }
+    }
+}
+
+/* ===================== */
+/* Seção Dinheiro Exterior    */
+/* ===================== */
+.secao-cards-dinheiro-exterior {
+    .section-cards-neon-blue {
+        margin-bottom: 65px !important;
+
+        .wp-block-columns {
+            gap: 0px !important;
+            align-items: center !important;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card-neon-blue {
+            flex: 0 0 auto;
+            width: 300px;
+            height: 280px;
+        }
+
+        .icon {
+            text-align: center !important;
+            transform: rotate(90deg);
+            padding: 0 !important;
+
+            img {
+                width: 100px !important;
+            }
+        }
+    }
+
+    /* Desktop >= 1025px */
+    @media (min-width: 1025px) {
+        h2.wp-block-heading {
+            font-size: 42px !important;
+            padding-bottom: 100px !important;
+        }
+
+        .section-cards-neon-blue {
+            margin-bottom: 100px !important;
+
+            .card-neon-blue {
+                width: 260px !important;
+                height: 260px !important;
+            }
+
+            .icon {
+                padding: 0 !important;
+                transform: rotate(0deg);
+
+                img {
+                    width: 100px !important;
+                }
+            }
+        }
+    }
+}
+
+/* ===================== */
+/* Seção Câmbio Paises   */
+/* ===================== */
+.secao-cambio-paises {
+    .section-cards-white {
+        .wp-block-columns.items.is-layout-flex {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 20px !important;
+            justify-content: center;
+            align-items: center;
+            padding: 0 var(--container-padding);
+        }
+
+        .wp-block-column.card-white {
+            width: 170px !important;
+            height: 170px !important;
+            min-height: 170px !important;
+            flex: 0 0 auto !important;
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            padding: 0 17px !important;
+
+            p {
+                margin: 0 !important;
+                text-align: center;
+            }
+        }
+
+    }
+
+    /* Desktop >= 1025px */
+    @media (min-width: 1025px) {
+        padding-top: 140px !important;
+        padding-bottom: 140px !important;
+
+        h3.wp-block-heading {
+            font-size: 42px !important;
+            padding-bottom: 100px !important;
+        }
+
+        .section-cards-white {
+            p {
+                font-size: 24px !important;
+            }
+
+            .wp-block-columns.items.is-layout-flex {
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 30px !important;
+            }
+
+            .wp-block-column.card-white {
+                width: 260px !important;
+                height: 260px !important;
+                min-height: 260px !important;
+                padding: 0 45px !important;
+            }
+        }
+    }
+}
+
+/* ===================== */
+/* Seção Câmbio Caro   */
+/* ===================== */
+.secao-cambio-caro {
+    h2.wp-block-heading {
+        font-size: 30px !important;
+    }
+
+    @media (min-width: 1025px) {
+        padding-top: 185px !important;
+        padding-bottom: 185px !important;
+
+        h3.wp-block-heading {
+            font-size: 32px !important;
+        }
+
+        p {
+            font-size: 18px !important;
+        }
+    }
+}

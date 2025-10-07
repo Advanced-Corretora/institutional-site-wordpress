@@ -2,6 +2,13 @@
  * Observação: ajustes de tamanho devem ser feitos nos arquivos SCSS dentro de 'pages'.
  */
 
+@media (min-width: 1025px) {
+    .btn-outline-primary .wp-element-button {
+        width: 296px;
+        height: 54px;
+    }
+}
+
 .btn-outline-primary .wp-element-button {
     background: transparent;
     border: solid 1px #00FFFF;

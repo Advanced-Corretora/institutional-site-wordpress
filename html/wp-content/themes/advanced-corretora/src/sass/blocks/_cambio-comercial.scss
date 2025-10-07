@@ -1,329 +1,290 @@
-@media (max-width: 1024px) {
+// /* ============================
+//    Seção Receber Dinheiro Exterior
+// =============================== */
 
-  .secao-cards-dinheiro-exterior,
-  .secao-cambio-caro {
-    .btn-outline-primary {
-      width: 204px;
-      height: 36px;
+// .secao-cards-dinheiro-exterior {
+//   .cards-exterior {
+//     .wp-block-group {
+//       width: 260px;
+//       height: 260px;
+//       text-align: center;
+//       align-items: center;
+//       display: flex;
+//       border: solid 1px #00ffff;
+//       border-radius: 12px;
+//     }
 
-      a {
-        font-size: 12px !important;
-      }
-    }
-  }
-}
+//     .wp-block-group.icon {
+//       border: none !important;
+//       width: 140px !important;
+//     }
 
-@media (min-width: 1025px) {
-  .secao-cards-dinheiro-exterior {
-    .btn-outline-primary {
-      width: 296px;
-      height: 54px;
+//     .wp-block-group img {
+//       width: 140px !important;
+//     }
 
-      a {
-        font-size: 18px !important;
-      }
-    }
-  }
+//     .wp-block-group__inner-container {
+//       width: 100%;
+//     }
 
-  .secao-cambio-caro {
-    .btn-outline-primary {
-      width: 260px;
-      height: 54px;
+//     h2.wp-block-heading {
+//       text-align: center;
+//       font-size: 24px;
+//       font-style: normal;
+//       font-weight: 400;
+//       line-height: 30px;
+//     }
 
-      a {
-        font-size: 18px !important;
-      }
-    }
-  }
-}
+//     p {
+//       text-align: center;
+//       font-size: 24px;
+//       font-style: normal;
+//       font-weight: 300;
+//       line-height: 30px;
+//     }
+//   }
 
-/* ============================
-   Seção Receber Dinheiro Exterior
-=============================== */
+//   @media (max-width: 768px) {
+//     background-color: #0A2445 !important;
+//     position: relative;
+//     overflow: hidden;
 
-.secao-cards-dinheiro-exterior {
-  .cards-exterior {
-    .wp-block-group {
-      width: 260px;
-      height: 260px;
-      text-align: center;
-      align-items: center;
-      display: flex;
-      border: solid 1px #00ffff;
-      border-radius: 12px;
-    }
+//     .wp-block-cover__image-background {
+//       object-fit: cover;
+//       object-position: top center;
+//       height: 250px;
+//       width: 100%;
+//       display: block;
+//     }
 
-    .wp-block-group.icon {
-      border: none !important;
-      width: 140px !important;
-    }
+//     .wp-block-cover__background {
+//       background: none !important;
+//     }
 
-    .wp-block-group img {
-      width: 140px !important;
-    }
+//     .cards-exterior {
+//       flex-direction: column !important;
+//       align-items: center;
+//       gap: 20px;
+//     }
 
-    .wp-block-group__inner-container {
-      width: 100%;
-    }
+//     .cards-exterior .wp-block-group.icon img {
+//       transform: rotate(90deg);
+//       width: 140px !important;
+//       margin: 0px 0;
+//     }
 
-    h2.wp-block-heading {
-      text-align: center;
-      font-size: 24px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 30px;
-    }
+//     .cards-exterior .wp-block-group.icon {
+//       width: auto !important;
+//       height: 100px !important;
+//     }
+//   }
+// }
 
-    p {
-      text-align: center;
-      font-size: 24px;
-      font-style: normal;
-      font-weight: 300;
-      line-height: 30px;
-    }
-  }
+// /* ============================
+//    Seção Vantagens
+// =============================== */
 
-  @media (max-width: 768px) {
-    background-color: #0A2445 !important;
-    position: relative;
-    overflow: hidden;
+// .vantagens-section {
+//   padding: 80px var(--container-padding);
 
-    .wp-block-cover__image-background {
-      object-fit: cover;
-      object-position: top center;
-      height: 250px;
-      width: 100%;
-      display: block;
-    }
+//   @media (min-width: 1024px) {
+//     padding: 280px var(--container-padding);
+//   }
 
-    .wp-block-cover__background {
-      background: none !important;
-    }
+//   .diferenciais-title {
+//     h2 {
+//       font-size: 24px;
+//       line-height: 32px;
+//       font-weight: 300;
+//       color: #003366;
 
-    .cards-exterior {
-      flex-direction: column !important;
-      align-items: center;
-      gap: 20px;
-    }
+//       @media (min-width: 1024px) {
+//         font-size: 24px !important;
+//         line-height: 28px !important;
+//         font-weight: 300;
+//       }
+//     }
+//   }
+// }
 
-    .cards-exterior .wp-block-group.icon img {
-      transform: rotate(90deg);
-      width: 140px !important;
-      margin: 0px 0;
-    }
+// /* Box Blue */
+// .wp-block-column.box-blue {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   height: 260px;
+//   margin: 0 auto;
+//   flex: 1;
+//   text-align: center;
+//   border: 1px solid #04f6f8;
+//   border-radius: 16px;
+//   background: rgba(0, 35, 71, 0.2);
+//   padding: 0px 30px !important;
+// }
 
-    .cards-exterior .wp-block-group.icon {
-      width: auto !important;
-      height: 100px !important;
-    }
-  }
-}
+// .wp-block-column.box-blue h3 {
+//   color: #00e5ff;
+//   margin-bottom: 10px;
+// }
 
-/* ============================
-   Seção Vantagens
-=============================== */
+// .wp-block-column.box-blue p {
+//   color: #fff;
+// }
 
-.vantagens-section {
-  padding: 80px var(--container-padding);
+// /* ============================
+//    Seção Câmbio Países
+// =============================== */
 
-  @media (min-width: 1024px) {
-    padding: 280px var(--container-padding);
-  }
+// .secao-cambio-paises {
 
-  .diferenciais-title {
-    h2 {
-      font-size: 24px;
-      line-height: 32px;
-      font-weight: 300;
-      color: #003366;
+//   .box-white,
+//   .vantagens-slider.box-white {
+//     background: #fff;
+//     border-radius: 16px;
+//     padding: 30px 20px;
+//     text-align: center;
+//     margin: 0 auto;
+//     box-shadow: 0 4px 6px rgba(0, 4, 4, 0.25);
+//   }
 
-      @media (min-width: 1024px) {
-        font-size: 24px !important;
-        line-height: 28px !important;
-        font-weight: 300;
-      }
-    }
-  }
-}
+//   .wp-block-columns {
+//     display: grid;
+//     grid-template-columns: repeat(2, 1fr);
+//     gap: 20px;
+//   }
 
-/* Box Blue */
-.wp-block-column.box-blue {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 260px;
-  margin: 0 auto;
-  flex: 1;
-  text-align: center;
-  border: 1px solid #04f6f8;
-  border-radius: 16px;
-  background: rgba(0, 35, 71, 0.2);
-  padding: 0px 30px !important;
-}
+//   .wp-block-column {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     text-align: center;
+//   }
 
-.wp-block-column.box-blue h3 {
-  color: #00e5ff;
-  margin-bottom: 10px;
-}
+//   h2,
+//   p {
+//     margin: 0 !important;
+//   }
 
-.wp-block-column.box-blue p {
-  color: #fff;
-}
+//   .wp-block-columns.is-layout-flex {
+//     gap: 30px !important;
+//   }
 
-/* ============================
-   Seção Câmbio Países
-=============================== */
+//   :where(.wp-block-columns) {
+//     margin-bottom: 30px;
+//   }
 
-.secao-cambio-paises {
+//   .box-white {
+//     aspect-ratio: 1 / 1;
+//     width: 100%;
+//     max-width: 250px;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     padding: 0 30px;
+//     margin: 0 !important;
+//   }
 
-  .box-white,
-  .vantagens-slider.box-white {
-    background: #fff;
-    border-radius: 16px;
-    padding: 30px 20px;
-    text-align: center;
-    margin: 0 auto;
-    box-shadow: 0 4px 6px rgba(0, 4, 4, 0.25);
-  }
+//   @media (max-width: 767px) {
+//     h2 {
+//       font-size: 30px !important;
+//       padding: 50px 20px !important;
+//     }
 
-  .wp-block-columns {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
+//     p {
+//       font-size: 18px !important;
+//       padding: 0px !important;
+//     }
+//   }
 
-  .wp-block-column {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
+//   .flex-cambio-paises .items {
+//     display: grid !important;
+//     flex-wrap: unset !important;
+//     gap: 20px;
+//     grid-template-columns: repeat(3, 1fr);
+//     justify-items: center;
+//     align-items: center;
+//     padding: 0 var(--container-padding);
+//   }
 
-  h2,
-  p {
-    margin: 0 !important;
-  }
+//   @media (max-width: 768px) {
+//     .flex-cambio-paises .items {
+//       grid-template-columns: repeat(2, 1fr);
+//     }
+//   }
+// }
 
-  .wp-block-columns.is-layout-flex {
-    gap: 30px !important;
-  }
+// /* ============================
+//    Seção Câmbio Caro
+// =============================== */
 
-  :where(.wp-block-columns) {
-    margin-bottom: 30px;
-  }
+// .secao-cambio-caro {
+//   h2.wp-block-heading {
+//     font-size: 32px !important;
+//   }
 
-  .box-white {
-    aspect-ratio: 1 / 1;
-    width: 100%;
-    max-width: 250px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 30px;
-    margin: 0 !important;
-  }
-
-  @media (max-width: 767px) {
-    h2 {
-      font-size: 30px !important;
-      padding: 50px 20px !important;
-    }
-
-    p {
-      font-size: 18px !important;
-      padding: 0px !important;
-    }
-  }
-
-  .flex-cambio-paises .items {
-    display: grid !important;
-    flex-wrap: unset !important;
-    gap: 20px;
-    grid-template-columns: repeat(3, 1fr);
-    justify-items: center;
-    align-items: center;
-    padding: 0 var(--container-padding);
-  }
-
-  @media (max-width: 768px) {
-    .flex-cambio-paises .items {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-}
-
-/* ============================
-   Seção Câmbio Caro
-=============================== */
-
-.secao-cambio-caro {
-  h2.wp-block-heading {
-    font-size: 32px !important;
-  }
-
-  @media (max-width: 767px) {
-    h2.wp-block-heading {
-      font-size: 26px !important;
-    }
-  }
-}
+//   @media (max-width: 767px) {
+//     h2.wp-block-heading {
+//       font-size: 26px !important;
+//     }
+//   }
+// }
 
 
-/* ============================
-   Seção Câmbio Valor
-=============================== */
-.bg-page-exchange-value {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  padding: 80px 0;
-  background: url('/wp-content/uploads/2025/09/fundo-cambio-valor.png') no-repeat center/cover;
-  overflow: hidden;
-}
+// /* ============================
+//    Seção Câmbio Valor
+// =============================== */
+// .bg-page-exchange-value {
+//   position: relative;
+//   z-index: 1;
+//   width: 100%;
+//   padding: 80px 0;
+//   background: url('/wp-content/uploads/2025/09/fundo-cambio-valor.png') no-repeat center/cover;
+//   overflow: hidden;
+// }
 
-/* ============================
-   Seção Etapas
-=============================== */
+// /* ============================
+//    Seção Etapas
+// =============================== */
 
-@media (max-width: 767px) {
-  .bg-external-finance .wp-block-columns.is-layout-flex {
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 0px !important;
-    padding: 0 12px !important;
-  }
+// @media (max-width: 767px) {
+//   .bg-external-finance .wp-block-columns.is-layout-flex {
+//     flex-direction: column !important;
+//     align-items: center !important;
+//     gap: 0px !important;
+//     padding: 0 12px !important;
+//   }
 
-  .bg-external-finance .wp-block-column {
-    width: 100% !important;
-    max-width: 360px !important;
-    margin: 0 auto !important;
-  }
+//   .bg-external-finance .wp-block-column {
+//     width: 100% !important;
+//     max-width: 360px !important;
+//     margin: 0 auto !important;
+//   }
 
-  .wp-block-column.box-blue {
-    aspect-ratio: 1 / 1;
-    width: 100%;
-    max-width: 360px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 20px;
-  }
+//   .wp-block-column.box-blue {
+//     aspect-ratio: 1 / 1;
+//     width: 100%;
+//     max-width: 360px;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     padding: 0 20px;
+//   }
 
-  .bg-external-finance .wp-block-gallery .wp-block-image img,
-  .bg-external-finance img.wp-image-358 {
-    transform: rotate(90deg) !important;
-    width: 125px !important;
-    margin: 6px auto !important;
-  }
-}
+//   .bg-external-finance .wp-block-gallery .wp-block-image img,
+//   .bg-external-finance img.wp-image-358 {
+//     transform: rotate(90deg) !important;
+//     width: 125px !important;
+//     margin: 6px auto !important;
+//   }
+// }
 
-@media (min-width: 1024px) {
-  .wp-block-columns.is-layout-flex {
-    display: flex;
-    justify-content: center;
-    gap: 0px;
-    flex-wrap: wrap;
-    padding: 0;
-  }
-}
+// @media (min-width: 1024px) {
+//   .wp-block-columns.is-layout-flex {
+//     display: flex;
+//     justify-content: center;
+//     gap: 0px;
+//     flex-wrap: wrap;
+//     padding: 0;
+//   }
+// }

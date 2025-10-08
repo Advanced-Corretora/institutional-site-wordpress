@@ -1,0 +1,34 @@
+.section-cards-neon-blue {
+    .wp-block-columns {
+        gap: 40px !important;
+    }
+
+    .card-neon-blue {
+        border-radius: 16px;
+        padding: 20px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #00FFFF;
+    }
+
+    .card-neon-blue:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 16px rgba(0, 255, 255, 0.6);
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 768px) {
+  .section-cards-neon-blue .wp-block-columns {
+    gap: 10px !important;
+  }
+
+  .section-cards-neon-blue .wp-block-column.card-neon-blue {
+    width: 300px !important;
+    max-width: 280px !important;
+    margin: 0 auto;
+  }
+}

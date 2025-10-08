@@ -1,0 +1,26 @@
+/**
+ * Observação: ajustes de tamanho devem ser feitos nos arquivos SCSS dentro de 'pages'.
+ */
+
+@media (min-width: 1025px) {
+    .btn-outline-primary .wp-element-button {
+        width: 296px;
+        height: 54px;
+    }
+}
+
+.btn-outline-primary .wp-element-button {
+    background: transparent;
+    border: solid 1px #00FFFF;
+    color: #FFFFFF;
+    border-radius: 999px;
+    transition: all 0.3s ease;
+    padding: 0px;
+}
+
+.btn-outline-primary .wp-element-button:hover {
+    transform: translateY(-5px);
+    background: #00FFFF;
+    border: 1px solid #00FFFF;
+    color: #000000;
+}

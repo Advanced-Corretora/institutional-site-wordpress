@@ -1,4 +1,23 @@
 /* ===================== */
+/* Seção Vantagens    */
+/* ===================== */
+.secao-vantagens-cambio-comercial {
+    .diferenciais-title h2 {
+        font-size: 30px !important;
+        line-height: 32px !important;
+    }
+
+    @media (min-width: 1025px) {
+        padding-top: 280px !important;
+        padding-bottom: 280px !important;
+
+        .diferenciais-title h2 {
+            font-size: 24px !important;
+        }
+    }
+}
+
+/* ===================== */
 /* Botões               */
 /* ===================== */
 .secao-cards-dinheiro-exterior,

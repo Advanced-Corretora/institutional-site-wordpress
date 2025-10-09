@@ -55,7 +55,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @use "blocks/conta-corrente-internacional" as *;
 @use "blocks/capital-credito" as *;
 @use "blocks/capital-investimento" as *;
-@use "blocks/trading" as *;
 @use "blocks/contato" as *;
 @use "blocks/correspondente-cambial" as *;
 @use "blocks/card-white" as *;
@@ -72,3 +71,4 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @use "pages/search" as *;
 @use "pages/cambiocomercial" as *;
 @use "pages/capitalinvestimento" as *;
+@use "pages/trading" as *;

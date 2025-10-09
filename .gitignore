@@ -5,3 +5,4 @@
 /html/wp-content/themes/advanced-corretora/package-lock.json
 /html/wp-content/uploads
 /html/wp-content/plugins
+**/node_modules/

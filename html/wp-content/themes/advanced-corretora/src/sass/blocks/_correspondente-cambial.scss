@@ -118,6 +118,13 @@
         }
     }
 
+    @media (min-width: 1600px) {
+        h2.wp-block-heading {
+            width: 130% !important;
+            margin-left: -15% !important;
+        }
+    }
+
     @media (max-width: 768px) {
         padding: 100px 25px !important;
 

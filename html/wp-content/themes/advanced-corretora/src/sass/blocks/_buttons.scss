@@ -24,3 +24,26 @@
     border: 1px solid #00FFFF;
     color: #000000;
 }
+
+@media (min-width: 1025px) {
+    .btn-outline-white .wp-element-button {
+        width: 296px;
+        height: 54px;
+    }
+}
+
+.btn-outline-white .wp-element-button {
+    background: transparent;
+    border: solid 1px #FFF;
+    color: #FFFFFF;
+    border-radius: 999px;
+    transition: all 0.3s ease;
+    padding: 0px;
+}
+
+.btn-outline-white .wp-element-button:hover {
+    transform: translateY(-5px);
+    background: #FFF;
+    border: 1px solid #FFF;
+    color: #003366;
+}

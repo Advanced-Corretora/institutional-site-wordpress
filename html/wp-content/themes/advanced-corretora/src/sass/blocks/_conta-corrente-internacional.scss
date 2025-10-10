@@ -145,11 +145,19 @@ ul.wp-block-list.list-icon-secondary.dark li::before {
         font-size: 18px !important;
     }
 
-    .btn-float-primary .wp-block-button .wp-element-button {
-        width: 340px !important;
-        height: 54px;
-        font-size: 18px;
+    .btn-outline-white .wp-element-button {
+        width: 235px !important;
+        height: 36px;
+        font-size: 12px;
         margin-top: 25px;
+    }
+
+    @media (min-width: 1025px) {
+        .btn-outline-white .wp-element-button {
+            width: 340px !important;
+            height: 54px;
+            font-size: 18px;
+        }
     }
 
     ul.list-icon-secondary li {

@@ -126,7 +126,7 @@
   }
   h2 {
     @media (min-width: 1024px) {
-      margin-top: 90px;
+      margin-top: 0px;
     }
   }
   .formhome {
@@ -190,13 +190,21 @@
   }
   .logoconsorcios {
     width: 100%;
+    margin-top: auto;
   }
   .consorcio-descricao {
     width: 100%;
+    @media (min-width: 1024px) {
+      flex-grow: 1;
+    }
     .wp-block-group__inner-container {
       padding: 0;
       @media (min-width: 1024px) {
-        padding: var(--container-padding);
+        height: -webkit-fill-available;
+        padding: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
     }
     .wp-block-buttons {

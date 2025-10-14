@@ -98,11 +98,12 @@
     .submenu-area {
       padding: 0;
       border-radius: 0;
+
       @media (min-width: 1024px) {
         padding: 24px 32px;
         // border-radius: 20px;
         position: relative;
-        background: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 35, 63, 0.95);
         z-index: 100001;
         top: calc(77px + var(--wp-adminbar-offset));
         position: fixed;
@@ -245,7 +246,7 @@
                     color: var(--color-blue-light, #00ffff);
                     font-weight: 600;
                     position: relative;
-                    
+
                     &::before {
                       content: '';
                       position: absolute;

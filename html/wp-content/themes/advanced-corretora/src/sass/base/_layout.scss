@@ -1,5 +1,6 @@
 @use "../abstracts/variables/colors" as *;
 @use "../components/widgets/form" as *;
+@use "../components/widgets/widgets" as *;
 :root {
   --container-max-width: 100%;
   --container-padding: 20px;

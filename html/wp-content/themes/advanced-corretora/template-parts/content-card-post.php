@@ -7,57 +7,32 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('card-post'); ?>>
-	<?php if (has_post_thumbnail()) : ?>
-		<div class="card-post__image">
-			<a href="<?php the_permalink(); ?>">
-				<?php the_post_thumbnail('medium_large'); ?>
-			</a>
-		</div>
-	<?php endif; ?>
-	
-	<div class="card-post__content">
-		<?php
-		// Get primary category from Yoast SEO or first category
-		$primary_category = '';
-		if (class_exists('WPSEO_Primary_Term')) {
-			$wpseo_primary_term = new WPSEO_Primary_Term('category', get_the_ID());
-			$primary_term_id = $wpseo_primary_term->get_primary_term();
-			if ($primary_term_id) {
-				$primary_category = get_term($primary_term_id);
-			}
-		}
-		
-		// Fallback to first category if no primary category
-		if (empty($primary_category)) {
-			$categories = get_the_category();
-			if (!empty($categories)) {
-				$primary_category = $categories[0];
-			}
-		}
-		
-		if (!empty($primary_category)) : ?>
+<article id="post-<?php the_ID(); ?>" <?php post_class('card-post'); ?> onclick="window.location='<?php the_permalink(); ?>'">
+	<div class="card-post__image">
+		<?php the_post_thumbnail('medium_large'); ?>
+		<div class="card-post__overlay"></div>
+
+		<div class="card-post__content">
 			<div class="card-post__category">
-				<a href="<?php echo esc_url(get_category_link($primary_category->term_id)); ?>">
-					<?php echo esc_html($primary_category->name); ?>
-				</a>
+				<?php
+					$category = get_the_category();
+					if ($category) {
+						$category_link = get_category_link($category[0]->term_id);
+						echo '<a href="' . esc_url($category_link) . '">' . esc_html($category[0]->name) . '</a>';
+					}
+				?>
 			</div>
-		<?php endif; ?>
-		
-		<h2 class="card-post__title">
-			<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-		</h2>
-		
-		<?php if (has_excerpt()) : ?>
+			<h2 class="card-post__title">
+				<?php the_title(); ?>
+			</h2>
 			<div class="card-post__excerpt">
-				<?php the_excerpt(); ?>
+				<?php
+					$excerpt = get_the_excerpt();
+					$excerpt = wp_trim_words($excerpt, 25, '...');
+					echo esc_html($excerpt);
+				?>
 			</div>
-		<?php endif; ?>
-		
-		<div class="card-post__meta">
-			<time class="card-post__date" datetime="<?php echo esc_attr(get_the_date('c')); ?>">
-				<?php echo get_the_date(); ?>
-			</time>
 		</div>
 	</div>
 </article>
+

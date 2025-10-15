@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying archive pages
+ * The template for displaying author archive pages
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -10,24 +10,49 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main blog-layout archive-layout">
+<main id="primary" class="site-main blog-layout author-layout">
 
 	<?php if ( have_posts() ) : ?>
 
-		<header class="archive-header">
+		<header class="author-header">
 			<div class="container">
-				<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="archive-description">', '</div>' );
-				?>
+				<div class="author-info">
+					<?php
+					$author_id = get_queried_object_id();
+					$author_avatar = get_avatar($author_id, 120);
+					$author_name = get_the_author_meta('display_name', $author_id);
+					$author_bio = get_the_author_meta('description', $author_id);
+					$posts_count = count_user_posts($author_id);
+					?>
+					
+					<?php if ($author_avatar) : ?>
+						<div class="author-avatar">
+							<?php echo $author_avatar; ?>
+						</div>
+					<?php endif; ?>
+					
+					<div class="author-details">
+						<h1 class="page-title">Artigos por <?php echo esc_html($author_name); ?></h1>
+						
+						<?php if ($author_bio) : ?>
+							<div class="author-bio">
+								<?php echo wp_kses_post($author_bio); ?>
+							</div>
+						<?php endif; ?>
+						
+						<div class="author-stats">
+							<span class="posts-count"><?php echo $posts_count; ?> artigo<?php echo $posts_count != 1 ? 's' : ''; ?> publicado<?php echo $posts_count != 1 ? 's' : ''; ?></span>
+						</div>
+					</div>
+				</div>
 			</div>
-		</header><!-- .page-header -->
+		</header>
 
 		<?php
 		// Get all posts for custom layout
 		$paged = get_query_var('paged') ? get_query_var('paged') : 1;
 		
-		// Use the current query for archives
+		// Use the current query for author archives
 		global $wp_query;
 		$all_posts = $wp_query;
 

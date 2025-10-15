@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying archive pages
+ * The template for displaying category archive pages
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -10,24 +10,44 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main blog-layout archive-layout">
+<main id="primary" class="site-main blog-layout category-layout">
 
 	<?php if ( have_posts() ) : ?>
 
-		<header class="archive-header">
+		<header class="category-header">
 			<div class="container">
-				<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="archive-description">', '</div>' );
-				?>
+				<div class="category-info">
+					<?php
+					$category = get_queried_object();
+					$category_color = get_term_meta($category->term_id, 'category_color', true);
+					$posts_count = $category->count;
+					?>
+					
+					<div class="category-details">
+						<h1 class="page-title">
+							<span class="category-label">Categoria:</span>
+							<?php echo esc_html($category->name); ?>
+						</h1>
+						
+						<?php if ($category->description) : ?>
+							<div class="category-description">
+								<?php echo wp_kses_post($category->description); ?>
+							</div>
+						<?php endif; ?>
+						
+						<div class="category-stats">
+							<span class="posts-count"><?php echo $posts_count; ?> artigo<?php echo $posts_count != 1 ? 's' : ''; ?> nesta categoria</span>
+						</div>
+					</div>
+				</div>
 			</div>
-		</header><!-- .page-header -->
+		</header>
 
 		<?php
 		// Get all posts for custom layout
 		$paged = get_query_var('paged') ? get_query_var('paged') : 1;
 		
-		// Use the current query for archives
+		// Use the current query for category archives
 		global $wp_query;
 		$all_posts = $wp_query;
 

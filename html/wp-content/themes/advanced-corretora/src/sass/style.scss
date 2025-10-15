@@ -35,6 +35,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 // Components
 @use "components/components" as *;
 @use "components/footer" as *;
+@use "components/sidebar" as *;
 
 // Plugins
 @use "plugins/jetpack/infinite-scroll" as *;
@@ -60,6 +61,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @use "blocks/card-white" as *;
 @use "blocks/buttons" as *;
 @use "blocks/card-neon-blue" as *;
+@use "blocks/single-post-content" as *;
 
 // Pages
 @use "pages/sobre" as *;
@@ -72,3 +74,5 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @use "pages/cambiocomercial" as *;
 @use "pages/capitalinvestimento" as *;
 @use "pages/trading" as *;
+@use "pages/blog" as *;
+@use "pages/single" as *;

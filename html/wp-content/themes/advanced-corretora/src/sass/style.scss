@@ -63,6 +63,9 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @use "blocks/card-neon-blue" as *;
 @use "blocks/single-post-content" as *;
 
+// Shared Components (must be before pages that extend them)
+@use "components/card-post" as *;
+
 // Pages
 @use "pages/sobre" as *;
 @use "pages/cambioturismo" as *;

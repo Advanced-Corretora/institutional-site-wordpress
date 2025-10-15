@@ -57,7 +57,7 @@ get_header();
 				?>
 				<section class="blog-cards">
 					<div class="container">
-						<div class="blog-cards__grid">
+						<div class="card-grid">
 							<?php
 							$card_count = 0;
 							while ($all_posts->have_posts() && $card_count < 2) :

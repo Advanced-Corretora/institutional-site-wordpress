@@ -109,6 +109,12 @@ get_header();
 		</div>
 	</main>
 
+	<!-- Related Posts -->
+	<?php get_template_part('template-parts/related-posts'); ?>
+
+	<!-- Featured Posts -->
+	<?php get_template_part('template-parts/featured-posts'); ?>
+
 <?php endwhile; ?>
 
 <?php get_footer();

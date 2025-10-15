@@ -49,19 +49,21 @@
 						<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 					</h1>
 					
-					<?php if (has_excerpt()) : ?>
-						<div class="hero-post__excerpt">
-							<?php the_excerpt(); ?>
-						</div>
-					<?php endif; ?>
-					
-					<div class="hero-post__meta">
-						<time class="hero-post__date" datetime="<?php echo esc_attr(get_the_date('c')); ?>">
-							<?php echo get_the_date(); ?>
-						</time>
-						<span class="hero-post__author">
-							por <?php the_author(); ?>
-						</span>
+					<div class="hero-post__excerpt">
+						<?php
+							$limit = 150;
+							if (has_excerpt()) {
+								$excerpt = get_the_excerpt();
+							} else {
+								$excerpt = wp_strip_all_tags(get_the_content());
+							}
+
+							if (strlen($excerpt) > $limit) {
+								$excerpt = substr($excerpt, 0, $limit) . '...';
+							}
+
+							echo esc_html($excerpt);
+						?>
 					</div>
 				</div>
 			</div>

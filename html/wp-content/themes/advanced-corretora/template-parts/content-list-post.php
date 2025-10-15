@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template part for displaying list posts (feed with sidebar)
  *
@@ -16,7 +17,7 @@
 				</a>
 			</div>
 		<?php endif; ?>
-		
+
 		<div class="list-post__content">
 			<?php
 			// Get primary category from Yoast SEO or first category
@@ -28,7 +29,7 @@
 					$primary_category = get_term($primary_term_id);
 				}
 			}
-			
+
 			// Fallback to first category if no primary category
 			if (empty($primary_category)) {
 				$categories = get_the_category();
@@ -36,7 +37,7 @@
 					$primary_category = $categories[0];
 				}
 			}
-			
+
 			if (!empty($primary_category)) : ?>
 				<div class="list-post__category">
 					<a href="<?php echo esc_url(get_category_link($primary_category->term_id)); ?>">
@@ -44,24 +45,17 @@
 					</a>
 				</div>
 			<?php endif; ?>
-			
+
 			<h3 class="list-post__title">
 				<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 			</h3>
-			
-			<?php if (has_excerpt()) : ?>
-				<div class="list-post__excerpt">
-					<?php the_excerpt(); ?>
-				</div>
-			<?php endif; ?>
-			
-			<div class="list-post__meta">
-				<time class="list-post__date" datetime="<?php echo esc_attr(get_the_date('c')); ?>">
-					<?php echo get_the_date(); ?>
-				</time>
-				<span class="list-post__author">
-					por <?php the_author(); ?>
-				</span>
+
+			<div class="list-post__excerpt">
+				<?php
+				$excerpt = get_the_excerpt();
+				$excerpt = wp_trim_words($excerpt, 25, '...');
+				echo esc_html($excerpt);
+				?>
 			</div>
 		</div>
 	</div>

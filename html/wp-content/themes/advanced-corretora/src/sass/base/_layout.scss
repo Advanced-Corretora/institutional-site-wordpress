@@ -5,6 +5,7 @@
   --container-max-width: 100%;
   --container-padding: 20px;
   --container-max-width-lg: 1180px;
+  --container-max-width-blog: 1440px;
   --wp-adminbar-offset: 0px;
 }
 
@@ -18,6 +19,7 @@ body.admin-bar {
     --wp-adminbar-offset: 32px;
   }
 }
+
 
 /* Base layout elements */
 body {
@@ -88,6 +90,13 @@ a {
   :root {
     --container-padding: 16px;
     --container-max-width: var(--container-max-width-lg);
+  }
+  
+  /* Blog layouts use larger container */
+  .blog,
+  .single,
+  .archive {
+    --container-max-width: var(--container-max-width-blog);
   }
 }
 

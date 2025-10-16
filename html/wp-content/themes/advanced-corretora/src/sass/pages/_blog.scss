@@ -64,11 +64,11 @@
       
       &__overlay {
         position: absolute;
-        bottom: 0;
+        bottom: -30px;
         left: 0;
         width: 100%;
-        height: 40%;
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+        height: 50%;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
         z-index: 2;
       }
       
@@ -81,6 +81,7 @@
         color: #fff;
         max-height: 100%;
         overflow-y: auto;
+        padding-top: 40px;
 
         @media (max-width: 768px) {
           top: -50px;
@@ -117,6 +118,7 @@
       &__title {
         font-weight: 700;
         margin: 0;
+        line-height: 0.8 !important;
 
         a {
           font-size: 2.25rem;
@@ -126,8 +128,7 @@
           transition: color 0.3s ease;
 
           @media (max-width: 1024px) {
-            font-size: 1.4rem;
-            line-height: 0.8;
+            font-size: 1.5rem;
           }
 
           @media (min-width: 1025px) {
@@ -147,8 +148,9 @@
         opacity: 0.9;
         font-weight: 300;
         
-        @media (max-width: 768px) {
-          font-size: 1.1rem;
+        @media (max-width: 1025px) {
+          font-size: 0.9rem;
+
         }
       }
       
@@ -217,8 +219,12 @@
       &__overlay {
         position: absolute;
         inset: 0;
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 60%);
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%);
         z-index: 1;
+
+        @media (min-width: 1025px) {
+          background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 30%, rgba(0, 0, 0, 0.8) 100%);
+        }
       }
 
       &__content {
@@ -240,6 +246,11 @@
         font-weight: 600;
         text-decoration: none;
         border-radius: 20px;
+
+        @media (max-width: 768px) {
+          font-size: 0.7rem;
+          padding: 0.3rem 0.7rem;
+        }
       }
 
       &__title {
@@ -247,13 +258,21 @@
         font-weight: 300;
         margin: 0.8rem 0;
         line-height: 1.3;
+
+        @media (max-width: 768px) {
+          font-size: 1.25rem;
+        }
       }
 
       &__excerpt {
         font-size: 1rem;
         color: #f1f1f1;
-        line-height: 1.5;
+        line-height: 20px;
         font-weight: 300;
+
+        @media (max-width: 768px) {
+          font-size: 0.9rem;
+        }
       }
     }
   }

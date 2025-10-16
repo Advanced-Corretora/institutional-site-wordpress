@@ -398,7 +398,7 @@
   // Hero Section para busca
   .search-hero {
     position: relative;
-    height: 400px;
+    height: 550px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -590,11 +590,11 @@
   .search-feed {
     .blog-feed__layout {
       display: flex;
-      gap: 2rem;
+      gap: 70px;
 
       @media (max-width: 1024px) {
         flex-direction: column;
-        gap: 3rem;
+        gap: 2rem;
       }
     }
 
@@ -958,5 +958,12 @@
   }
   .search-main {
     padding: 0;
+  }
+
+  .search-results-count {
+    margin-top: 82px;
+    @media (min-width: 1024px) {
+      margin-top: 0;
+    }
   }
 }

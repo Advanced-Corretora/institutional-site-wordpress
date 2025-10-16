@@ -1,7 +1,7 @@
 <?php
 
 /**
- * The template for displaying category archive pages
+ * The template for displaying tag archive pages
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -11,24 +11,24 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main blog-layout category-layout">
+<main id="primary" class="site-main blog-layout tag-layout">
 
 	<?php if (have_posts()) : ?>
 
-		<!-- Hero Section da Categoria -->
+		<!-- Hero Section da Tag -->
 		<section class="blog-hero">
 			<?php
-			$category = get_queried_object();
-			$posts_count = $category->count;
+			$tag = get_queried_object();
+			$posts_count = $tag->count;
 
 			// Campos do Carbon Fields
-			$hero_bg_image_id = carbon_get_term_meta($category->term_id, 'category_hero_background');
+			$hero_bg_image_id = carbon_get_term_meta($tag->term_id, 'tag_hero_background');
 			$hero_bg_image = $hero_bg_image_id ? wp_get_attachment_image_url($hero_bg_image_id, 'full') : '';
-			$hero_overlay = carbon_get_term_meta($category->term_id, 'category_hero_overlay') ?: 'medium';
-			$gradient_start = carbon_get_term_meta($category->term_id, 'category_hero_gradient_start') ?: '#003366';
-			$gradient_end = carbon_get_term_meta($category->term_id, 'category_hero_gradient_end') ?: '#00B3E8';
-			$custom_description = carbon_get_term_meta($category->term_id, 'category_custom_description');
-			$posts_count_text = carbon_get_term_meta($category->term_id, 'category_posts_count_text') ?: 'posts';
+			$hero_overlay = carbon_get_term_meta($tag->term_id, 'tag_hero_overlay') ?: 'medium';
+			$gradient_start = carbon_get_term_meta($tag->term_id, 'tag_hero_gradient_start') ?: '#003366';
+			$gradient_end = carbon_get_term_meta($tag->term_id, 'tag_hero_gradient_end') ?: '#00B3E8';
+			$custom_description = carbon_get_term_meta($tag->term_id, 'tag_custom_description');
+			$posts_count_text = carbon_get_term_meta($tag->term_id, 'tag_posts_count_text') ?: 'posts';
 
 			// Overlay opacity
 			$overlay_opacity = [
@@ -48,26 +48,27 @@ get_header();
 				<div class="container">
 					<div class="hero-post__content">
 						<div class="hero-post__category">
-							<a href="<?php echo esc_url(get_category_link($category->term_id)); ?>">Categoria</a>
+							<a href="<?php echo esc_url(get_tag_link($tag->term_id)); ?>">Tag</a>
 						</div>
 
 						<h1 class="hero-post__title">
-							<a href="<?php echo esc_url(get_category_link($category->term_id)); ?>">
-								<?php echo esc_html($category->name); ?>
+							<a href="<?php echo esc_url(get_tag_link($tag->term_id)); ?>">
+								<?php echo esc_html($tag->name); ?>
 							</a>
 						</h1>
 
-						<?php if ($custom_description || $category->description) : ?>
+						<?php if ($custom_description || $tag->description) : ?>
 							<div class="hero-post__excerpt">
-								<?php echo wp_kses_post($custom_description ?: $category->description); ?>
+								<?php echo wp_kses_post($custom_description ?: $tag->description); ?>
 							</div>
 						<?php endif; ?>
 						<?php
 						/*
 						<div class="hero-post__meta">
-							<?php echo $posts_count; ?> <?php echo $posts_count_text; ?> <?php echo $posts_count != 1 ? 'nesta categoria' : 'nesta categoria'; ?>
+							<?php echo $posts_count; ?> <?php echo $posts_count_text; ?> <?php echo $posts_count != 1 ? 'com esta tag' : 'com esta tag'; ?>
 						</div>
-						*/ ?>
+						*/
+						?>
 					</div>
 				</div>
 			</div>
@@ -77,7 +78,7 @@ get_header();
 		// Get all posts for feed layout
 		$paged = get_query_var('paged') ? get_query_var('paged') : 1;
 
-		// Use the current query for category archives
+		// Use the current query for tag archives
 		global $wp_query;
 		$all_posts = $wp_query;
 

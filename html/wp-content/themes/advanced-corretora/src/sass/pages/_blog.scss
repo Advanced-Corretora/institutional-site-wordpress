@@ -397,3 +397,21 @@
     }
   }
 }
+
+.category {
+  .hero-post {
+    padding-bottom: 40px;
+    @media (min-width: 1024px) {
+      padding-bottom: 101px;
+    }
+  }
+}
+
+.search-results.context-blog {
+  .search-hero__content {
+    padding-bottom: 40px;
+    @media (min-width: 1024px) {
+      padding-bottom: 101px;
+    }
+  }
+}

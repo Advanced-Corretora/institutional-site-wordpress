@@ -77,12 +77,17 @@
         z-index: 2;
 
         .container {
-          margin-top: 26%;
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          padding-bottom: 2rem;
+          width: 100%;
         }
 
         @media (max-width: 768px) {
           .container {
-            margin-top: 64%;
+            padding-bottom: 0rem;
           }
         }
       }

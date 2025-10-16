@@ -7,20 +7,49 @@
  * @package advanced-corretora
  */
 
+// Detectar tipo de busca
+$search_type = isset($_GET['search_type']) ? sanitize_text_field($_GET['search_type']) : 'default';
+$post_type = get_post_type();
+
+// Adicionar classe específica do tipo de post
+$card_classes = ['search-card', 'search-card--' . $post_type];
+if ($search_type !== 'default') {
+    $card_classes[] = 'search-card--filtered';
+}
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('search-card'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class($card_classes); ?>>
 	<div class="search-card-content">
 		<div class="search-card-left">
-			<div class="search-card-slug">
-				<?php 
-				// Exibe o slug da URL
-				$permalink = get_permalink();
-				$home_url = home_url('/');
-				$slug = str_replace($home_url, '', $permalink);
-				$slug = rtrim($slug, '/'); // Remove trailing slash
-				echo esc_html($slug ? $slug : 'home');
-				?>
+			<div class="search-card-meta">
+				<div class="search-card-type">
+					<?php 
+					switch($post_type) {
+						case 'post':
+							echo '<span class="post-type-badge post-type-badge--post">📝 Post</span>';
+							break;
+						case 'page':
+							echo '<span class="post-type-badge post-type-badge--page">📄 Página</span>';
+							break;
+						case 'product':
+							echo '<span class="post-type-badge post-type-badge--product">🛍️ Produto</span>';
+							break;
+						default:
+							echo '<span class="post-type-badge post-type-badge--default">' . esc_html(get_post_type_object($post_type)->labels->singular_name) . '</span>';
+					}
+					?>
+				</div>
+				
+				<div class="search-card-slug">
+					<?php 
+					// Exibe o slug da URL
+					$permalink = get_permalink();
+					$home_url = home_url('/');
+					$slug = str_replace($home_url, '', $permalink);
+					$slug = rtrim($slug, '/'); // Remove trailing slash
+					echo esc_html($slug ? $slug : 'home');
+					?>
+				</div>
 			</div>
 			
 			<h2 class="search-card-title">

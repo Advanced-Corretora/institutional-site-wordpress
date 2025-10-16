@@ -52,6 +52,15 @@ add_action( 'carbon_fields_register_fields', function() {
         $container->add_tab( 'Rodapé', $footer_fields );
     }
     
+    // Campos do Blog
+    $blog_fields = load_carbon_fields_from_file( 
+        get_template_directory() . '/inc/carbonfields/blog/blog-fields.php' 
+    );
+    
+    if ( ! empty( $blog_fields ) ) {
+        $container->add_tab( 'Blog', $blog_fields );
+    }
+    
     // other options example
     $container->add_tab( 'Outras Opções', [
         // Outros campos podem ser adicionados aqui

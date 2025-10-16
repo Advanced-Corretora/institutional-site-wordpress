@@ -1,6 +1,6 @@
-@use "../abstracts/variables/colors" as *;
-@use "../components/widgets/form" as *;
-@use "../components/widgets/widgets" as *;
+@use '../abstracts/variables/colors' as *;
+@use '../components/widgets/form' as *;
+@use '../components/widgets/widgets' as *;
 :root {
   --container-max-width: 100%;
   --container-padding: 20px;
@@ -20,7 +20,6 @@ body.admin-bar {
   }
 }
 
-
 /* Base layout elements */
 body {
   display: flex;
@@ -30,11 +29,11 @@ body {
   font-weight: 400;
   color: #000;
   font-size: 16px;
-  overflow-x: hidden; 
+  overflow-x: hidden;
 }
 
 .entry-content {
- margin: 0 !important; 
+  margin: 0 !important;
 }
 
 .container {
@@ -91,11 +90,12 @@ a {
     --container-padding: 16px;
     --container-max-width: var(--container-max-width-lg);
   }
-  
+
   /* Blog layouts use larger container */
   .blog,
   .single,
-  .archive {
+  .archive,
+  .context-blog {
     --container-max-width: var(--container-max-width-blog);
   }
 }

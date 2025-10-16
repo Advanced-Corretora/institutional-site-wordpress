@@ -292,11 +292,25 @@ class MobileMenu {
     }
   }
 
-  performSearch() {
+  performSearch(searchType = 'default') {
     const query = this.searchInput.value.trim();
     if (query) {
-      // Redirect to WordPress search results
-      window.location.href = `${window.location.origin}/?s=${encodeURIComponent(query)}`;
+      // Diferentes tipos de busca
+      let searchUrl;
+      switch(searchType) {
+        case 'posts':
+          searchUrl = `${window.location.origin}/?s=${encodeURIComponent(query)}&search_type=posts`;
+          break;
+        case 'pages':
+          searchUrl = `${window.location.origin}/?s=${encodeURIComponent(query)}&search_type=pages`;
+          break;
+        case 'products':
+          searchUrl = `${window.location.origin}/?s=${encodeURIComponent(query)}&search_type=products`;
+          break;
+        default:
+          searchUrl = `${window.location.origin}/?s=${encodeURIComponent(query)}`;
+      }
+      window.location.href = searchUrl;
     }
   }
 

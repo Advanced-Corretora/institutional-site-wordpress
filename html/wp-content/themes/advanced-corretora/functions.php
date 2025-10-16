@@ -238,6 +238,11 @@ require get_template_directory() . '/inc/footer-menu-walker.php';
  */
 require get_template_directory() . '/inc/flickity-enqueue.php';
 
+/**
+ * Context Detection Functions
+ */
+require get_template_directory() . '/inc/context-detection.php';
+
 
 
 add_action('init', function () {

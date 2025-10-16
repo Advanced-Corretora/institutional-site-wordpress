@@ -54,15 +54,6 @@
 					<?php the_excerpt(); ?>
 				</div>
 			<?php endif; ?>
-			
-			<div class="list-post__meta">
-				<time class="list-post__date" datetime="<?php echo esc_attr(get_the_date('c')); ?>">
-					<?php echo get_the_date(); ?>
-				</time>
-				<span class="list-post__author">
-					por <?php the_author(); ?>
-				</span>
-			</div>
 		</div>
 	</div>
 </article>

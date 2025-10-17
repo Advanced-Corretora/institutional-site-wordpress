@@ -1,0 +1,149 @@
+/**
+ * Estilos para Sidebar Conteúdo
+ * 
+ * @package advanced-corretora
+ */
+
+.content-sidebar-wrapper {
+    padding: 0;
+    
+    .content-sidebar {
+        // Widgets dentro da sidebar
+        .widget {
+            margin-bottom: 1.5rem;
+            
+            &:last-child {
+                margin-bottom: 0;
+            }
+            
+            .widget-title {
+                margin: 0 0 1rem 0;
+                font-size: 1.25rem;
+                font-weight: 600;
+                color: var(--color-primary, #003366);
+                line-height: 1.3;
+            }
+        }
+        
+        // Estilos para conteúdo dos widgets
+        p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+        
+        ul, ol {
+            margin: 0 0 1rem 1.5rem;
+            
+            li {
+                margin-bottom: 0.5rem;
+            }
+        }
+        
+        a {
+            color: var(--color-accent, #00ffff);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            
+            &:hover {
+                color: var(--color-primary, #003366);
+                text-decoration: underline;
+            }
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        
+        // Widgets específicos
+        .textwidget {
+            color: var(--color-text, #333333);
+        }
+        
+        // Widget de imagem
+        .widget_media_image {
+            text-align: center;
+            
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+        
+        // Widget de texto
+        .widget_text {
+            .textwidget {
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+        }
+        
+        // Widget de HTML customizado
+        .widget_custom_html {
+            .textwidget {
+                font-size: 0.95rem;
+            }
+        }
+    }
+}
+
+// Responsividade
+@media (max-width: 768px) {
+    .content-sidebar-wrapper {
+        margin: 1.5rem 0;
+        
+        .content-sidebar {
+            padding: 1rem;
+            
+            .widget {
+                margin-bottom: 1rem;
+                
+                .widget-title {
+                    font-size: 1.1rem;
+                    margin-bottom: 0.75rem;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .content-sidebar-wrapper {
+        margin: 1rem 0;
+        
+        .content-sidebar {
+            padding: 0.875rem;
+            border-radius: 6px;
+            
+            .widget {
+                .widget-title {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}
+
+// Impressão
+@media print {
+    .content-sidebar-wrapper {
+        .content-sidebar {
+            box-shadow: none;
+            border: 1px solid #ccc !important;
+            background: white !important;
+            
+            .widget-title {
+                color: black !important;
+            }
+            
+            .textwidget {
+                color: black !important;
+            }
+        }
+    }
+}

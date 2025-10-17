@@ -243,6 +243,11 @@ require get_template_directory() . '/inc/flickity-enqueue.php';
  */
 require get_template_directory() . '/inc/context-detection.php';
 
+/**
+ * Dynamic Sidebar System
+ */
+require get_template_directory() . '/inc/dynamic-sidebar.php';
+
 
 
 add_action('init', function () {

@@ -36,6 +36,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @use "components/components" as *;
 @use "components/footer" as *;
 @use "components/sidebar" as *;
+@use "components/content-sidebar" as *;
 
 // Plugins
 @use "plugins/jetpack/infinite-scroll" as *;
@@ -79,3 +80,5 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @use "pages/trading" as *;
 @use "pages/blog" as *;
 @use "pages/single" as *;
+@use "pages/page-blog-full-width" as *;
+@use "pages/404" as *;

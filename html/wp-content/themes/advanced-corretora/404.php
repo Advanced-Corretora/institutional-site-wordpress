@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying 404 pages (not found)
  *
@@ -10,51 +11,82 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+<main id="primary" class="site-main blog-layout page-404-error">
 
-		<section class="error-404 not-found">
-			<header class="page-header">
-				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'advanced-corretora' ); ?></h1>
-			</header><!-- .page-header -->
+	<!-- Hero Section da 404 -->
+	<section class="blog-hero">
+		<?php
+		// Campos do Carbon Fields para 404
+		$hero_bg_image_id = carbon_get_theme_option('404_hero_background');
+		$hero_bg_image = $hero_bg_image_id ? wp_get_attachment_image_url($hero_bg_image_id, 'full') : '';
+		$hero_overlay = carbon_get_theme_option('404_hero_overlay') ?: 'medium';
+		$gradient_start = carbon_get_theme_option('404_hero_gradient_start') ?: '#003366';
+		$gradient_end = carbon_get_theme_option('404_hero_gradient_end') ?: '#00B3E8';
 
-			<div class="page-content">
-				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'advanced-corretora' ); ?></p>
+		// Overlay opacity
+		$overlay_opacity = [
+			'light' => '0.2',
+			'medium' => '0.4',
+			'dark' => '0.6',
+			'heavy' => '0.8'
+		][$hero_overlay];
+		?>
 
-					<?php
-					get_search_form();
+		<div class="hero-post" style="height: 550px;">
+			<div class="hero-post__background"
+				style="<?php echo $hero_bg_image ? 'background-image: url(' . esc_url($hero_bg_image) . ');' : 'background: linear-gradient(135deg, ' . esc_attr($gradient_start) . ' 0%, ' . esc_attr($gradient_end) . ' 100%);'; ?>">
+				<div class="hero-post__overlay" style="background: rgba(0, 0, 0, <?php echo esc_attr($overlay_opacity); ?>);"></div>
+			</div>
 
-					the_widget( 'WP_Widget_Recent_Posts' );
-					?>
+			<div class="container">
+				<div class="hero-post__content">
+					<div class="hero-post__category">
+						<span>Erro 404</span>
+					</div>
 
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'advanced-corretora' ); ?></h2>
-						<ul>
-							<?php
-							wp_list_categories(
-								array(
-									'orderby'    => 'count',
-									'order'      => 'DESC',
-									'show_count' => 1,
-									'title_li'   => '',
-									'number'     => 10,
-								)
-							);
-							?>
-						</ul>
-					</div><!-- .widget -->
+					<h1 class="hero-post__title">
+						Página não encontrada
+					</h1>
+				</div>
+			</div>
+		</div>
+	</section>
 
-					<?php
-					/* translators: %1$s: smiley */
-					$advanced_corretora_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'advanced-corretora' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$advanced_corretora_archive_content" );
+	<!-- Conteúdo da 404 -->
+	<section class="page-content-section">
+		<div class="container">
+			<div class="page-content-full-width">
+				<div class="error-404-content">
+					<div class="error-404-message">
+						<p>Parece que não conseguimos encontrar o que você estava procurando. Talvez a pesquisa possa ajudar.</p>
+					</div>
 
-					the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
+					<div class="search-form-wrapper">
+						<form role="search" method="get" class="search-form" action="<?php echo esc_url(home_url('/')); ?>">
+							<button type="submit" class="search-submit">
+								<?php
+								echo file_get_contents(get_template_directory() . '/assets/icons/icon_lupa.svg');
+								?>
+							</button>
+							<label>
+								<span class="screen-reader-text"><?php echo _x('Search for:', 'label', 'advanced-corretora'); ?></span>
+								<input type="search" class="search-field" placeholder="<?php echo esc_attr_x('Buscar...', 'placeholder', 'advanced-corretora'); ?>" value="<?php echo get_search_query(); ?>" name="s" />
+							</label>
 
-			</div><!-- .page-content -->
-		</section><!-- .error-404 -->
+						</form>
+					</div>
 
-	</main><!-- #main -->
+					<div class="error-404-actions">
+						<a href="<?php echo esc_url(home_url('/')); ?>" class="btn-home">
+							Retornar para a página inicial
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</main><!-- #main -->
 
 <?php
 get_footer();

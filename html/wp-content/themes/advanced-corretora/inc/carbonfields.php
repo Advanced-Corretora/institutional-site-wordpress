@@ -68,6 +68,24 @@ add_action( 'carbon_fields_register_fields', function() {
         $container->add_tab( 'Blog', $blog_fields );
     }
     
+    // Campos da Sidebar Conteúdo
+    $sidebar_content_fields = load_carbon_fields_from_file( 
+        get_template_directory() . '/inc/carbonfields/sidebar/content-sidebar-fields.php' 
+    );
+    
+    if ( ! empty( $sidebar_content_fields ) ) {
+        $container->add_tab( 'Sidebar Conteúdo', $sidebar_content_fields );
+    }
+    
+    // Campos da Página 404
+    $error_404_fields = load_carbon_fields_from_file( 
+        get_template_directory() . '/inc/carbonfields/404/404-hero-fields.php' 
+    );
+    
+    if ( ! empty( $error_404_fields ) ) {
+        $container->add_tab( 'Página 404', $error_404_fields );
+    }
+    
     // other options example
     $container->add_tab( 'Outras Opções', [
         // Outros campos podem ser adicionados aqui
@@ -121,6 +139,17 @@ add_action( 'carbon_fields_register_fields', function() {
             Field::make('text', 'tag_posts_count_text', __('Texto do Contador', 'advanced-corretora'))
                 ->set_default_value('posts'),
         ));
+    
+    // Campos para Páginas - Hero Personalizado
+    $page_hero_fields = load_carbon_fields_from_file( 
+        get_template_directory() . '/inc/carbonfields/pages/page-hero-fields.php' 
+    );
+    
+    if ( ! empty( $page_hero_fields ) ) {
+        Container::make('post_meta', __('Hero da Página', 'advanced-corretora'))
+            ->where('post_type', '=', 'page')
+            ->add_fields($page_hero_fields);
+    }
 });
 
 // blocks hook

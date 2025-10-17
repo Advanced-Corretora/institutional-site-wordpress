@@ -34,8 +34,7 @@
     .hero-post {
       position: relative;
       overflow: hidden;
-      min-height: 80vh;
-      max-height: 80vh;
+      min-height: 550px;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -128,7 +127,7 @@
       }
 
       &__title {
-        font-weight: 700;
+        font-weight: 400;
         line-height: 0.8 !important;
         margin: 1rem 0;
 
@@ -431,7 +430,7 @@
   .hero-post {
     padding-bottom: 40px;
     @media (min-width: 1024px) {
-      padding-bottom: 101px;
+      padding-bottom: 40px;
     }
   }
 }
@@ -440,7 +439,13 @@
   .search-hero__content {
     padding-bottom: 40px;
     @media (min-width: 1024px) {
-      padding-bottom: 101px;
+      padding-bottom: 54px;
     }
+  }
+}
+
+.blog {
+  .hero-post {
+    min-height: 80vh !important;
   }
 }

@@ -137,3 +137,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
+
+// Behind reverse proxy: trust X-Forwarded-Proto
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
+    $_SERVER['HTTPS'] = 'on';
+}
+
+define('FORCE_SSL_ADMIN', true);
+
+// Optional but recommended: fix URLs explicitly
+define('WP_HOME',    'https://homologacao.advancedcorretora.com.br');
+define('WP_SITEURL', 'https://homologacao.advancedcorretora.com.br');

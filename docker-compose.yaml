@@ -15,7 +15,7 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
     networks:
-      - advanced_blog_network+
+      - advanced_blog_network
 
   advanced_institucional_wp:
     container_name: advanced_institucional_wp

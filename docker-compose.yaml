@@ -47,6 +47,7 @@ services:
       - ./nginx/certificados:/etc/nginx/certificados:ro
     depends_on:
       - advanced_blog_wp
+      - advanced_institucional_wp
     networks:
       - advanced_blog_network
       

@@ -1,0 +1,198 @@
+.sobre-slider.wp-block-home-slider {
+  .slide-cta a {
+    color: #002d50 !important;
+    border: 2px solid #002d50 !important;
+
+    &:hover {
+      background-color: #002d50 !important;
+      color: #fff !important;
+    }
+  }
+}
+
+.timelinesobre {
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+
+  > div {
+    > h2 {
+      font-size: 26px;
+      font-weight: 300;
+      line-height: 44px;
+      color: #00ffff;
+      margin: 0;
+      @media (min-width: 1024px) {
+        font-size: 42px;
+      }
+    }
+    > p {
+      color: #fff;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 23px;
+      padding-top: 20px;
+      margin: 0;
+      @media (min-width: 1024px) {
+        font-size: 21px;
+        line-height: 26px;
+        padding-top: 30px;
+      }
+    }
+  }
+}
+
+.sobrecontainer {
+  background-image: url('/wp-content/themes/advanced-corretora/assets/images/backgroundquemsomos.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  .wp-block-group__inner-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: 80px;
+    padding-bottom: 85px;
+    @media (min-width: 1024px) {
+      padding-top: 165px;
+      padding-bottom: 225px;
+    }
+
+    .wp-block-columns:nth-child(1) {
+      margin-bottom: 48px;
+      @media (min-width: 782px) {
+        flex-wrap: wrap !important;
+      }
+      @media (min-width: 1024px) {
+        flex-wrap: nowrap !important;
+      }
+    }
+  }
+
+  .sobre-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    order: 2;
+    margin-top: -160px;
+    position: relative;
+    z-index: 2;
+    @media (min-width: 1024px) {
+      margin-top: 0;
+      order: 1;
+    }
+    h2 {
+      margin: 0;
+      font-size: 26px;
+      line-height: 32px;
+      font-weight: 300;
+      padding-bottom: 0px;
+      color: #003366;
+      text-align: center;
+      @media (min-width: 1024px) {
+        font-size: 42px;
+        line-height: 46px;
+        text-align: left;
+        padding-bottom: 30px;
+      }
+    }
+    p {
+      margin: 0;
+      font-size: 16px;
+      line-height: 20px;
+      color: #666;
+      font-weight: 300;
+      text-align: center;
+      @media (min-width: 1024px) {
+        font-size: 21px;
+        line-height: 29px;
+        text-align: left;
+      }
+    }
+  }
+
+  .guardachuva {
+    position: relative;
+    overflow: visible;
+    z-index: 1;
+    min-height: 308px;
+    order: 1;
+    @media (min-width: 1024px) {
+      order: 2;
+    }
+
+    &::before {
+      content: url('/wp-content/themes/advanced-corretora/assets/images/guardachuva.png');
+      position: absolute;
+      top: -382%;
+      right: 80%;
+      width: 100%;
+      transform: scale(0.3);
+      @media (min-width: 467px) {
+        right: 64%;
+      }
+
+      @media (min-width: 600px) {
+        right: 66%;
+        transform: scale(0.5);
+      }
+
+      @media (min-width: 1024px) {
+        top: -70%;
+        right: -360%;
+        transform: scale(1);
+        width: auto;
+        min-height: 600px;
+        transform: rotate(-226deg);
+      }
+    }
+  }
+}
+.missaocontainer {
+  @media (max-width: 1023px) {
+    background-color: #456570;
+    padding-top: 450px !important;
+    padding-bottom: 90px !important;
+    .wp-block-cover__image-background {
+      height: 450px;
+      width: auto;
+      left: auto;
+      right: -150px;
+    }
+    .wp-block-cover__background {
+      opacity: 1 !important;
+      height: 451px;
+    }
+  }
+}
+.missao {
+  .wp-block-cover__inner-container {
+    padding: 0;
+  }
+  .wp-block-column {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+    @media (min-width: 1024px) {
+      text-align: left;
+    }
+    h2 {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: 400;
+      @media (min-width: 1024px) {
+        font-weight: 300;
+      }
+    }
+    p {
+      margin: 0;
+      margin-bottom: 20px;
+      font-weight: 300;
+      font-size: 21px;
+    }
+  }
+}

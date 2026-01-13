@@ -1,0 +1,33 @@
+@media (max-width: 1024px) {
+  .secao-diferenciais-do-negocio {
+      .btn-outline-primary {
+        width: 194px;
+        height: 36px;
+  
+        a {
+          font-size: 12px !important;
+        }
+      }
+  }
+}
+
+@media (min-width: 1025px) {
+  .secao-diferenciais-do-negocio {
+    .btn-outline-primary {
+      a {
+        font-size: 18px !important;
+      }
+    }
+  }
+
+  .secao-cambio-caro {
+    .btn-outline-primary {
+      width: 260px;
+      height: 54px;
+
+      a {
+        font-size: 18px !important;
+      }
+    }
+  }
+}

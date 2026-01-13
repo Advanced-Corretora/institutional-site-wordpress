@@ -1,0 +1,547 @@
+// Header
+.header {
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid #fff;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  isolation: isolate;
+  @media (max-width: 1024px) {
+    &:has(.menu-container.active) {
+      height: 100%;
+      > .content {
+        border-bottom: 1px solid #fff;
+      }
+    }
+  }
+
+  > .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 104px;
+    padding: 14px 20px;
+    @media (min-width: 1024px) {
+      gap: 32px;
+    }
+    > .logo {
+      max-width: 40%;
+      flex: 0 0 auto;
+      z-index: 10;
+      width: 142px;
+      @media (min-width: 1024px) {
+        max-width: 192px;
+      }
+
+      > .logo-image {
+        display: block;
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      > .logo-text {
+        display: block;
+
+        > .header__logo__link {
+          color: #333;
+          text-decoration: none;
+          font-size: 1.5rem;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .hamburger-menu {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0px;
+      z-index: 10;
+
+      .hamburger-icon,
+      .close-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @media (min-width: 1024px) {
+          display: none;
+        }
+      }
+
+      .close-icon {
+        display: none;
+      }
+
+      //selector hamburguer quando aria-expanded for true
+      &[aria-expanded='true'] {
+        svg {
+          circle {
+            fill: #002d5d;
+          }
+          path {
+            stroke: #00ffff;
+          }
+        }
+      }
+    }
+
+    > .menu-container {
+      display: flex;
+      flex: 1;
+      justify-content: flex-end;
+      flex-direction: column;
+      padding: 28px;
+      /*put close icon here*/
+      @media (min-width: 1024px) {
+        padding: 0px;
+      }
+      .close-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        @media (min-width: 1024px) {
+          display: none;
+        }
+      }
+
+      .mobile-search {
+        display: flex;
+        width: 100%;
+        margin-bottom: 24px;
+
+        @media (min-width: 1024px) {
+          display: none;
+        }
+
+        .search-input-container {
+          position: relative;
+          width: 100%;
+
+          .mobile-search-input {
+            width: 100%;
+            height: 48px;
+            padding: 14px 50px 14px 16px;
+            border: 1.5px solid rgba(255, 255, 255, 1);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 16px;
+            font-weight: 400;
+            outline: none;
+            transition: all 0.3s ease;
+
+            &::placeholder {
+              color: rgba(255, 255, 255, 0.7);
+            }
+
+            &:focus {
+              border-color: var(--color-blue-light, #00ffff);
+              background: rgba(255, 255, 255, 0.15);
+              box-shadow: 0 0 0 2px rgba(0, 255, 255, 0.2);
+            }
+          }
+
+          .mobile-search-icon {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            svg {
+              width: 20px;
+              height: 20px;
+
+              .cls-2 {
+                fill: transparent;
+              }
+
+              path {
+                stroke: rgba(255, 255, 255, 0.7);
+                stroke-width: 2;
+              }
+            }
+          }
+        }
+      }
+
+      > .menu {
+        flex: 1;
+        text-align: right;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+        transition: transform 0.3s ease-in-out;
+
+        > .mobile-cta {
+          display: none;
+        }
+
+        > .cta {
+          display: flex;
+          height: 40px;
+          justify-content: center;
+          align-items: center;
+          @media (min-width: 1024px) {
+            display: none;
+          }
+          > a {
+            text-align: center;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 16px;
+            border-radius: 999px;
+            padding: 18px 31px;
+            text-decoration: none;
+            background: linear-gradient(88deg, #275892 3.02%, #002d5d 64.84%, #144277 93.9%);
+            transition: all 0.3s ease;
+            color: #fff;
+          }
+        }
+      }
+    }
+
+    .deskButtonArea {
+      display: flex;
+      margin-left: auto;
+
+      @media (min-width: 1024px) {
+        margin-left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+      }
+      .search {
+        height: 24px;
+        display: none;
+        position: relative;
+        @media (min-width: 1024px) {
+          display: flex;
+        }
+        .search-button {
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+          padding: 0px;
+          z-index: 10002;
+          position: relative;
+          .search-icon {
+            width: 24px;
+            height: 24px;
+            svg {
+              width: 24px;
+              height: 24px;
+              .cls-2 {
+                fill: transparent;
+              }
+            }
+          }
+        }
+
+        .search-overlay {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          flex: 1;
+          width: 0;
+
+          .search-container {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex: 1;
+          }
+
+          .search-input {
+            width: 0;
+            height: 40px;
+            padding: 0 20px;
+            border: 0px solid var(--color-blue-light, #00ffff);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0);
+            font-size: 18px;
+            line-height: 16px;
+            font-weight: 600;
+            color: #fff;
+            outline: none;
+            overflow: hidden;
+            transition: width 0.5s ease;
+
+            &::placeholder {
+              color: #fff;
+            }
+
+            &:focus {
+              border: 0px solid var(--color-blue-light, #00ffff);
+            }
+          }
+
+          .search-close {
+            opacity: 0;
+            visibility: hidden;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: opacity 0.3s ease 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: auto;
+
+            &:hover {
+              background: rgba(255, 255, 255, 0.3);
+            }
+
+            svg {
+              width: 20px;
+              height: 20px;
+              stroke: #fff;
+            }
+          }
+
+          &.active {
+            width: 100%;
+            .search-input {
+              width: 100%;
+            }
+
+            .search-close {
+              opacity: 1;
+              visibility: visible;
+            }
+          }
+        }
+      }
+      > .cta {
+        display: flex;
+        height: 40px;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+        > a {
+          text-align: center;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 500;
+          border-radius: 999px;
+          padding: 14px 12px;
+          text-decoration: none;
+          background: transparent;
+          transition: all 0.3s ease;
+          border: 1px solid #fff;
+          color: #fff;
+          @media (min-width: 1024px) {
+            font-size: 18px;
+            line-height: 16px;
+            padding: 18px 32px;
+          }
+        }
+      }
+      &:has(.search-overlay.active) {
+        flex: 1;
+        justify-content: space-between;
+        .search {
+          flex: 1;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    > .content {
+      gap: 15px;
+      @media (min-width: 1024px) {
+        gap: 20px;
+      }
+
+      .hamburger-menu {
+        display: flex;
+      }
+
+      > .menu-container {
+        position: fixed;
+        top: -100%;
+        right: 0;
+        width: calc(100%);
+        height: calc(100vh - var(--wp-adminbar-offset) - 80px + 2px);
+        z-index: 100001;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-in-out;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        isolation: isolate;
+        background-color: rgba(0, 0, 0, 0.5);
+        &.active {
+          background-color: transparent;
+        }
+
+        // &::before {
+        //   content: '';
+        //   position: absolute;
+        //   inset: 0;
+        //   background-image: url('/wp-content/themes/advanced-corretora/assets/images/submenu-background.jpg');
+        //   background-size: auto;
+        //   background-position: 53% 21%;
+        //   opacity: 0.2;
+        //   mix-blend-mode: difference;
+        //   z-index: 0;
+        //   border-radius: 20px;
+        //   pointer-events: none;
+        // }
+
+        & > * {
+          z-index: 1;
+        }
+
+        @media (min-width: 1024px) {
+          background-color: transparent;
+        }
+
+        .close-icon {
+          justify-content: flex-end;
+          width: 100%;
+          margin-bottom: -16px;
+        }
+        &.active {
+          transform: translateY(0);
+          color: #fff;
+          top: calc(76px + var(--wp-adminbar-offset));
+
+          .close-icon {
+            display: flex;
+          }
+        }
+
+        &.closing {
+          top: calc(32px + var(--wp-adminbar-offset));
+          transform: translateY(-100%);
+          transition: transform 0.3s ease-in-out;
+        }
+
+        > .menu {
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          text-align: left;
+          gap: 72px;
+          width: 100%;
+          padding-left: 10px;
+          padding-right: 10px;
+          overflow-y: scroll;
+          @media (min-width: 1024px) {
+            overflow-y: auto;
+          }
+
+          .list {
+            flex-direction: column;
+            width: 100%;
+            gap: 40px;
+
+            > li {
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+              gap: 20px;
+
+              > a {
+                color: var(--text-white, #fff);
+                font-size: 22px;
+                line-height: 44px;
+                font-weight: 400;
+                line-height: normal;
+
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 8px;
+              }
+
+              // Estilos para submenus no mobile
+              &.menu-item-has-children {
+                .sub-menu {
+                  display: block;
+                  padding: 0px;
+                }
+
+                &.active .sub-menu {
+                  display: block;
+                }
+
+                &.active .submenu-area {
+                  position: relative;
+                  top: 0px;
+                  animation: none;
+                  transition: none;
+
+                  .sub-menu {
+                    padding: 0px;
+                  }
+                }
+              }
+            }
+
+            .submenu-area {
+              .submenu-column {
+                .sub-menu {
+                  display: flex;
+                  flex-direction: column;
+                  gap: 20px;
+                  list-style: none;
+                  padding: 0;
+                  margin: 0;
+                }
+                a {
+                  font-size: 20px !important;
+                  font-weight: 300 !important;
+                  &::after {
+                    display: none !important;
+                  }
+                }
+                .submenu-column {
+                  display: none;
+                }
+              }
+            }
+          }
+
+          > .mobile-cta {
+            display: flex !important;
+            margin-top: 20px;
+
+            .link {
+              width: 100%;
+              max-width: 250px;
+              padding: 12px 24px;
+              font-size: 16px;
+            }
+          }
+
+          > .cta {
+            display: none;
+          }
+        }
+        .cta {
+          display: none;
+        }
+      }
+    }
+  }
+}

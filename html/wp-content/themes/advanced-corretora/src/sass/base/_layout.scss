@@ -1,0 +1,103 @@
+@use '../abstracts/variables/colors' as *;
+@use '../components/widgets/form' as *;
+@use '../components/widgets/widgets' as *;
+:root {
+  --container-max-width: 100%;
+  --container-padding: 20px;
+  --container-max-width-lg: 1180px;
+  --container-max-width-blog: 1440px;
+  --wp-adminbar-offset: 0px;
+}
+
+body.admin-bar {
+  --wp-adminbar-offset: 46px;
+
+  @media (min-width: 576px) {
+    --wp-adminbar-offset: 46px;
+  }
+  @media (min-width: 782px) {
+    --wp-adminbar-offset: 32px;
+  }
+}
+
+/* Base layout elements */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: var(--font-gotham);
+  font-weight: 400;
+  color: #000;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+.entry-content {
+  margin: 0 !important;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+header {
+  width: 100%;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+}
+
+footer {
+  width: 100%;
+}
+
+a {
+  color: #000;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.wp-block-cover__inner-container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0;
+  @media (min-width: 1024px) {
+    padding: 0 var(--container-padding);
+  }
+}
+
+/* Responsive breakpoints */
+@media (min-width: 576px) {
+  :root {
+    --container-padding: 20px;
+  }
+}
+
+@media (min-width: 992px) {
+  :root {
+    --container-padding: 16px;
+  }
+}
+
+@media (min-width: 1248px) {
+  :root {
+    --container-padding: 16px;
+    --container-max-width: var(--container-max-width-lg);
+  }
+
+  /* Blog layouts use larger container */
+  .blog,
+  .single,
+  .archive {
+    --container-max-width: var(--container-max-width-blog);
+  }
+}
+
+//CF7 form styles
+@include form-styles;

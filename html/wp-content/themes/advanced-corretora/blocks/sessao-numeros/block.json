@@ -1,0 +1,117 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "advanced-corretora/sessao-numeros",
+  "version": "1.0.0",
+  "title": "Sessão Números",
+  "category": "advanced-corretora",
+  "icon": "chart-bar",
+  "description": "Uma seção com título, subtítulo e repetidor de números com estatísticas.",
+  "keywords": [
+    "números",
+    "estatísticas",
+    "seção",
+    "dados"
+  ],
+  "example": {
+    "attributes": {
+      "title": "Nossos Números",
+      "subtitle": "Resultados que comprovam nossa excelência",
+      "numbers": [
+        {
+          "number": "1000+",
+          "label": "Clientes Satisfeitos"
+        },
+        {
+          "number": "50+",
+          "label": "Projetos Concluídos"
+        }
+      ]
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Nossos Números"
+    },
+    "subtitle": {
+      "type": "string",
+      "default": "Dados que mostram nosso sucesso"
+    },
+    "numbers": {
+      "type": "array",
+      "default": [
+        {
+          "number": "100+",
+          "label": "Clientes"
+        },
+        {
+          "number": "50+",
+          "label": "Projetos"
+        },
+        {
+          "number": "5+",
+          "label": "Anos"
+        }
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "number": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "textAlignment": {
+      "type": "string",
+      "default": "center"
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": "#f8f9fa"
+    },
+    "textColor": {
+      "type": "string",
+      "default": "#333333"
+    },
+    "numberColor": {
+      "type": "string",
+      "default": "#007cba"
+    },
+    "backgroundImage": {
+      "type": "object",
+      "default": null
+    },
+    "backgroundImageId": {
+      "type": "number",
+      "default": 0
+    },
+    "overlayOpacity": {
+      "type": "number",
+      "default": 0.5
+    },
+    "overlayColor": {
+      "type": "string",
+      "default": "#000000"
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
+  },
+  "textdomain": "advanced-corretora",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "render": "file:./render.php"
+}

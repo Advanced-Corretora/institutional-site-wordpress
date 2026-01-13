@@ -1,0 +1,84 @@
+/*!
+Theme Name: advanced-corretora
+Theme URI: http://underscores.me/
+Author: Underscores.me
+Author URI: http://underscores.me/
+Description: Description
+Version: 1.0.0
+Tested up to: 5.4
+Requires PHP: 5.6
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: advanced-corretora
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned.
+
+advanced-corretora is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+
+// Load abstracts first - variables and mixins
+// @use "abstracts/abstracts" as *;
+
+// Then load generic styles
+@use "generic/normalize" as *;
+@use "generic/box-sizing" as *;
+
+// Base styles
+@use "base/base" as *;
+
+// Components
+@use "components/components" as *;
+@use "components/footer" as *;
+@use "components/sidebar" as *;
+@use "components/content-sidebar" as *;
+
+// Plugins
+@use "plugins/jetpack/infinite-scroll" as *;
+
+// Utilities
+@use "utilities/accessibility" as *;
+@use "utilities/alignments" as *;
+
+// Blocks
+@use "blocks/sessao-numeros" as *;
+@use "blocks/secao-cta" as *;
+@use "blocks/quemsomos" as *;
+@use "blocks/gutenberg-spacing" as *;
+@use "blocks/cambio-comercial" as *;
+@use "blocks/timeline" as *;
+@use "blocks/diferenciais" as *;
+@use "blocks/carrossel-imagens" as *;
+@use "blocks/conta-corrente-internacional" as *;
+@use "blocks/capital-credito" as *;
+@use "blocks/capital-investimento" as *;
+@use "blocks/contato" as *;
+@use "blocks/correspondente-cambial" as *;
+@use "blocks/card-white" as *;
+@use "blocks/buttons" as *;
+@use "blocks/card-neon-blue" as *;
+@use "blocks/single-post-content" as *;
+
+// Shared Components (must be before pages that extend them)
+@use "components/card-post" as *;
+
+// Pages
+@use "pages/sobre" as *;
+@use "pages/cambioturismo" as *;
+@use "pages/consorcio" as *;
+@use "pages/financial" as *;
+@use "pages/assessoria" as *;
+@use "pages/registrosdeclaracoes" as *;
+@use "pages/search" as *;
+@use "pages/cambiocomercial" as *;
+@use "pages/capitalinvestimento" as *;
+@use "pages/trading" as *;
+@use "pages/blog" as *;
+@use "pages/single" as *;
+@use "pages/page-blog-full-width" as *;
+@use "pages/404" as *;

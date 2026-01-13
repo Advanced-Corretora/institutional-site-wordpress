@@ -1,0 +1,23 @@
+// Default page layout with container
+.page:not(.page-fullwidth) {
+  article {
+    //container base
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+  }
+}
+
+// Full-width page layout
+.page-fullwidth {
+  article {
+    width: 100%;
+    // Remove container constraints for full-width pages
+  }
+  
+  .entry-content--fullwidth {
+    width: 100%;
+    // Allow content to span full viewport width
+  }
+}

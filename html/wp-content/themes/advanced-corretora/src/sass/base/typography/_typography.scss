@@ -1,0 +1,23 @@
+// Importações de variáveis e mixins
+@use "../../abstracts/variables/colors" as *;
+@use "../../abstracts/variables/typography" as *;
+
+// Importações de componentes
+@use "headings" as *;
+@use "copy" as *;
+
+/**
+ * Typography
+ */
+
+body,
+button,
+input,
+select,
+optgroup,
+textarea {
+	color: $color__text-main;
+	font-family: $font__main;
+	font-size: 1rem;
+	line-height: $font__line-height-body;
+}

@@ -1,0 +1,85 @@
+/*400*/
+@font-face {
+  font-family: 'gotham';
+  src: url('/wp-content/themes/advanced-corretora/src/fonts/gotham/GOTHAM-BOOK.woff2')
+    format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'gotham';
+  src: url('/wp-content/themes/advanced-corretora/src/fonts/gotham/GOTHAM-THIN.woff2')
+    format('woff2');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'gotham';
+  src: url('/wp-content/themes/advanced-corretora/src/fonts/gotham/GOTHAM-LIGHT.woff2')
+    format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'gotham';
+  src: url('/wp-content/themes/advanced-corretora/src/fonts/gotham/GOTHAM-MEDIUM.woff2')
+    format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'gotham';
+  src: url('/wp-content/themes/advanced-corretora/src/fonts/gotham/GOTHAM-MEDIUM.woff2')
+    format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*bold*/
+@font-face {
+  font-family: 'gotham';
+  src: url('/wp-content/themes/advanced-corretora/src/fonts/gotham/GOTHAM-ULTRA.woff2')
+    format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'gotham';
+  src: url('/wp-content/themes/advanced-corretora/src/fonts/gotham/GOTHAM-BOLD.woff2')
+    format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* In development, Vite will handle the paths */
+:root {
+  --font-quicksand:
+    'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu,
+    Cantarell, 'Helvetica Neue', sans-serif;
+}
+
+:root {
+  --font-gotham:
+    'gotham', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+    'Helvetica Neue', sans-serif;
+}
+
+/* Apply the font to the body */
+body {
+  font-family: var(--font-gotham);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

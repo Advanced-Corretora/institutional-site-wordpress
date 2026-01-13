@@ -1,0 +1,174 @@
+// Bloco Seção CTA - Frontend (Mobile First)
+.wp-block-advanced-corretora-secao-cta {
+  // Base styles (mobile)
+  padding: 80px 0px;
+  overflow: hidden;
+  position: relative;
+  min-height: 400px;
+  background-position: center !important;
+  overflow: hidden;
+
+  // Container
+  .container {
+    max-width: var(--container-max-width);
+    padding: 0 var(--container-padding);
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+  }
+
+  // Content wrapper
+  .cta-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  // Text section
+  .cta-text {
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .cta-title {
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 0rem;
+    margin-top: 0;
+  }
+
+  .cta-subtitle {
+    font-size: 18px;
+    line-height: 1.5rem;
+    margin-bottom: 0rem;
+    margin-top: 0;
+    font-weight: 300;
+  }
+
+  .cta-button-wrapper {
+    margin-bottom: 1rem;
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 14px 22px;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent !important;
+    border: 1.5px solid #fff;
+    color: #fff;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  // Image section
+  .cta-image {
+    order: 2;
+    width: 130%;
+    margin-left: -15%;
+    @media (min-width: 768px) {
+      width: 100%;
+      margin-left: 0;
+    }
+
+    .cta-image-element {
+      width: 100%;
+      height: auto;
+      // max-width: 350px;
+    }
+  }
+
+  // Alignment utilities
+  &.align-left {
+    text-align: left;
+  }
+  &.align-center {
+    text-align: center;
+  }
+  &.align-right {
+    text-align: right;
+  }
+
+  &.alignfull {
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    max-width: 100vw;
+    width: 100vw;
+  }
+
+  &.alignwide {
+    clear: both;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  // Large desktop (1024px+)
+  @media (min-width: 1024px) {
+    background-size: auto 100% !important;
+    background-position: right !important;
+    padding: 146px 0px;
+    min-height: 500px;
+
+    .cta-content {
+      grid-template-columns: 3fr 5fr;
+      gap: 0rem;
+    }
+
+    .cta-title {
+      font-size: 42px;
+      margin-bottom: 0rem;
+    }
+
+    .cta-subtitle {
+      font-size: 21px;
+      line-height: 1.5;
+      margin-bottom: 0rem;
+    }
+
+    .cta-button {
+      padding: 16px 32px;
+      font-size: 18px;
+    }
+    .cta-text {
+      position: relative;
+      z-index: 2;
+      text-align: left;
+      align-items: flex-start;
+    }
+    .cta-image {
+      margin-left: -60px;
+      width: 100%;
+      margin-left: 0px;
+    }
+  }
+
+  // Print styles
+  @media print {
+    padding: 20px 0;
+
+    .cta-content {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .cta-button {
+      display: none;
+    }
+  }
+}
